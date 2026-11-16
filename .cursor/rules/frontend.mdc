@@ -13,5 +13,6 @@ alwaysApply: false
 - Linki wewnętrzne przez `HashLink`, nie `<a href>` na ślepo. Kotwica w obrębie widoku = `id` na elemencie. Po zmianie hash zamykaj menu mobilne, potem scroll.
 - Każdy hash, który nie jest widokiem, parser zamienia na 404 — nie używaj gołych `href="#id"` do przewijania.
 - Komponenty UI: shadcn. Nie edytuj stylu „na dziko”. Wygląd marki: istniejące klasy + tokeny.
-- SEO: domyślne title, description i OG w `index.html`, per widok w `DocumentMeta`. `og:image` to absolutny URL (`/assets/images/og-image.jpg`). 404 dostaje `noindex,follow`.
+- SEO: domyślne title, description i OG w `index.html`, per widok w `DocumentMeta`. `og:image` to absolutny URL domeny (`https://rzadowyprogramklub.pl/assets/images/og-image.jpg`). 404 dostaje `noindex,follow`.
+- Pliki z `client/public/` w JS: `import.meta.env.BASE_URL` (helper `publicUrl` w `assets.ts`), nie gołe `/assets/...`. W HTML: `%BASE_URL%`. GitHub Pages serwuje stronę z podkatalogu.
 - Teksty: locale (`pl.json`), nie twarde stringi w JSX.

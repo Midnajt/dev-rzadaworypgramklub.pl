@@ -20,7 +20,7 @@ Adres Pages zawiera nazwę repozytorium: `dev-rzadaworypgramklub.pl` (literówka
 
 Vite już czyta `VITE_BASE` w `vite.config.ts`. Bundlowane JS/CSS dostaną prefiks automatycznie. **Nie** dostaną go twarde ścieżki z ukośnikiem na początku:
 
-- `client/src/config/assets.ts`: `heroVideo` i `heroPoster` to teraz `"/assets/..."`. Na Pages przeglądarka poszuka ich pod `https://midnajt.github.io/assets/...` (404). Poprawka, która nie psuje FTP (`VITE_BASE=/`):
+- `client/src/config/assets.ts`: `heroVideo` i `heroPoster` szły na sztywno jako `"/assets/..."` i dawały 404 na Pages (`https://midnajt.github.io/assets/...`). Jest już `publicUrl()` oparte o `import.meta.env.BASE_URL` (na FTP z `VITE_BASE=/` bez zmian):
 
 ```ts
 heroVideo: `${import.meta.env.BASE_URL}assets/video/hero.mp4`,

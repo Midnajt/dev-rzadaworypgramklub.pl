@@ -4,9 +4,12 @@
 import addPatternLogoUrl from "../../assets/addpattern-logo.png?url";
 import logoUrl from "../../assets/logo-min.png?url";
 
+const publicUrl = (path: string) =>
+  `${import.meta.env.BASE_URL}${path.replace(/^\//, "")}`;
+
 export const assets = {
   logo: logoUrl,
   addPatternLogo: addPatternLogoUrl,
-  heroVideo: "/assets/video/hero.mp4",
-  heroPoster: "/assets/images/hero-poster.jpg",
+  heroVideo: publicUrl("assets/video/hero.mp4"),
+  heroPoster: publicUrl("assets/images/hero-poster.jpg"),
 } as const;
