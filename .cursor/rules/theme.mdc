@@ -1,0 +1,12 @@
+---
+description: Kolory, fakty i treści
+globs: client/src/config/**
+alwaysApply: false
+---
+
+# Motyw i treść
+
+- Kolory i fonty zmieniaj w **dwóch** miejscach: `theme.ts` oraz `:root` w `index.css`.
+- Nie rozrzucaj hexów w komponentach.
+- Fakty (nazwa, URL, adres, linki) — `site.ts`, interpolacja w i18n (`{{name}}`).
+- Zdjęcia: `assets.ts` + `client/assets/ASSETS.md`. Kadr: `objectPosition` gdy potrzeba.

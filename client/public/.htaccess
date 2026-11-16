@@ -1,0 +1,26 @@
+# rzadowyprogramklub.pl — SPA hash
+# Wymaga Apache + mod_rewrite. Katalog public_html.
+
+Options -Indexes
+DirectoryIndex index.html
+ErrorDocument 404 /index.html
+
+RewriteEngine On
+
+# Wymuś HTTPS (wyjątek dla walidacji certyfikatu Let's Encrypt)
+RewriteCond %{HTTPS} !=on
+RewriteCond %{REQUEST_URI} !^/\.well-known/
+RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+RewriteRule ^index\.html$ / [R=301,L]
+
+# Przekierowania starych adresów na hashe SPA dopisuj tutaj, np.:
+# RewriteRule ^kontakt(\.html)?/?$ /#kontakt [R=301,L,NE]
+
+# Istniejące pliki (assety, sitemap, pliki weryfikacyjne) serwuj wprost
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Nieznana ścieżka → widok 404 w SPA
+RewriteRule ^ /#/404 [R=302,L,NE]

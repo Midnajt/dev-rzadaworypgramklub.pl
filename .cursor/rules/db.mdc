@@ -1,0 +1,8 @@
+---
+description: Brak bazy danych w tym projekcie
+alwaysApply: false
+---
+
+# Baza danych
+
+Brak bazy danych w tym projekcie. Nie dodawaj MySQL, SQLite ani zewnętrznych usług danych bez wyraźnego wymagania.

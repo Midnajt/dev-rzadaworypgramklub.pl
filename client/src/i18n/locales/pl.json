@@ -1,0 +1,61 @@
+{
+  "skip": "Przejdź do treści",
+  "meta": {
+    "homeTitle": "Rządowy Program KLUB 2026 — rzadowyprogramklub.pl",
+    "homeDesc": "Rządowy Program KLUB 2026: wsparcie finansowe dla małych klubów sportowych. Regulamin, najczęstsze pytania i aktualności w jednym miejscu.",
+    "newsTitle": "Aktualności — Rządowy Program KLUB",
+    "newsDesc": "Najnowsze komunikaty, terminy i wyniki naborów w Rządowym Programie KLUB.",
+    "faqTitle": "FAQ — Rządowy Program KLUB",
+    "faqDesc": "Odpowiedzi na najczęściej zadawane pytania dotyczące Rządowego Programu KLUB 2026.",
+    "regulationsTitle": "Regulamin — Rządowy Program KLUB",
+    "regulationsDesc": "Regulamin Rządowego Programu KLUB 2026: zasady, terminy i warunki udziału dla klubów sportowych.",
+    "notFoundTitle": "Nie znaleziono strony — rzadowyprogramklub.pl",
+    "notFoundDesc": "Ta strona nie istnieje albo została przeniesiona."
+  },
+  "nav": {
+    "logo": "Strona główna",
+    "logoAlt": "Logo LZS",
+    "main": "Nawigacja główna",
+    "openMenu": "Otwórz menu",
+    "home": "Start",
+    "news": "Aktualności",
+    "faq": "FAQ",
+    "regulations": "Regulamin"
+  },
+  "hero": {
+    "eyebrow": "Edycja 2026",
+    "title": "Rządowy Program KLUB",
+    "lead": "Wsparcie dla małych klubów sportowych, które każdego dnia budują sport w swojej okolicy."
+  },
+  "home": {
+    "sectionTitle": "TODO: sekcja",
+    "sectionBody": "TODO: treść sekcji."
+  },
+  "news": {
+    "eyebrow": "Aktualności",
+    "title": "Aktualności",
+    "lead": "TODO: komunikaty i wpisy przeniesione ze starej strony."
+  },
+  "faq": {
+    "eyebrow": "FAQ",
+    "title": "Najczęściej zadawane pytania",
+    "lead": "TODO: pytania i odpowiedzi 1:1 ze starej strony, pogrupowane w kategorie, z wyszukiwarką."
+  },
+  "regulations": {
+    "eyebrow": "Dokumenty",
+    "title": "Regulamin Programu KLUB 2026",
+    "lead": "TODO: pełna treść regulaminu 1:1 ze starej strony."
+  },
+  "notFound": {
+    "eyebrow": "Błąd 404",
+    "title": "Nie znaleziono strony",
+    "lead": "Ta strona nie istnieje albo została przeniesiona.",
+    "backHome": "Wróć na stronę główną"
+  },
+  "footer": {
+    "copy": "© {{year}} {{name}}",
+    "credits": "Strona stworzona przez AddPattern Marcin Krzysztoszek —",
+    "stock": "Część zdjęć i filmów pochodzi ze stocku",
+    "addPatternLabel": "AddPattern — addpattern.pl (otwiera się w nowej karcie)"
+  }
+}

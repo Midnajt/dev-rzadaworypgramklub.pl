@@ -1,0 +1,17 @@
+---
+description: Zasady frontendu SPA rzadowyprogramklub.pl
+globs: client/**
+alwaysApply: false
+---
+
+# Frontend
+
+- Źródło aplikacji jest wyłącznie w `client/`. Alias `@/` → `client/src`.
+- Nawigacja: hash (`#sekcja`, `#/404`). Bez React Router, dopóki hash + `.htaccess` wystarczają.
+- Widoki: home, 404 (kolejne dopisuj według checklisty niżej).
+- Nowa strona: plik w `components/pages/` (lub blok w `components/sections/`), `ViewName` + `parseHash` + `viewHref` w `lib/hash-view.tsx`, gałąź w `App.tsx`, klucze `meta.*` w `DocumentMeta.tsx` i `pl.json`, hash w `HASH_PAGES` w `vite.config.ts`.
+- Linki wewnętrzne przez `HashLink`, nie `<a href>` na ślepo. Kotwica w obrębie widoku = `id` na elemencie. Po zmianie hash zamykaj menu mobilne, potem scroll.
+- Każdy hash, który nie jest widokiem, parser zamienia na 404 — nie używaj gołych `href="#id"` do przewijania.
+- Komponenty UI: shadcn. Nie edytuj stylu „na dziko”. Wygląd marki: istniejące klasy + tokeny.
+- SEO: domyślne title, description i OG w `index.html`, per widok w `DocumentMeta`. `og:image` to absolutny URL (`/assets/images/og-image.jpg`). 404 dostaje `noindex,follow`.
+- Teksty: locale (`pl.json`), nie twarde stringi w JSX.
