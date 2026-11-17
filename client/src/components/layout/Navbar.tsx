@@ -4,14 +4,18 @@ import { NAV_ITEMS } from "@/config/nav";
 import { assets } from "@/config/assets";
 import { site } from "@/config/site";
 import { useHashView } from "@/lib/hash-view";
+import { useNarrowHeader } from "@/lib/use-media";
 import { cn } from "@/lib/utils";
 import { HashLink } from "./HashLink";
 import { MegaPanel, MegaPointer, MegaTrigger } from "./MegaMenu";
+import { MobileMenu } from "./MobileMenu";
 
 export function Navbar() {
   const { t } = useTranslation();
   const { view } = useHashView();
   const rootRef = useRef<HTMLElement>(null);
+  const toggleRef = useRef<HTMLButtonElement>(null);
+  const narrow = useNarrowHeader();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [megaId, setMegaId] = useState<string | null>(null);
   const [scrolled, setScrolled] = useState(false);
@@ -36,16 +40,35 @@ export function Navbar() {
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
+    const behind = [document.querySelector("main"), document.querySelector("footer")];
+    for (const node of behind) {
+      if (node instanceof HTMLElement) node.inert = mobileOpen;
+    }
     return () => {
       document.body.style.overflow = "";
+      for (const node of behind) {
+        if (node instanceof HTMLElement) node.inert = false;
+      }
     };
   }, [mobileOpen]);
+
+  const mobileOpenRef = useRef(mobileOpen);
+  const narrowRef = useRef(narrow);
+  mobileOpenRef.current = mobileOpen;
+  narrowRef.current = narrow;
+
+  useEffect(() => {
+    if (narrow) setMegaId(null);
+    else setMobileOpen(false);
+  }, [narrow]);
 
   useEffect(() => {
     const onKey = (event: KeyboardEvent) => {
       if (event.key !== "Escape") return;
+      const wasMobile = narrowRef.current && mobileOpenRef.current;
       setMegaId(null);
       setMobileOpen(false);
+      if (wasMobile) toggleRef.current?.focus();
     };
     window.addEventListener("keydown", onKey);
     return () => window.removeEventListener("keydown", onKey);
@@ -113,33 +136,37 @@ export function Navbar() {
       onMouseLeave={scheduleClose}
       onMouseEnter={() => window.clearTimeout(closeTimer.current)}
     >
-      {megaId ? <MegaPointer /> : null}
+      {!narrow && megaId ? <MegaPointer /> : null}
       <div className="site-header__inner">
         <HashLink className="logo" to="#" aria-label={t("nav.logo")} onClick={closeAll}>
           <img className="logo__img" src={assets.programLogo} alt={t("nav.logoAlt")} width={490} height={433} />
         </HashLink>
-        <nav className={cn("nav", mobileOpen && "is-open")} id="site-nav" aria-label={t("nav.main")}>
-          <ul className="nav__list">
-            {NAV_ITEMS.map((item) => (
-              <li
-                key={item.id}
-                className={cn("nav__item", megaId === item.id && "is-open")}
-                onMouseEnter={() => openMega(item.id)}
-              >
-                <MegaTrigger
-                  item={item}
-                  open={megaId === item.id}
-                  current={item.views.includes(view.name)}
-                  onOpen={() => openMega(item.id)}
-                />
-                {megaId === item.id ? (
-                  <div className="mega-slot">
-                    <MegaPanel item={item} open onNavigate={closeAll} />
-                  </div>
-                ) : null}
-              </li>
-            ))}
-          </ul>
+        <nav className={cn("nav", narrow && mobileOpen && "is-open")} id="site-nav" aria-label={t("nav.main")}>
+          {narrow ? (
+            <MobileMenu open={mobileOpen} onNavigate={closeAll} />
+          ) : (
+            <ul className="nav__list">
+              {NAV_ITEMS.map((item) => (
+                <li
+                  key={item.id}
+                  className={cn("nav__item", megaId === item.id && "is-open")}
+                  onMouseEnter={() => openMega(item.id)}
+                >
+                  <MegaTrigger
+                    item={item}
+                    open={megaId === item.id}
+                    current={item.views.includes(view.name)}
+                    onOpen={() => openMega(item.id)}
+                  />
+                  {megaId === item.id ? (
+                    <div className="mega-slot">
+                      <MegaPanel item={item} open onNavigate={closeAll} />
+                    </div>
+                  ) : null}
+                </li>
+              ))}
+            </ul>
+          )}
         </nav>
         <a
           className="nav-login"
@@ -150,6 +177,7 @@ export function Navbar() {
           {t("nav.login")}
         </a>
         <button
+          ref={toggleRef}
           className="nav-toggle"
           type="button"
           aria-expanded={mobileOpen}

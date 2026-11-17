@@ -27,7 +27,11 @@
     "home": "Start",
     "news": "Aktualności",
     "faq": "FAQ",
-    "login": "Zaloguj się"
+    "login": "Zaloguj się",
+    "back": "Wróć",
+    "homePage": "Strona główna",
+    "allNews": "Wszystkie aktualności",
+    "faqPage": "Pytania i odpowiedzi"
   },
   "hero": {
     "eyebrow": "Edycja 2026",

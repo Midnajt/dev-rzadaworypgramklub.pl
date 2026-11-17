@@ -130,3 +130,6 @@ Link zostaje przy https://addpattern.pl/, a zdanie o pixabay.com bez zmian. Na F
 Baner podstrony przy zmianie widoku przenika: poprzednie zdjęcie zostaje, nowe rozjaśnia się w 0,85 s z lekkim zbliżeniem (`banner-crossfade` w `pages.css`, logika w `PageBanner.tsx`), a po animacji zostaje jeden obraz.
 Ostatni kadr jest pamiętany poza komponentem, bo każdy widok montuje baner od nowa; ze strony głównej (sam film) pamięć schodzi, więc następna podstrona nie miesza zdjęć, a `prefers-reduced-motion` pokazuje nowe od razu.
 Sprawdzone na localhost:5173 (FAQ → regulamin, aktualności → wpis, strona główna → kontakt, telefon 390 px: baner 288 px i łuk 50 px). Na FTP nic nie poszło i nie było commita. Szczegóły: `.cursor/reports/baner_przenikanie_20261117.md`.
+
+Poniżej 761 px menu to szuflada na dwa kroki: działy, potem same linki do stron, a hamburger zostaje w belce i po otwarciu jest krzyżykiem. „Zaloguj się” schodzi z belki do szuflady, żeby nie wypychać ikony; desktopowy panel ze strzałką bez zmian.
+Sprawdzone na localhost:5173 (regulamin, wpis, kontakt, strona główna, Escape, 1280 px). GitHub Pages nadal ma stare menu, dopóki zmiana nie wejdzie na `main`. Na FTP nic nie poszło i nie było commita. Szczegóły: `.cursor/reports/menu_mobilne_20261117.md`.

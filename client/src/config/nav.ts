@@ -24,6 +24,12 @@ export type NavItem = {
   topics: MegaTopic[];
 };
 
+export type MobileEntry = {
+  id: string;
+  label: string;
+  href: string;
+};
+
 const latestNews = newsPosts.slice(0, 4);
 
 export const NAV_ITEMS: NavItem[] = [
@@ -106,3 +112,31 @@ export const NAV_ITEMS: NavItem[] = [
     ],
   },
 ];
+
+/** Phone drawer: each row opens a page. Desktop still uses the two-column topics above. */
+export function mobileDestinations(item: NavItem): MobileEntry[] {
+  if (item.id === "news") {
+    return latestNews.map((post) => ({
+      id: post.slug,
+      label: post.title,
+      href: `#/aktualnosci/${post.slug}`,
+    }));
+  }
+
+  if (item.id === "faq") {
+    const contact = item.topics.find((topic) => topic.id === "contact");
+    const link = contact?.links[0];
+    if (!contact || !link) return [];
+    return [{ id: contact.id, label: contact.label, href: link.href }];
+  }
+
+  const seen = new Set<string>();
+  const entries: MobileEntry[] = [];
+  for (const topic of item.topics) {
+    const href = topic.links[0]?.href;
+    if (!href || seen.has(href)) continue;
+    seen.add(href);
+    entries.push({ id: topic.id, label: topic.label, href });
+  }
+  return entries;
+}
