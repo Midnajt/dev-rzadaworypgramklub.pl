@@ -233,9 +233,9 @@ Ta sama lista infolinii co w stopce (punkt 2) oraz logo „Witaj w Klubie”. St
 
 ---
 
-## 5. Aktualności (51 wpisów)
+## 5. Aktualności (51 wpisów na starym WordPressie)
 
-Na spotkaniu nie ustalono jeszcze, **do której daty wstecz przenosimy aktualności**. To trzeba potwierdzić z klientem. Wpisy z 2026 roku są pełnowartościowe i aktualne. Starsze dokumentują poprzednie edycje programu.
+**Decyzja z 17.11.2026:** na nową stronę wchodzą tylko wpisy z datą **od 1 stycznia 2025**. W `client/src/content/news.ts` są pełne wpisy 2026 (`newsPosts`) i tytuły z 2025 (`newsArchive`). Wpisy z lat **2022, 2023 i 2024 nie trafiają** ani do listy, ani do archiwum, ani jako pełne artykuły. Tabele tych lat zostają jako inwentaryzacja starego WordPressa — to nie jest lista do przeniesienia.
 
 Każdy wpis jest podpisany: „Zespół Operatora Krajowego Rządowego Programu „KLUB” / Krajowe Zrzeszenie LZS”. Większość ma miniaturę z logo „Witaj w Klubie” (`Logo-Witaj-w-Klubie-RGB-na_bialym_pasku_*.jpg`).
 
@@ -266,7 +266,7 @@ Każdy wpis jest podpisany: „Zespół Operatora Krajowego Rządowego Programu 
 | 21.02.2025 | Instrukcja dotycząca wypełniania wniosku | `instrukcja-dotyczaca-wypelniania-wniosku-2` | PDF-y: prezentacja 2025 i instrukcja podpisywania dokumentów |
 | 14.02.2025 | Nabór wniosków do edycji 2025 | `nabor-wnioskow-do-edycji-2025` | — |
 
-### 2024
+### 2024 — nie przenosić
 
 | Data | Tytuł | Slug | Załączniki |
 |---|---|---|---|
@@ -278,7 +278,7 @@ Każdy wpis jest podpisany: „Zespół Operatora Krajowego Rządowego Programu 
 | 20.03.2024 | Nabór wniosków 2024 | `nabor-wnioskow-2024` | — |
 | 31.01.2024 | Rządowy Program Klub 2024 | `rzadowy-program-klub-2024` | — |
 
-### 2023
+### 2023 — nie przenosić
 
 | Data | Tytuł | Slug | Załączniki |
 |---|---|---|---|
@@ -292,7 +292,7 @@ Każdy wpis jest podpisany: „Zespół Operatora Krajowego Rządowego Programu 
 | 22.02.2023 | Nabór wniosków – edycja 2023 | `nabor-wnioskow-edycja-2023` | — |
 | 25.01.2023 | LZS operatorem programu w latach 2023 – 2025 | `lzs-operatorem-programu-w-latach-2023-2025` | historia liczby klubów od 2016 roku |
 
-### 2022
+### 2022 — nie przenosić
 
 | Data | Tytuł | Slug | Załączniki i uwagi |
 |---|---|---|---|
@@ -422,7 +422,7 @@ Obecny `client/public/.htaccess` przekierowuje **każdą nieznaną ścieżkę na
 
 - stare podstrony (`/regulamin/`, `/faq/`, `/kontakt/` itd.), do których prowadzą linki z Google, Facebooka, maili i z samego Regulaminu;
 - **pliki z `/wp-content/uploads/...`**, czyli PDF-y z wynikami, logotypy i instrukcje, linkowane m.in. z gov.pl, z wpisów na Facebooku i prawdopodobnie z systemu AMODIT;
-- 51 adresów aktualności (`/{slug}/`).
+- 51 adresów aktualności (`/{slug}/`). Slugi z lat 2022–2024 kieruj na listę `#/aktualnosci`. Tych wpisów nie odtwarzaj.
 
 Proponowany plan (do decyzji przy budowie):
 
@@ -434,7 +434,7 @@ Proponowany plan (do decyzji przy budowie):
 | `/regulamin/` | widok Regulaminu |
 | `/kontakt/` | sekcja Kontakt |
 | `/do-pobrania/` | widok „Do pobrania” |
-| `/{slug-wpisu}/` | konkretna aktualność albo lista aktualności |
+| `/{slug-wpisu}/` | wpis 2025–2026 albo lista `#/aktualnosci` (slugi sprzed 2025 tylko na listę, bez nowego wpisu) |
 | `/wp-content/uploads/...` | **zostawić pliki pod tymi samymi ścieżkami** (skopiować do `client/public/wp-content/uploads/...`) albo przekierować każdy plik 301 na jego nową lokalizację |
 | `/sample-page/`, `/start-test3/`, `/wp-admin/`, `/wp-login.php` | `/` albo 410 |
 

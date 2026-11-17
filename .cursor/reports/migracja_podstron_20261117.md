@@ -35,6 +35,8 @@ Linki do PDF-ów, zipa logotypów i listy wyników wskazują `https://rzadowypro
 
 Archiwum aktualności 2022–2025 nie ma pełnych treści (data archiwum nieustalona z klientem). Galeria, analityka, formularz i panel dostępności też nie wchodziły w tę iterację.
 
+Aktualizacja 17.11.2026: wpisy sprzed 2025 usunięto z `newsArchive`. Lat 2022–2024 nie uzupełniać. Szczegóły w `.cursor/reports/archiwum_aktualnosci_2025_20261117.md`.
+
 ## Sprzątanie
 
 Usunięto `custom-assets/_wp-dump/` (json, txt, `strip.mjs`). To był roboczy zrzut REST, nie mapa zdjęć. `custom-assets/MAPA.md` i zdjęcia zostają.

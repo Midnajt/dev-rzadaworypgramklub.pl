@@ -22,7 +22,7 @@
 
 ## Otwarte pytania do klienta
 
-- Od której daty przenosimy aktualności?
+- Od której daty przenosimy aktualności? **Ustalone 17.11.2026: od 1 stycznia 2025. Lat 2022–2024 nie dodawać.**
 - Czy jest prezentacja lub instrukcja wniosku dla edycji 2026?
 - Czy można ujednolicić opis wkładu własnego (5% kosztów zadania czy 5% kwoty dofinansowania) i poprawić oczywiste literówki w Regulaminie, skoro ma być przeniesiony 1:1?
 - Kto przygotuje dane do deklaracji dostępności i polityki prywatności?

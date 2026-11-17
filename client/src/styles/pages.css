@@ -19,6 +19,27 @@
   object-position: center;
 }
 
+/* New photo fades in over the previous one. Hidden until the file is ready,
+   so a slow decode does not flash an empty frame. */
+.page-banner__photo--in {
+  opacity: 0;
+}
+
+.page-banner__photo--in.is-playing {
+  animation: banner-crossfade 0.85s ease-in-out forwards;
+}
+
+@keyframes banner-crossfade {
+  from {
+    opacity: 0;
+    transform: scale(1.04);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
 .page-hero {
   padding: var(--space-2xl) 0 var(--space-xl);
 }
@@ -142,6 +163,29 @@
   max-width: 52rem;
 }
 
+.program-intro {
+  display: grid;
+  grid-template-columns: auto minmax(0, 36rem);
+  justify-content: start;
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 3rem);
+}
+
+.program-intro__logo {
+  width: clamp(8.5rem, 22vw, 13rem);
+  height: auto;
+}
+
+@media (max-width: 640px) {
+  .program-intro {
+    grid-template-columns: 1fr;
+  }
+
+  .program-intro__logo {
+    width: min(11rem, 70%);
+  }
+}
+
 .step-list {
   list-style: none;
   margin: 0;
@@ -211,6 +255,15 @@
   gap: var(--space-md);
   padding-bottom: 0.65rem;
   border-bottom: 1px solid var(--color-border);
+}
+
+.search-hit {
+  background: color-mix(in srgb, var(--color-accent) 22%, white);
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-decoration-color: var(--color-accent);
+  text-underline-offset: 0.12em;
 }
 
 .faq-search input {
@@ -312,5 +365,12 @@
 
   .intro-fade {
     display: none;
+  }
+
+  .page-banner__photo--in,
+  .page-banner__photo--in.is-playing {
+    opacity: 1;
+    animation: none;
+    transform: none;
   }
 }

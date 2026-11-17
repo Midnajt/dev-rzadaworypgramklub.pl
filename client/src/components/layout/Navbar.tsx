@@ -116,7 +116,7 @@ export function Navbar() {
       {megaId ? <MegaPointer /> : null}
       <div className="site-header__inner">
         <HashLink className="logo" to="#" aria-label={t("nav.logo")} onClick={closeAll}>
-          <img className="logo__img" src={assets.logo} alt={t("nav.logoAlt")} width={56} height={56} />
+          <img className="logo__img" src={assets.programLogo} alt={t("nav.logoAlt")} width={490} height={433} />
         </HashLink>
         <nav className={cn("nav", mobileOpen && "is-open")} id="site-nav" aria-label={t("nav.main")}>
           <ul className="nav__list">

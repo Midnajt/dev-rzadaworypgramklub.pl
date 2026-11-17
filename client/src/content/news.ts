@@ -92,6 +92,7 @@ export const newsPosts: NewsPost[] = [
   },
 ];
 
+/** Tytuły od 2025-01-01 włącznie. Wpisy sprzed tej daty nie wracają tu ani do `newsPosts` — patrz `docs/old-website-info.md`, sekcja 5. */
 export const newsArchive: NewsListing[] = [
   { slug: "podsumowanie-rzadowego-programu-klub-2025-warszawa", date: "2025-12-19", title: "Podsumowanie Rządowego Programu KLUB 2025 – Warszawa" },
   { slug: "podsumowanie-rzadowego-programu-klub-2025-nasi-najwazniejsi-goscie", date: "2025-12-19", title: "Podsumowanie Rządowego Programu Klub 2025 – nasi najważniejsi goście" },
@@ -104,39 +105,6 @@ export const newsArchive: NewsListing[] = [
   { slug: "wazny-komunikat-krajowego-zrzeszenia-lzs", date: "2025-03-05", title: "WAŻNY Komunikat Krajowego Zrzeszenia LZS" },
   { slug: "instrukcja-dotyczaca-wypelniania-wniosku-2", date: "2025-02-21", title: "Instrukcja dotycząca wypełniania wniosku" },
   { slug: "nabor-wnioskow-do-edycji-2025", date: "2025-02-14", title: "Nabór wniosków do edycji 2025" },
-  { slug: "ankieta-dla-beneficjentow-rzadowego-programu-klub", date: "2024-11-08", title: "Ankieta dla beneficjentów Rządowego Programu „KLUB”" },
-  { slug: "testy-sprawnosciowe-dla-uczestnikow-rzadowego-programu-klub", date: "2024-10-10", title: "TESTY sprawnościowe dla uczestników Rządowego Programu „KLUB”" },
-  { slug: "wyniki-naboru-rzadowego-programu-klub-2024-6797-klubow-z-dofinansowaniem", date: "2024-05-24", title: "Wyniki naboru Rządowego Programu Klub 2024 – 6806 klubów z dofinansowaniem!" },
-  { slug: "ogloszenie-wynikow-2024", date: "2024-05-20", title: "Informacja dotycząca ogłoszenia wyników naboru Rządowego Programu Klub 2024" },
-  { slug: "instrukcja-dotyczaca-wypelniania-wniosku", date: "2024-04-08", title: "Instrukcja dotycząca wypełniania wniosku" },
-  { slug: "nabor-wnioskow-2024", date: "2024-03-20", title: "Nabór wniosków 2024" },
-  { slug: "rzadowy-program-klub-2024", date: "2024-01-31", title: "Rządowy Program Klub 2024" },
-  { slug: "dodatkowe-srodki", date: "2023-08-30", title: "Dodatkowe środki" },
-  { slug: "uwaga-zmiana-regulaminu-zadania-rzadowy-program-klub-edycja-2023", date: "2023-07-27", title: "UWAGA – zmiana regulaminu zadania – edycja 2023" },
-  { slug: "testy-sprawnosciowe-w-ramach-programu-klub-2023", date: "2023-06-05", title: "Testy sprawnościowe w ramach Programu „KLUB” 2023" },
-  { slug: "wnioski-odrzucone-2023", date: "2023-05-15", title: "Wnioski niezakwalifikowane 2023" },
-  { slug: "wyniki-edycja-2023", date: "2023-05-10", title: "Wyniki – edycja 2023" },
-  { slug: "prezentacja-instrukcja-jak-wypelnic-i-zlozyc-wniosek", date: "2023-03-14", title: "Prezentacja – instrukcja „Jak wypełnić i złożyć wniosek”" },
-  { slug: "ruszyl-nabor-wnioskow-2023", date: "2023-03-01", title: "Ruszył nabór wniosków 2023" },
-  { slug: "nabor-wnioskow-edycja-2023", date: "2023-02-22", title: "Nabór wniosków – edycja 2023" },
-  { slug: "lzs-operatorem-programu-w-latach-2023-2025", date: "2023-01-25", title: "LZS operatorem programu w latach 2023–2025" },
-  { slug: "kontrole-wizytacje-filmy", date: "2022-11-30", title: "Kontrole – wizytacje – filmy" },
-  { slug: "drugi-etap", date: "2022-07-07", title: "Drugi etap" },
-  { slug: "lista-klubow-niezakwalifikowanych-do-dofinansowania-2022", date: "2022-07-01", title: "Lista klubów niezakwalifikowanych do dofinansowania 2022" },
-  { slug: "wyniki-rzadowy-program-klub-edycja-2022", date: "2022-06-28", title: "Wyniki Rządowy Program Klub – edycja 2022" },
-  { slug: "zmiana-terminu-rozstrzygniecia", date: "2022-06-27", title: "Zmiana terminu rozstrzygnięcia" },
-  { slug: "wyniki-27-czerwca", date: "2022-06-13", title: "Wyniki 27 czerwca!" },
-  { slug: "6882-wnioski-w-edycji-2022", date: "2022-06-10", title: "6882 wnioski w edycji 2022" },
-  { slug: "nabor-wnioskow-zakonczony", date: "2022-06-07", title: "Nabór wniosków zakończony" },
-  { slug: "aplikujcie-czekamy-do-6-czerwca", date: "2022-04-26", title: "Aplikujcie! Czekamy do 6 czerwca!" },
-  { slug: "goraco-zachecamy-aplikujcie", date: "2022-04-19", title: "Gorąco zachęcamy! Aplikujcie!" },
-  { slug: "zdjecie-z-konferencji-w-pkol", date: "2022-04-09", title: "Zdjęcia z konferencji w PKOL" },
-  { slug: "ruszyl-nabor-wnioskow-edycja-2022", date: "2022-04-07", title: "Ruszył nabór wniosków – edycja 2022" },
-  { slug: "konferencja-programu-klub-edycja-2022", date: "2022-04-07", title: "Konferencja Programu Klub – edycja 2022" },
-  { slug: "nasz-zespol-gotowy-do-startu-programu-klub", date: "2022-04-05", title: "Nasz zespół gotowy do startu Programu Klub" },
-  { slug: "rozpoczynamy-cykl-szkolen-dla-koordynatorow-i-konsultantow-wojewodzkich", date: "2022-03-28", title: "Rozpoczynamy cykl szkoleń dla koordynatorów i konsultantów wojewódzkich" },
-  { slug: "ruszylismy-z-przygotowaniami-do-rozpoczecia-naboru-programu-klub-edycja-2022", date: "2022-03-12", title: "Ruszyliśmy z przygotowaniami do naboru Programu Klub — edycja 2022" },
-  { slug: "krajowe-zrzeszenie-lzs-operatorem-krajowym-programu-klub-edycja-2022", date: "2022-03-10", title: "Krajowe Zrzeszenie LZS operatorem krajowym Programu Klub — edycja 2022" },
 ];
 
 export function findNewsPost(slug: string | undefined): NewsPost | undefined {

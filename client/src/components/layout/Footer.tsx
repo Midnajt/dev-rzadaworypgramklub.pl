@@ -11,8 +11,8 @@ export function Footer() {
     <footer className="site-footer">
       <div className="container site-footer__inner">
         <div className="site-footer__brand">
-          <HashLink className="logo" to="#">
-            {site.name}
+          <HashLink className="logo" to="#" aria-label={t("nav.logo")}>
+            <img className="logo__img" src={assets.programLogo} alt={t("nav.logoAlt")} width={490} height={433} />
           </HashLink>
           <p className="site-footer__copy">{t("footer.copy", { year, name: site.name })}</p>
           <p className="site-footer__copy">
@@ -35,7 +35,7 @@ export function Footer() {
             <p>
               {t("footer.credits")}{" "}
               <a href={site.addPattern} rel="noopener noreferrer" target="_blank">
-                addpattern.pl
+                {t("footer.addPattern")}
               </a>
             </p>
             <p>

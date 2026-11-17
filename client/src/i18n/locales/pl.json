@@ -20,7 +20,7 @@
   },
   "nav": {
     "logo": "Strona główna",
-    "logoAlt": "Logo LZS",
+    "logoAlt": "Rządowy Program KLUB",
     "main": "Nawigacja główna",
     "openMenu": "Otwórz menu",
     "closeMenu": "Zamknij menu",
@@ -36,15 +36,74 @@
   },
   "home": {
     "sectionTitle": "Program dla klubów",
-    "sectionBody": "Rządowy Program KLUB wspiera stowarzyszenia prowadzące zajęcia dla dzieci i młodzieży do 18. roku życia. Regulamin, FAQ i aktualności są w menu powyżej."
+    "sectionBody": "Rządowy Program KLUB wspiera stowarzyszenia prowadzące zajęcia dla dzieci i młodzieży do 18. roku życia. Regulamin, FAQ i aktualności są w menu powyżej.",
+    "programLogoAlt": "Witaj w Klubie — Rządowy Program KLUB",
+    "fundUse": {
+      "title": "W jaki sposób kluby wykorzystują nasze środki",
+      "lead": "Dotacja idzie na wynagrodzenie szkoleniowca, sprzęt albo obóz. W 2025 roku skorzystało z niej ponad 360 tys. dzieci i młodzieży.",
+      "prev": "Poprzednie",
+      "next": "Następne",
+      "cards": {
+        "football": {
+          "title": "Piłka nożna",
+          "body": "LZS „Sokół” Wroniawy, gość podsumowania 2025, utrzymuje z dotacji szkoleniowca przy zajęciach dla dzieci.",
+          "alt": "Trener kuca przy dzieciach w niebieskich koszulkach podczas zbiórki na trawie."
+        },
+        "basketball": {
+          "title": "Koszykówka",
+          "body": "Akademia Sportu Młode Lwy Gdańskie, gość podsumowania 2025, prowadzi sekcję, w której trener jest obowiązkowym kosztem programu.",
+          "alt": "Dziecko kozłuje przy koszu, a dwóch starszych zawodników patrzy."
+        },
+        "tennis": {
+          "title": "Tenis ziemny",
+          "body": "Olimpijski Club Tennis And Sports z Wrocławia, gość podsumowania 2025, szkoli dzieci i młodzież do 18. roku życia.",
+          "alt": "Chłopiec z rakietą i piłką na korcie ziemnym."
+        },
+        "acrobatics": {
+          "title": "Akrobatyka sportowa",
+          "body": "Tempo z Kielc, gość podsumowania 2025, prowadzi sporty gimnastyczne. Zajęcia trenera są komponentem obowiązkowym.",
+          "alt": "Dwie zawodniczki w niebieskich strojach wykonują układ równowagi na macie."
+        },
+        "boxing": {
+          "title": "Boks",
+          "body": "Co najmniej 20% dotacji pokrywa wynagrodzenie szkoleniowca, a rękawice i materace klub kupuje jako sprzęt z atestem.",
+          "alt": "Chłopiec w czerwonym podkoszulku i niebieskich bandażach w pozycji bokserskiej."
+        },
+        "taekwondo": {
+          "title": "Taekwondo",
+          "body": "Zajęcia trwają przez cały okres zadania, nie krócej niż dwa miesiące, z instruktorem mającym uprawnienia.",
+          "alt": "Trening kopnięć w rękawicach na matach do taekwondo."
+        },
+        "sailing": {
+          "title": "Żeglarstwo",
+          "body": "Obóz trwa co najmniej pięć dni poza siedzibą klubu. W 2025 roku takich wyjazdów było blisko 700.",
+          "alt": "Dwie dziewczynki w kamizelkach na małej żaglówce."
+        },
+        "skiing": {
+          "title": "Narciarstwo",
+          "body": "Regulamin wymienia narty jako sprzęt, który klub może kupić na fakturę do szkolenia.",
+          "alt": "Grupa dzieci i instruktor na stoku narciarskim."
+        },
+        "bmx": {
+          "title": "BMX",
+          "body": "Rowery są w regulaminie przykładem sprzętu. W 2025 roku sprzęt kupiło prawie 5 500 klubów.",
+          "alt": "Dziewczynka w kasku jedzie na rowerze BMX."
+        },
+        "futsal": {
+          "title": "Futsal",
+          "body": "Dotacja nie finansuje turniejów. Utrzymuje trenera na hali i może pokryć piłki oraz bramki.",
+          "alt": "Mecz halowej piłki nożnej na drewnianym parkiecie."
+        }
+      }
+    }
   },
   "news": {
     "eyebrow": "Aktualności",
     "title": "Aktualności",
-    "lead": "Komunikaty Operatora Krajowego — edycja 2026 w całości, starsze lata jako archiwum tytułów.",
+    "lead": "Komunikaty Operatora Krajowego — edycja 2026 w całości, rok 2025 jako archiwum tytułów.",
     "back": "Wróć do listy aktualności",
     "archiveTitle": "Archiwum",
-    "archiveLead": "Wpisy z lat 2022–2025. Pełne treści z tych edycji przeniesiemy po ustaleniu zakresu z klientem."
+    "archiveLead": "Wpisy z 2025 roku."
   },
   "faq": {
     "eyebrow": "FAQ",
@@ -57,7 +116,10 @@
   "regulations": {
     "eyebrow": "Dokumenty",
     "title": "Regulamin Programu KLUB 2026",
-    "lead": "Pełna treść regulaminu zadania Rządowy Program „KLUB” — edycja 2026."
+    "lead": "Pełna treść regulaminu zadania Rządowy Program „KLUB” — edycja 2026. Wpisz słowo, żeby zawęzić tekst.",
+    "searchLabel": "Szukaj w regulaminie",
+    "searchPlaceholder": "Np. udział własny, nabór, sprzęt…",
+    "empty": "Nie znaleziono fragmentów dla tego hasła."
   },
   "basics": {
     "eyebrow": "Program",
@@ -90,7 +152,8 @@
   },
   "footer": {
     "copy": "© {{year}} {{name}}",
-    "credits": "Strona stworzona przez AddPattern Marcin Krzysztoszek —",
+    "credits": "Strona w trakcie przygotowania przez firmę",
+    "addPattern": "AddPattern",
     "stock": "Część zdjęć i filmów pochodzi ze stocku",
     "addPatternLabel": "AddPattern — addpattern.pl (otwiera się w nowej karcie)",
     "helpline": "Infolinia {{phone}}"

@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Reveal } from "@/components/motion/Reveal";
 import { PageFrame } from "@/components/layout/PageBanner";
+import { Highlight } from "@/components/search/Highlight";
 import { faqCategories } from "@/content/faq";
 
 function matches(query: string, text: string): boolean {
@@ -51,18 +52,26 @@ export function FaqPage() {
           {filtered.length === 0 ? <p>{t("faq.empty")}</p> : null}
           {filtered.map((category) => (
             <Reveal key={category.id} className="faq-category" as="section">
-              <h2>{category.title}</h2>
+              <h2>
+                <Highlight text={category.title} needle={needle} />
+              </h2>
               {category.items.map((item) => (
                 <details key={item.id} className="faq-item" open={Boolean(needle)}>
-                  <summary>{item.question}</summary>
+                  <summary>
+                    <Highlight text={item.question} needle={needle} />
+                  </summary>
                   <div className="faq-item__body">
                     {item.answer.map((paragraph) => (
-                      <p key={paragraph}>{paragraph}</p>
+                      <p key={paragraph}>
+                        <Highlight text={paragraph} needle={needle} />
+                      </p>
                     ))}
                     {item.bullets ? (
                       <ul>
                         {item.bullets.map((bullet) => (
-                          <li key={bullet}>{bullet}</li>
+                          <li key={bullet}>
+                            <Highlight text={bullet} needle={needle} />
+                          </li>
                         ))}
                       </ul>
                     ) : null}

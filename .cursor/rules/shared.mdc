@@ -33,6 +33,10 @@ Nie dodawaj skryptu FTP, dopóki nie poprosisz. Nie stawiaj Expressa ani MySQL �
 Z człowiekiem **po polsku**. Identyfikatory w kodzie **po angielsku**.
 Treść: `site.ts`, `theme.ts`, `i18n/locales/`. Grafiki: najpierw `client/assets/ASSETS.md`.
 
+# Aktualności
+
+Na stronę wchodzą tylko wpisy od 1 stycznia 2025. W `client/src/content/news.ts` tablica `newsPosts` ma pełne artykuły 2026, a `newsArchive` same tytuły z 2025. Tabel 2022–2024 w `docs/old-website-info.md` nie przenoś z powrotem.
+
 # Raporty
 
 Po skończonej pracy dopisz trzy zdania pod `Ostatnie zadania:` (kontekst na kolejną sesję).
@@ -86,3 +90,43 @@ Sprawdzone na localhost:5173 (trzy pozycje, odstęp 12 px, środek etykiety, str
 Biały łuk `page-hero` jest płytszy: w `.page-banner + .page-hero` wartość `--banner-curve` zeszła z `clamp(5rem, 14vw, 11rem)` do `clamp(2.75rem, 7vw, 5.5rem)`, więc przy 1073 px nachodzenie ma 81,5 px, a przy 390 px 50,4 px.
 Ten sam łuk jest na wszystkich podstronach z banerem; film na stronie głównej bez zmian. Na `#/faq` nagłówek i lead siedzą pod łukiem, a wyszukiwarka zawęża listę (sprawdzone też `#/regulamin`).
 Na FTP nic nie poszło i nie było commita. Szczegóły: `.cursor/reports/page_hero_luk_20261117.md`.
+
+Baner FAQ (`client/assets/banners/faq.jpg`) nie jest już zdjęciem taekwondo: źródło `taekwondo-1` miało 2048 px i po eksporcie do 1600 px było miękkie na pasie 1309×560. Weszło `pilka-nozna-8` (4722×3142) jako JPEG 3200×2130, `-q:v 2`, a kadr w `PageBanner.tsx` to `center 32%`, żeby twarz chłopca została nad białym łukiem.
+Sprawdzone na `http://localhost:5173/#/faq`: desktop 1309×560 (plik 3200 px, DPR 1) i telefon 390×288. Na FTP nic nie poszło i nie było commita. Szczegóły: `.cursor/reports/faq_baner_jakosc_20261117.md`.
+
+Na `#/regulamin` pod leadem jest pole `type="search"` w tej samej klasie co FAQ (`faq-search`); teksty są w `regulations.searchLabel`, `searchPlaceholder` i `empty` w `pl.json`.
+Wpis filtruje paragrafy i listy, zostawia nagłówek § oraz śródtytuł pasującego fragmentu, a puste hasło przywraca całość; wielkość liter jest ignorowana (`toLocaleLowerCase("pl")`).
+Sprawdzone na localhost: „udział własny” zostawia § 4 pkt 18, „AMODIT” zostawia § 1, 4, 5, 8, 9 i 10, „qqqq-brak” pokazuje komunikat, czerwona linia jest od drugiego §; telefon 390 px. Na FTP nic nie poszło i nie było commita. Szczegóły: `.cursor/reports/regulamin_wyszukiwarka_20261117.md`.
+
+Na stronie głównej, pod wstępem „Program dla klubów”, jest karuzela „W jaki sposób kluby wykorzystują nasze środki”: dziesięć kart, każda z innym sportem, zdjęcie jest tłem, a zdanie mówi o szkoleniowcu, sprzęcie albo obozie.
+Rząd jedzie strzałkami i przeciągnięciem, pętla wraca na piłkę nożną po futsali, a przy 390 px zostaje jedna karta z podglądem kolejnej.
+Na FTP nic nie poszło i nie było commita. Szczegóły: `.cursor/reports/galeria_srodki_20261117.md`.
+
+Z archiwum aktualności zeszły wpisy sprzed 2025: w `newsArchive` zostało 11 tytułów z 2025, a sześć artykułów 2026 w `newsPosts` bez zmian.
+Lead na `#/aktualnosci` mówi o edycji 2026 i archiwum 2025; decyzja „nie przenosić 2022–2024” jest w `docs/old-website-info.md` (sekcja 5) oraz w regułach `shared.mdc` i `frontend.mdc`.
+Na FTP nic nie poszło i nie było commita. Szczegóły: `.cursor/reports/archiwum_aktualnosci_2025_20261117.md`.
+
+Wpisana fraza w wynikach FAQ i regulaminu jest podkreślona na czerwono z jasnym tłem (`mark.search-hit` w `pages.css`, komponent `Highlight`).
+Dopasowanie jest bez względu na wielkość liter, a w tekście zostaje oryginalny zapis, także gdy fraza jest tylko częścią słowa.
+Sprawdzone na localhost: regulamin „amodit” daje 12 podkreśleń „AMODIT”, FAQ „podpis” podkreśla tytuł kategorii, pytanie i odpowiedzi, puste pole zdejmuje znaki. Na FTP nic nie poszło i nie było commita. Szczegóły: `.cursor/reports/podswietlenie_frazy_20261117.md`.
+
+Znak „Witaj w Klubie” (`custom-assets/rzadowy-program-klub-logo.png`, kopia `client/assets/program-logo.png`) jest w nagłówku zamiast logo LZS (wysokość 3,25 rem) i po lewej stronie tekstu „Program dla klubów”.
+Na wąskim widoku znak sekcji schodzi nad akapit; favicony zostają przy LZS. Sprawdzone na stronie głównej (biały nagłówek po przewinięciu i układ obok tekstu) oraz przy 390 px.
+Na FTP nic nie poszło i nie było commita. Szczegóły: `.cursor/reports/logo_programu_20261117.md`.
+
+Nad nagłówkiem karuzeli jest teraz `padding-top: clamp(8rem, 14vw, 12rem)` (około 185 px bieli przy szerokości 1324 px, 128 px przy 390 px), a pierwsza karta ma lewą krawędź na 0.
+Nagłówek zostaje w kontenerze; rząd zdjęć jest na pełną szerokość okna. Na FTP nic nie poszło i nie było commita.
+
+Karuzela jedzie 0,8 s krzywą `cubic-bezier(0.22, 0.61, 0.36, 1)`, a nad kartami jest pasek kropek: aktywna pigułka 32×6 px, obok 5 px i 4 px, całość 82×6 px na środku paska ze strzałkami.
+Po „Następne” rząd schodzi z −624 px do −936 px, a kropki wracają do 4, 5, 32, 5, 4 przy koszykówce. Na FTP nic nie poszło i nie było commita.
+
+Pasek karuzeli (kropki i strzałki) jest pod rzędem kart, 32 px pod spodem; „Następne” nadal schodzi z −624 px na −936 px.
+W stopce jest ten sam znak „Witaj w Klubie” co w nagłówku (`programLogo`, 4,75 rem, biała płytka na granacie) i prowadzi na stronę główną.
+Na FTP nic nie poszło i nie było commita. Szczegóły: `.cursor/reports/karuzela_pod_i_logo_stopki_20261117.md`.
+
+Znak w stopce ma 16 px paddingu, a płytka ma 118×108 px. Blok AddPattern jest mniejszy (330×36 px, krój 0,75 rem) i mówi „Strona w trakcie przygotowania przez firmę AddPattern”, bez imienia i nazwiska.
+Link zostaje przy https://addpattern.pl/, a zdanie o pixabay.com bez zmian. Na FTP nic nie poszło i nie było commita. Szczegóły: `.cursor/reports/stopka_padding_addpattern_20261117.md`.
+
+Baner podstrony przy zmianie widoku przenika: poprzednie zdjęcie zostaje, nowe rozjaśnia się w 0,85 s z lekkim zbliżeniem (`banner-crossfade` w `pages.css`, logika w `PageBanner.tsx`), a po animacji zostaje jeden obraz.
+Ostatni kadr jest pamiętany poza komponentem, bo każdy widok montuje baner od nowa; ze strony głównej (sam film) pamięć schodzi, więc następna podstrona nie miesza zdjęć, a `prefers-reduced-motion` pokazuje nowe od razu.
+Sprawdzone na localhost:5173 (FAQ → regulamin, aktualności → wpis, strona główna → kontakt, telefon 390 px: baner 288 px i łuk 50 px). Na FTP nic nie poszło i nie było commita. Szczegóły: `.cursor/reports/baner_przenikanie_20261117.md`.

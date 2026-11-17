@@ -16,3 +16,4 @@ alwaysApply: false
 - SEO: domyślne title, description i OG w `index.html`, per widok w `DocumentMeta`. `og:image` to absolutny URL domeny (`https://rzadowyprogramklub.pl/assets/images/og-image.jpg`). 404 dostaje `noindex,follow`.
 - Pliki z `client/public/` w JS: `import.meta.env.BASE_URL` (helper `publicUrl` w `assets.ts`), nie gołe `/assets/...`. W HTML: `%BASE_URL%`. GitHub Pages serwuje stronę z podkatalogu.
 - Teksty: locale (`pl.json`), nie twarde stringi w JSX.
+- Aktualności: tylko data od `2025-01-01`. `newsPosts` to pełne wpisy 2026, `newsArchive` to tytuły z 2025. Lat 2022–2024 z `docs/old-website-info.md` nie dopisuj — to inwentaryzacja WordPressa, nie lista do przeniesienia.

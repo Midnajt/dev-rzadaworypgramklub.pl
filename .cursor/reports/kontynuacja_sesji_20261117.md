@@ -69,7 +69,7 @@ Treść (nie w `pl.json`):
 - [`client/src/content/basics.ts`](../../client/src/content/basics.ts) + krok po kroku
 - [`client/src/content/downloads.ts`](../../client/src/content/downloads.ts) — linki do `wp-content/uploads` na starej domenie
 - [`client/src/content/contact.ts`](../../client/src/content/contact.ts) — infolinie
-- [`client/src/content/news.ts`](../../client/src/content/news.ts) — 6 pełnych wpisów 2026; lata 2022–2025 tylko tytuł+data (bez ciała)
+- [`client/src/content/news.ts`](../../client/src/content/news.ts) — 6 pełnych wpisów 2026; lata 2022–2025 tylko tytuł+data (bez ciała). Od 17.11.2026 archiwum to wyłącznie 2025 (wpisy 2022–2024 usunięte)
 
 Strony: `BasicsPage`, `DownloadsPage`, `ContactPage`, `FaqPage`, `RegulationsPage`, `NewsPage` (`#/aktualnosci/{slug}`).
 
@@ -96,7 +96,7 @@ Wzór UX: [`docs/ux_squarespace_wzor_promptow_20261117.md`](../../docs/ux_square
 5. **Git** — tylko na prośbę użytkownika. Nie pushować bez zgody. `custom-assets/` już jest w historii; nowa `MAPA.md` i rename mogą wisieć jako uncommitted.
 6. **Pages:** jeśli film nadal 404, commit+push poprawki `BASE_URL` na `main`.
 7. **Nie w tej iteracji (świadomie):**
-   - pełne treści aktualności 2022–2025 (ok. 45 ciał) — data archiwum nieustalona z klientem
+   - pełne treści aktualności 2022–2024 — **nie dodawać** (decyzja 17.11.2026: archiwum zaczyna się od 2025; tytuły 2025 zostają bez ciała)
    - kopiowanie PDF/`wp-content/uploads` na FTP (linki idą na starą domenę)
    - galeria ze zdjęć `custom-assets/`, analityka, formularz kontaktowy, panel dostępności
    - zmiana nazwy repo `dev-rzadaworypgramklub.pl` (literówka)
