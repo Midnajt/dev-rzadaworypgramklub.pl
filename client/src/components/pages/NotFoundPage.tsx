@@ -1,12 +1,13 @@
 import { useTranslation } from "react-i18next";
 import { HashLink } from "@/components/layout/HashLink";
+import { PageFrame } from "@/components/layout/PageBanner";
 import { Reveal } from "@/components/motion/Reveal";
 
 export function NotFoundPage() {
   const { t } = useTranslation();
 
   return (
-    <main id="main" className="page" tabIndex={-1}>
+    <PageFrame>
       <section className="page-hero">
         <Reveal className="container">
           <p className="section__eyebrow">{t("notFound.eyebrow")}</p>
@@ -19,6 +20,6 @@ export function NotFoundPage() {
           </p>
         </Reveal>
       </section>
-    </main>
+    </PageFrame>
   );
 }

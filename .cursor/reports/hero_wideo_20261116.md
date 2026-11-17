@@ -14,7 +14,7 @@ Strona główna odwzorowuje wejście ze squarespace.com: czarna plansza znika i 
 | Intro | Przy każdym wczytaniu strony głównej, około 1,2 s; wyłączone przy `prefers-reduced-motion` |
 | Logo w nagłówku | Samo logo LZS, bez napisu |
 | Kolory | Dobrane do logo LZS: czerwony #c8102e, granat #0f2341, biały |
-| Film na telefonach | Odtwarzany wszędzie, poster z `example1.jpg` |
+| Film na telefonach | Odtwarzany wszędzie, poster z `custom-assets/murawa-1.jpg` (dawniej `example1.jpg`) |
 | Hero | Bez przycisku (usunięty w drugiej iteracji); tekst to propozycja do akceptacji |
 
 ## Zmiany w kodzie
@@ -54,18 +54,18 @@ Strona główna odwzorowuje wejście ze squarespace.com: czarna plansza znika i 
 
 | Plik | Źródło i obróbka | Rozmiar |
 | --- | --- | --- |
-| `public/assets/video/hero.mp4` | `pixa_movie.mp4` (4K, 59 s, 395 MB) → 1920 px, 25 fps, H.264, CRF 32, bez audio, faststart, potem `-t 29.72` (pierwsza połowa) | 3,4 MB |
-| `public/assets/images/hero-poster.jpg` | `example1.jpg` → 1920 px, `-q:v 5` | 194 KB |
-| `public/assets/images/og-image.jpg` | `example1.jpg` → przycięte do 1200×630, `-q:v 4` | 101 KB |
-| `public/favicon.ico` | `logo-min.png` → 48×48 | 9 KB |
-| `public/assets/images/favicon-32.png` | `logo-min.png` → 32×32 | 3 KB |
-| `public/assets/images/icon-192.png` | `logo-min.png` → 192×192 | 59 KB |
-| `public/assets/images/apple-touch-icon.png` | `logo-min.png` 152 px na białym tle 180×180 | 38 KB |
-| `client/assets/logo-min.png` | `logo-min.png` → 192×192 (nagłówek) | 49 KB |
-| `client/assets/addpattern-logo.png` | `logo_icon.png` → 96×96, wymuszone rgba | 11 KB |
+| `public/assets/video/hero.mp4` | `custom-assets/pixa_movie.mp4` (4K, 59 s, 395 MB) → 1920 px, 25 fps, H.264, CRF 32, bez audio, faststart, potem `-t 29.72` (pierwsza połowa) | 3,4 MB |
+| `public/assets/images/hero-poster.jpg` | `custom-assets/murawa-1.jpg` (dawniej `example1.jpg`) → 1920 px, `-q:v 5` | 194 KB |
+| `public/assets/images/og-image.jpg` | `custom-assets/murawa-1.jpg` → przycięte do 1200×630, `-q:v 4` | 101 KB |
+| `public/favicon.ico` | `custom-assets/logo-lzs-min.png` (dawniej `logo-min.png`) → 48×48 | 9 KB |
+| `public/assets/images/favicon-32.png` | `custom-assets/logo-lzs-min.png` → 32×32 | 3 KB |
+| `public/assets/images/icon-192.png` | `custom-assets/logo-lzs-min.png` → 192×192 | 59 KB |
+| `public/assets/images/apple-touch-icon.png` | `custom-assets/logo-lzs-min.png` 152 px na białym tle 180×180 | 38 KB |
+| `client/assets/logo-min.png` | `custom-assets/logo-lzs-min.png` → 192×192 (nagłówek) | 49 KB |
+| `client/assets/addpattern-logo.png` | `custom-assets/logo-addpattern.png` (dawniej `logo_icon.png`) → 96×96, wymuszone rgba | 11 KB |
 
 - Narzędzie: ffmpeg 9.0.2 zainstalowany przez `winget install Gyan.FFmpeg` (nie jest w `package.json`). Pełne komendy są w `client/assets/ASSETS.md`.
-- Pułapka: `logo_icon.png` ma paletę (pal8) i bez `format=rgba` oraz `-pix_fmt rgba` ffmpeg gubi przezroczystość, co w stopce daje kolorowy kwadrat.
+- Pułapka: `custom-assets/logo-addpattern.png` (dawniej `logo_icon.png`) ma paletę (pal8) i bez `format=rgba` oraz `-pix_fmt rgba` ffmpeg gubi przezroczystość, co w stopce daje kolorowy kwadrat.
 - `custom-assets/*.mp4` dopisano do `.gitignore`, żeby 395 MB nie trafiło do repozytorium (projekt nie jest jeszcze repozytorium git).
 
 ## Weryfikacja

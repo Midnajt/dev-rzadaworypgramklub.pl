@@ -3,8 +3,35 @@
   padding-top: var(--header-h);
 }
 
+.page-banner {
+  position: relative;
+  height: clamp(18rem, 44vw, 35rem);
+  overflow: hidden;
+  background: var(--color-navy);
+}
+
+.page-banner img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
 .page-hero {
   padding: var(--space-2xl) 0 var(--space-xl);
+}
+
+/* White arc from the top of the hero, overlapping the banner photo.
+   Only the sibling after .page-banner — the home video hero is untouched. */
+.page-banner + .page-hero {
+  --banner-curve: clamp(2.75rem, 7vw, 5.5rem);
+  position: relative;
+  z-index: 1;
+  margin-top: calc(var(--banner-curve) * -1 - 0.4rem);
+  background: var(--color-white);
+  border-radius: 50% 50% 0 0 / var(--banner-curve) var(--banner-curve) 0 0;
 }
 
 .page-hero h1 {
@@ -109,6 +136,172 @@
   to {
     opacity: 0;
   }
+}
+
+.prose-wide {
+  max-width: 52rem;
+}
+
+.step-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-md);
+}
+
+.step-list__item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-md);
+  align-items: start;
+}
+
+.step-list__num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 999px;
+  background: var(--color-accent);
+  color: var(--color-white);
+  font-weight: 700;
+}
+
+.info-block {
+  margin-bottom: var(--space-xl);
+}
+
+.note {
+  padding: var(--space-md);
+  background: var(--color-surface);
+  border-left: 3px solid var(--color-accent);
+}
+
+.download-list {
+  list-style: none;
+  margin: 0 0 var(--space-lg);
+  padding: 0;
+  display: grid;
+  gap: 0.75rem;
+}
+
+.download-list a {
+  font-weight: 600;
+}
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: var(--space-xl);
+}
+
+.helpline-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.helpline-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-md);
+  padding-bottom: 0.65rem;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.faq-search input {
+  width: min(28rem, 100%);
+  margin-top: var(--space-md);
+  padding: 0.7rem 0.9rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font: inherit;
+}
+
+.faq-category {
+  margin-bottom: var(--space-xl);
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--color-border);
+  padding: 0.85rem 0;
+}
+
+.faq-item summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--color-navy);
+}
+
+.faq-item__body {
+  padding-top: 0.75rem;
+}
+
+.legal__heading {
+  margin-top: var(--space-xl);
+  text-align: center;
+}
+
+.legal > h2.legal__heading:not(:first-of-type) {
+  padding-top: var(--space-lg);
+  border-top: 1px solid var(--color-accent);
+}
+
+.news-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: var(--space-md);
+}
+
+.news-card {
+  display: grid;
+  gap: 0.35rem;
+  padding: var(--space-md);
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  color: inherit;
+}
+
+.news-card:hover {
+  color: inherit;
+}
+
+.news-card time,
+.news-date {
+  color: var(--color-accent);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.news-card span {
+  color: var(--color-text-muted);
+}
+
+.news-year {
+  margin-top: var(--space-lg);
+}
+
+.news-archive {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.news-archive li {
+  display: grid;
+  grid-template-columns: 8rem 1fr;
+  gap: var(--space-md);
+  padding: 0.55rem 0;
+  border-bottom: 1px solid var(--color-border);
 }
 
 @media (prefers-reduced-motion: reduce) {

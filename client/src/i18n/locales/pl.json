@@ -9,6 +9,12 @@
     "faqDesc": "Odpowiedzi na najczęściej zadawane pytania dotyczące Rządowego Programu KLUB 2026.",
     "regulationsTitle": "Regulamin — Rządowy Program KLUB",
     "regulationsDesc": "Regulamin Rządowego Programu KLUB 2026: zasady, terminy i warunki udziału dla klubów sportowych.",
+    "basicsTitle": "Podstawowe informacje — Rządowy Program KLUB",
+    "basicsDesc": "Cele, kwoty, wymogi i wkład własny w Rządowym Programie KLUB 2026.",
+    "downloadsTitle": "Do pobrania — Rządowy Program KLUB",
+    "downloadsDesc": "Logotypy Rządowego Programu KLUB i Operatora Krajowego do pobrania przez beneficjentów.",
+    "contactTitle": "Kontakt — Rządowy Program KLUB",
+    "contactDesc": "Infolinie wojewódzkie, adres KZ LZS oraz e-maile pomocy merytorycznej i technicznej.",
     "notFoundTitle": "Nie znaleziono strony — rzadowyprogramklub.pl",
     "notFoundDesc": "Ta strona nie istnieje albo została przeniesiona."
   },
@@ -17,10 +23,11 @@
     "logoAlt": "Logo LZS",
     "main": "Nawigacja główna",
     "openMenu": "Otwórz menu",
+    "closeMenu": "Zamknij menu",
     "home": "Start",
     "news": "Aktualności",
     "faq": "FAQ",
-    "regulations": "Regulamin"
+    "login": "Zaloguj się"
   },
   "hero": {
     "eyebrow": "Edycja 2026",
@@ -28,23 +35,52 @@
     "lead": "Wsparcie dla małych klubów sportowych, które każdego dnia budują sport w swojej okolicy."
   },
   "home": {
-    "sectionTitle": "TODO: sekcja",
-    "sectionBody": "TODO: treść sekcji."
+    "sectionTitle": "Program dla klubów",
+    "sectionBody": "Rządowy Program KLUB wspiera stowarzyszenia prowadzące zajęcia dla dzieci i młodzieży do 18. roku życia. Regulamin, FAQ i aktualności są w menu powyżej."
   },
   "news": {
     "eyebrow": "Aktualności",
     "title": "Aktualności",
-    "lead": "TODO: komunikaty i wpisy przeniesione ze starej strony."
+    "lead": "Komunikaty Operatora Krajowego — edycja 2026 w całości, starsze lata jako archiwum tytułów.",
+    "back": "Wróć do listy aktualności",
+    "archiveTitle": "Archiwum",
+    "archiveLead": "Wpisy z lat 2022–2025. Pełne treści z tych edycji przeniesiemy po ustaleniu zakresu z klientem."
   },
   "faq": {
     "eyebrow": "FAQ",
     "title": "Najczęściej zadawane pytania",
-    "lead": "TODO: pytania i odpowiedzi 1:1 ze starej strony, pogrupowane w kategorie, z wyszukiwarką."
+    "lead": "Pytania i odpowiedzi edycji 2026, pogrupowane tematycznie. Wpisz słowo, żeby zawęzić listę.",
+    "searchLabel": "Szukaj w pytaniach i odpowiedziach",
+    "searchPlaceholder": "Np. wkład własny, podpis, obóz…",
+    "empty": "Nie znaleziono pytań dla tego hasła."
   },
   "regulations": {
     "eyebrow": "Dokumenty",
     "title": "Regulamin Programu KLUB 2026",
-    "lead": "TODO: pełna treść regulaminu 1:1 ze starej strony."
+    "lead": "Pełna treść regulaminu zadania Rządowy Program „KLUB” — edycja 2026."
+  },
+  "basics": {
+    "eyebrow": "Program",
+    "title": "Podstawowe informacje",
+    "lead": "Rządowy Program „KLUB” — edycja 2026. Skrót zasad; szczegóły są w Regulaminie.",
+    "stepsTitle": "Krok po kroku",
+    "toRegulations": "Przejdź do Regulaminu"
+  },
+  "downloads": {
+    "eyebrow": "Materiały",
+    "title": "Do pobrania",
+    "lead": "Logotypy do pobrania.",
+    "disclaimer": "Załączone logotypy mogą być wykorzystywane wyłącznie przez beneficjentów Rządowego Programu Klub, do celów promocji i informacji."
+  },
+  "contact": {
+    "eyebrow": "Kontakt",
+    "title": "Kontakt",
+    "lead": "Infolinie czynne {{hours}}. Pomoc merytoryczna i techniczna — e-maile poniżej.",
+    "addressTitle": "Adres i e-mail",
+    "nationalTitle": "Infolinia krajowa",
+    "voivodeshipTitle": "Operatorzy wojewódzcy",
+    "emailOffice": "Pomoc merytoryczna",
+    "emailHelp": "Pomoc techniczna AMODIT"
   },
   "notFound": {
     "eyebrow": "Błąd 404",
@@ -53,9 +89,10 @@
     "backHome": "Wróć na stronę główną"
   },
   "footer": {
-    "copy": "© {{year}} {{name}} 🛠️",
+    "copy": "© {{year}} {{name}}",
     "credits": "Strona stworzona przez AddPattern Marcin Krzysztoszek —",
     "stock": "Część zdjęć i filmów pochodzi ze stocku",
-    "addPatternLabel": "AddPattern — addpattern.pl (otwiera się w nowej karcie)"
+    "addPatternLabel": "AddPattern — addpattern.pl (otwiera się w nowej karcie)",
+    "helpline": "Infolinia {{phone}}"
   }
 }

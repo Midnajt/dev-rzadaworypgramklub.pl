@@ -10,7 +10,15 @@ import {
 
 // New view: extend ViewName, add a case in parseHash and viewHref,
 // a branch in App.tsx, meta keys in DocumentMeta and the hash in HASH_PAGES (vite.config.ts).
-export type ViewName = "home" | "news" | "faq" | "regulations" | "notFound";
+export type ViewName =
+  | "home"
+  | "news"
+  | "faq"
+  | "regulations"
+  | "basics"
+  | "downloads"
+  | "contact"
+  | "notFound";
 
 export type HashView = {
   name: ViewName;
@@ -21,15 +29,22 @@ export function parseHash(raw: string): HashView {
   const trimmed = raw.replace(/^#/, "").replace(/^\//, "");
   if (!trimmed) return { name: "home" };
 
-  const [head] = trimmed.split("/");
+  const [head, ...rest] = trimmed.split("/");
+  const slug = rest.filter(Boolean).join("/") || undefined;
 
   switch (head) {
     case "aktualnosci":
-      return { name: "news" };
+      return { name: "news", slug };
     case "faq":
       return { name: "faq" };
     case "regulamin":
       return { name: "regulations" };
+    case "podstawowe-informacje":
+      return { name: "basics" };
+    case "do-pobrania":
+      return { name: "downloads" };
+    case "kontakt":
+      return { name: "contact" };
     case "404":
       return { name: "notFound" };
     default:
@@ -42,11 +57,17 @@ export function viewHref(view: HashView): string {
     case "home":
       return "#";
     case "news":
-      return "#/aktualnosci";
+      return view.slug ? `#/aktualnosci/${view.slug}` : "#/aktualnosci";
     case "faq":
       return "#/faq";
     case "regulations":
       return "#/regulamin";
+    case "basics":
+      return "#/podstawowe-informacje";
+    case "downloads":
+      return "#/do-pobrania";
+    case "contact":
+      return "#/kontakt";
     case "notFound":
       return "#/404";
   }

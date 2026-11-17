@@ -14,6 +14,11 @@ declare module "*?url" {
   export default src;
 }
 
+declare module "*.txt?raw" {
+  const text: string;
+  export default text;
+}
+
 declare module "*?as=picture" {
   const picture: {
     img: { src: string; w: number; h: number };

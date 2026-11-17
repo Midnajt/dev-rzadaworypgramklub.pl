@@ -14,8 +14,13 @@ RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 RewriteRule ^index\.html$ / [R=301,L]
 
-# Przekierowania starych adresów na hashe SPA dopisuj tutaj, np.:
-# RewriteRule ^kontakt(\.html)?/?$ /#kontakt [R=301,L,NE]
+# Przekierowania starych adresów WordPress na hashe SPA
+RewriteRule ^aktualnosci/?$ /#/aktualnosci [R=301,L,NE]
+RewriteRule ^faq/?$ /#/faq [R=301,L,NE]
+RewriteRule ^regulamin/?$ /#/regulamin [R=301,L,NE]
+RewriteRule ^podstawowe-informacje/?$ /#/podstawowe-informacje [R=301,L,NE]
+RewriteRule ^do-pobrania/?$ /#/do-pobrania [R=301,L,NE]
+RewriteRule ^kontakt/?$ /#/kontakt [R=301,L,NE]
 
 # Istniejące pliki (assety, sitemap, pliki weryfikacyjne) serwuj wprost
 RewriteCond %{REQUEST_FILENAME} -f [OR]

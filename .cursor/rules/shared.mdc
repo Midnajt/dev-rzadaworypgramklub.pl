@@ -50,7 +50,7 @@ Przed wdrożeniem trzeba dodać w `.htaccess` przekierowania 301 ze starych URL-
 
 Strona główna ma hero w stylu Squarespace: czarna plansza znikająca w 1,2 s (`IntroFade`), pełnoekranowy film `public/assets/video/hero.mp4` z posterem `hero-poster.jpg` (`HeroVideo`) oraz nagłówek fixed, przezroczysty nad filmem i biały z granatowym tekstem po przewinięciu.
 Paleta to czerwony #c8102e (akcent), granat #0f2341 (tekst, stopka) i biały; nagłówek ma logo LZS po lewej, Start, Aktualności i FAQ na środku oraz czerwony przycisk Regulamin po prawej (widoki `#/aktualnosci`, `#/faq`, `#/regulamin` mają treść tymczasową), a stopka ma informację o AddPattern z logo i link do pixabay.com.
-Film skompresowano ffmpegiem (zainstalowany przez winget) z 395 MB do 7,3 MB, a potem przycięto do pierwszej połowy (29,7 s, 3,4 MB); favicony (z logo LZS) i podgląd linku `og-image.jpg` 1200×630 (z `example1.jpg`) wygenerowano tym samym narzędziem; komendy są w `client/assets/ASSETS.md`, szczegóły w `.cursor/reports/hero_wideo_20261116.md`.
+Film skompresowano ffmpegiem (zainstalowany przez winget) z 395 MB do 7,3 MB, a potem przycięto do pierwszej połowy (29,7 s, 3,4 MB); favicony (z logo LZS) i podgląd linku `og-image.jpg` 1200×630 (z `custom-assets/murawa-1.jpg`, dawniej `example1.jpg`) wygenerowano tym samym narzędziem; komendy są w `client/assets/ASSETS.md`, szczegóły w `.cursor/reports/hero_wideo_20261116.md`.
 
 Pages wstaje pod `https://midnajt.github.io/dev-rzadaworypgramklub.pl/`, ale film i poster dawały 404, bo ścieżki `/assets/...` omijały podkatalog repo. Poprawka: `publicUrl` + `%BASE_URL%` w `assets.ts` i `index.html`; na FTP (`VITE_BASE=/`) nic się nie zmienia. Czeka na commit i push.
 Workflow `.github/workflows/deploy-pages.yml` już buduje z właściwym `VITE_BASE`. W repo są też `custom-assets/` (37 plików). Produkcja FTP bez zmian.
@@ -58,3 +58,31 @@ Workflow `.github/workflows/deploy-pages.yml` już buduje z właściwym `VITE_BA
 W stopce, w kluczu `footer.copy` w `client/src/i18n/locales/pl.json`, dopisano emotkę 🛠️ obok roku i nazwy strony.
 Zmiana idzie gałęzią i pull requestem; GitHub Pages odświeża się dopiero po scaleniu do `main`, bo workflow `deploy-pages.yml` startuje na pushu do tej gałęzi.
 Na FTP nic nie ruszano. Szczegóły są w `.cursor/reports/emoji_footer_20261117.md`.
+
+Zdjęcia w `custom-assets/` (jpg/jpeg/png) przemianowano na krótkie slugi ASCII po treści kadru (np. `pilka-nozna-1.jpg`, `boks-1.jpeg`, `logo-lzs.png`); mapa starych i nowych nazw jest w `custom-assets/MAPA.md`.
+Nie ruszano `notatki_z_pierwszego_spotkania.md` ani `pixa_movie.mp4`; produkcyjne pliki w `client/assets/` i `client/public/` bez zmian, git pokazuje rename (`R`), bez commita i bez FTP.
+Szczegóły: `.cursor/reports/custom_assets_mapa_20261117.md`.
+
+Dokończono weryfikację mega-menu i podstron w przeglądarce (hover, Tab, strzałki, Escape, 390 px, FAQ, Regulamin, Kontakt, Do pobrania, aktualności 2026); panel jest w kolejności Tab i zamyka się, gdy fokus wychodzi z nagłówka.
+Usunięto zrzut `custom-assets/_wp-dump/`, a opis migracji jest w `.cursor/reports/migracja_podstron_20261117.md`.
+Na FTP nic nie wysłano i nie było commita; przed wrzutką trzeba skopiować PDF-y i logotypy z `wp-content/uploads`, bo linki idą jeszcze na starą domenę.
+
+Podstrony, poza stroną główną z filmem, mają pas zdjęcia tuż pod nagłówkiem i nad `page-hero`; kadr zależy od widoku, a sześć wpisów 2026 ma osobne zdjęcia.
+Pliki leżą w `client/assets/banners/` (źródła z `custom-assets/`, dłuższy bok do 1600 px). Opis jest w `client/assets/ASSETS.md` i `.cursor/reports/banery_podstron_20261117.md`.
+Na FTP nic nie poszło i nie było commita.
+
+Nagłówki paragrafów regulaminu (`h2.legal__heading`: § 1–§ 10 i „UWAGA:”) są wyśrodkowane; od drugiego nagłówka czerwona linia `border-top: 1px solid var(--color-accent)` oddziela je od poprzedniego akapitu, a przed pierwszym § linii nie ma.
+Selektory są w `client/src/styles/pages.css` (`.legal__heading` oraz `.legal > h2.legal__heading:not(:first-of-type)`); treść i18n bez zmian.
+Sprawdzone na `http://localhost:5173/#/regulamin` (computed style i wygląd). Na FTP nic nie poszło i nie było commita. Szczegóły: `.cursor/reports/regulamin_srodek_linia_20261117.md`.
+
+Góra `page-hero` sąsiadującego z `page-banner` jest białym łukiem (`border-radius` elipsy), który nachodzi na zdjęcie: około 182 px przy szerokości 1309 px i 86 px przy 390 px.
+Sam baner jest wyższy: `clamp(18rem, 44vw, 35rem)`, czyli 560 px na desktopie i 288 px na wąskim widoku; film na stronie głównej bez zmian.
+Na FTP nic nie poszło i nie było commita. Szczegóły: `.cursor/reports/luk_banera_20261117.md`.
+
+Desktopowe mega-menu jest odsunięte o 0,75 rem (12 px) pod belką, a w luce siedzi biała strzałka w kolorze tła panelu (`--color-white`), wyśrodkowana na etykiecie otwartej pozycji i przesuwana przy zmianie Start / Aktualności / FAQ.
+Strzałka to `MegaPointer` w `MegaMenu.tsx` (pomiar środka etykiety w `Navbar.tsx`, style w `components.css`); poniżej 761 px jej nie ma, a panel zostaje w kolumnie menu.
+Sprawdzone na localhost:5173 (trzy pozycje, odstęp 12 px, środek etykiety, strzałka w dół, Escape, klik poza nagłówkiem, 390 px). Bez FTP i bez commita. Szczegóły: `.cursor/reports/mega_menu_strzalka_20261117.md`.
+
+Biały łuk `page-hero` jest płytszy: w `.page-banner + .page-hero` wartość `--banner-curve` zeszła z `clamp(5rem, 14vw, 11rem)` do `clamp(2.75rem, 7vw, 5.5rem)`, więc przy 1073 px nachodzenie ma 81,5 px, a przy 390 px 50,4 px.
+Ten sam łuk jest na wszystkich podstronach z banerem; film na stronie głównej bez zmian. Na `#/faq` nagłówek i lead siedzą pod łukiem, a wyszukiwarka zawęża listę (sprawdzone też `#/regulamin`).
+Na FTP nic nie poszło i nie było commita. Szczegóły: `.cursor/reports/page_hero_luk_20261117.md`.

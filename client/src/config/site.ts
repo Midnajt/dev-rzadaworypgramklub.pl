@@ -3,4 +3,18 @@ export const site = {
   url: import.meta.env.VITE_SITE_URL || "https://rzadowyprogramklub.pl",
   addPattern: "https://addpattern.pl",
   pixabay: "https://pixabay.com",
+  amodit: "https://wnioski.rzadowyprogramklub.pl",
+  facebook: "https://www.facebook.com/rzadowyprogramklub/",
+  lzs: "https://lzs.pl/",
+  emailOffice: "biuro@rzadowyprogramklub.pl",
+  emailHelp: "pomoc@rzadowyprogramklub.pl",
+  phoneNational: "+48667099565",
+  phoneNationalDisplay: "667 099 565",
+  address: {
+    org: "Krajowe Zrzeszenie LZS",
+    street: "ul. S. Krzyżanowskiego 46a",
+    city: "01-220 Warszawa",
+  },
+  helplineHours: "pon.–pt. 10:00–15:00",
+  uploads: "https://rzadowyprogramklub.pl/wp-content/uploads",
 } as const;

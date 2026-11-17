@@ -15,6 +15,11 @@ export function Footer() {
             {site.name}
           </HashLink>
           <p className="site-footer__copy">{t("footer.copy", { year, name: site.name })}</p>
+          <p className="site-footer__copy">
+            <a href={`tel:${site.phoneNational}`}>{t("footer.helpline", { phone: site.phoneNationalDisplay })}</a>
+            {" · "}
+            <a href={`mailto:${site.emailOffice}`}>{site.emailOffice}</a>
+          </p>
         </div>
         <div className="footer-credit">
           <a

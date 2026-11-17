@@ -8,6 +8,9 @@ const META: Record<ViewName, { title: string; desc: string }> = {
   news: { title: "meta.newsTitle", desc: "meta.newsDesc" },
   faq: { title: "meta.faqTitle", desc: "meta.faqDesc" },
   regulations: { title: "meta.regulationsTitle", desc: "meta.regulationsDesc" },
+  basics: { title: "meta.basicsTitle", desc: "meta.basicsDesc" },
+  downloads: { title: "meta.downloadsTitle", desc: "meta.downloadsDesc" },
+  contact: { title: "meta.contactTitle", desc: "meta.contactDesc" },
   notFound: { title: "meta.notFoundTitle", desc: "meta.notFoundDesc" },
 };
 

@@ -8,7 +8,15 @@ import { imagetools } from "vite-imagetools";
 const rootDir = path.dirname(fileURLToPath(import.meta.url));
 
 // Public hash views that go into sitemap.xml. Add every new indexable view here.
-const HASH_PAGES = ["", "#/aktualnosci", "#/faq", "#/regulamin"];
+const HASH_PAGES = [
+  "",
+  "#/aktualnosci",
+  "#/faq",
+  "#/regulamin",
+  "#/podstawowe-informacje",
+  "#/do-pobrania",
+  "#/kontakt",
+];
 
 function seoFilesPlugin(siteUrl: string): Plugin {
   const origin = siteUrl.replace(/\/$/, "");
