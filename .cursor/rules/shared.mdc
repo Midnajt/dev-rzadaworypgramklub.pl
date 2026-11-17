@@ -54,3 +54,7 @@ Film skompresowano ffmpegiem (zainstalowany przez winget) z 395 MB do 7,3 MB, a 
 
 Pages wstaje pod `https://midnajt.github.io/dev-rzadaworypgramklub.pl/`, ale film i poster dawały 404, bo ścieżki `/assets/...` omijały podkatalog repo. Poprawka: `publicUrl` + `%BASE_URL%` w `assets.ts` i `index.html`; na FTP (`VITE_BASE=/`) nic się nie zmienia. Czeka na commit i push.
 Workflow `.github/workflows/deploy-pages.yml` już buduje z właściwym `VITE_BASE`. W repo są też `custom-assets/` (37 plików). Produkcja FTP bez zmian.
+
+W stopce, w kluczu `footer.copy` w `client/src/i18n/locales/pl.json`, dopisano emotkę 🛠️ obok roku i nazwy strony.
+Zmiana idzie gałęzią i pull requestem; GitHub Pages odświeża się dopiero po scaleniu do `main`, bo workflow `deploy-pages.yml` startuje na pushu do tej gałęzi.
+Na FTP nic nie ruszano. Szczegóły są w `.cursor/reports/emoji_footer_20261117.md`.

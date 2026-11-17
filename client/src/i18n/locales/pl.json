@@ -53,7 +53,7 @@
     "backHome": "Wróć na stronę główną"
   },
   "footer": {
-    "copy": "© {{year}} {{name}}",
+    "copy": "© {{year}} {{name}} 🛠️",
     "credits": "Strona stworzona przez AddPattern Marcin Krzysztoszek —",
     "stock": "Część zdjęć i filmów pochodzi ze stocku",
     "addPatternLabel": "AddPattern — addpattern.pl (otwiera się w nowej karcie)"
