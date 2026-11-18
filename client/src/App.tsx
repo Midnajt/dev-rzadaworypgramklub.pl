@@ -3,6 +3,7 @@ import { useTranslation } from "react-i18next";
 import { DocumentMeta } from "@/components/layout/DocumentMeta";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
+import { ThemeBar } from "@/components/layout/ThemeBar";
 import { IntroFade } from "@/components/motion/IntroFade";
 import { BasicsPage } from "@/components/pages/BasicsPage";
 import { ContactPage } from "@/components/pages/ContactPage";
@@ -61,6 +62,7 @@ export default function App() {
       >
         {t("skip")}
       </a>
+      <ThemeBar />
       <DocumentMeta
         view={missingNews ? { name: "notFound" } : view}
         pageTitle={newsPost?.title}

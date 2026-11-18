@@ -133,3 +133,7 @@ Sprawdzone na localhost:5173 (FAQ → regulamin, aktualności → wpis, strona g
 
 Poniżej 761 px menu to szuflada na dwa kroki: działy, potem same linki do stron, a hamburger zostaje w belce i po otwarciu jest krzyżykiem. „Zaloguj się” schodzi z belki do szuflady, żeby nie wypychać ikony; desktopowy panel ze strzałką bez zmian.
 Sprawdzone na localhost:5173 (regulamin, wpis, kontakt, strona główna, Escape, 1280 px). GitHub Pages nadal ma stare menu, dopóki zmiana nie wejdzie na `main`. Na FTP nic nie poszło i nie było commita. Szczegóły: `.cursor/reports/menu_mobilne_20261117.md`.
+
+Nad nagłówkiem jest belka z przyciskami słońca i księżyca z react-icons; pierwszy widok jest zawsze jasny, także gdy telefon ma tryb ciemny, a wybór księżyca zostaje w localStorage.
+`color-scheme: only light` wyłącza automatyczne przyciemnianie przeglądarki; ciemny motyw podmienia tokeny strony, a znak programu dostaje białą płytkę, żeby granatowy napis został czytelny.
+Sprawdzone na localhost:5173 przy prefers-color-scheme: dark (390 px i 1280 px: strona główna, aktualności, FAQ, menu). Na FTP nic nie poszło. Szczegóły: `.cursor/reports/motyw_jasny_ciemny_20261118.md`.

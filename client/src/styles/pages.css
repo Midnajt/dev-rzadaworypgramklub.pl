@@ -1,6 +1,6 @@
 /* Views without a full-bleed hero sit below the fixed header */
 .page {
-  padding-top: var(--header-h);
+  padding-top: var(--chrome-h);
 }
 
 .page-banner {
@@ -51,7 +51,7 @@
   position: relative;
   z-index: 1;
   margin-top: calc(var(--banner-curve) * -1 - 0.4rem);
-  background: var(--color-white);
+  background: var(--color-page);
   border-radius: 50% 50% 0 0 / var(--banner-curve) var(--banner-curve) 0 0;
 }
 
@@ -101,7 +101,7 @@
 }
 
 .hero__content {
-  padding: calc(var(--header-h) + var(--space-xl)) 0 clamp(3rem, 10vh, 6.5rem);
+  padding: calc(var(--chrome-h) + var(--space-xl)) 0 clamp(3rem, 10vh, 6.5rem);
   animation: hero-in 1.1s var(--ease) 0.7s both;
 }
 
@@ -220,7 +220,7 @@
 .note {
   padding: var(--space-md);
   background: var(--color-surface);
-  border-left: 3px solid var(--color-accent);
+  border-left: 3px solid var(--color-link);
 }
 
 .download-list {
@@ -258,11 +258,11 @@
 }
 
 .search-hit {
-  background: color-mix(in srgb, var(--color-accent) 22%, white);
+  background: color-mix(in srgb, var(--color-link) 22%, var(--color-page));
   color: inherit;
   text-decoration: underline;
   text-decoration-thickness: 2px;
-  text-decoration-color: var(--color-accent);
+  text-decoration-color: var(--color-link);
   text-underline-offset: 0.12em;
 }
 
@@ -272,7 +272,13 @@
   padding: 0.7rem 0.9rem;
   border: 1px solid var(--color-border);
   border-radius: var(--radius-sm);
+  background: var(--color-page);
+  color: var(--color-text);
   font: inherit;
+}
+
+.faq-search input::placeholder {
+  color: var(--color-text-muted);
 }
 
 .faq-category {
@@ -287,7 +293,7 @@
 .faq-item summary {
   cursor: pointer;
   font-weight: 600;
-  color: var(--color-navy);
+  color: var(--color-ink);
 }
 
 .faq-item__body {
@@ -301,7 +307,7 @@
 
 .legal > h2.legal__heading:not(:first-of-type) {
   padding-top: var(--space-lg);
-  border-top: 1px solid var(--color-accent);
+  border-top: 1px solid var(--color-link);
 }
 
 .news-list {
@@ -328,7 +334,7 @@
 
 .news-card time,
 .news-date {
-  color: var(--color-accent);
+  color: var(--color-link);
   font-size: 0.85rem;
   font-weight: 600;
   letter-spacing: 0.06em;

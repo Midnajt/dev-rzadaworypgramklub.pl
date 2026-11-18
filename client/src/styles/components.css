@@ -33,20 +33,72 @@
 .btn--ghost {
   background: transparent;
   border-color: var(--color-border);
-  color: var(--color-accent);
+  color: var(--color-link);
 }
 
 .btn--ghost:hover {
   border-color: var(--color-accent);
 }
 
-/* Header: fixed; transparent over the home hero, white otherwise */
+/* Theme strip sits above the fixed header. Sun = light, moon = dark. */
+.theme-bar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 110;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--theme-bar-h);
+  background: var(--color-header);
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-ink);
+}
+
+.theme-bar__group {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.theme-bar__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--color-ink);
+  cursor: pointer;
+}
+
+.theme-bar__btn svg {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+
+.theme-bar__btn[aria-pressed="true"] {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-white);
+}
+
+.theme-bar__btn:hover {
+  border-color: var(--color-accent);
+}
+
+/* Header: fixed under the theme bar; transparent over the home hero, solid otherwise */
 .site-header {
   position: fixed;
-  inset: 0 0 auto 0;
+  top: var(--theme-bar-h);
+  right: 0;
+  left: 0;
   z-index: 100;
   background: var(--color-header);
-  color: var(--color-navy);
+  color: var(--color-ink);
   box-shadow: 0 1px 0 var(--color-border);
   transition:
     background-color var(--duration) var(--ease),
@@ -70,7 +122,7 @@
 
 .site-header.has-mega {
   background: var(--color-header);
-  color: var(--color-navy);
+  color: var(--color-ink);
   box-shadow: var(--shadow-soft);
 }
 
@@ -166,7 +218,7 @@
   right: 0;
   bottom: 0;
   height: 2px;
-  background: var(--color-accent);
+  background: var(--color-link);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform var(--duration) var(--ease);
@@ -237,7 +289,7 @@
     left: var(--mega-caret-x, 50%);
     width: 1.25rem;
     height: 0.8125rem;
-    color: var(--color-white);
+    color: var(--color-panel);
     pointer-events: none;
     transform: translateX(-50%);
     animation: mega-caret-in 0.35s var(--ease) both;
@@ -247,8 +299,8 @@
 
 .mega-panel {
   padding: 1.75rem 2rem;
-  background: var(--color-white);
-  color: var(--color-navy);
+  background: var(--color-panel);
+  color: var(--color-ink);
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-soft);
   animation: mega-in 0.35s var(--ease) both;
@@ -279,7 +331,7 @@
   border: 0;
   border-radius: var(--radius-sm);
   background: none;
-  color: var(--color-navy);
+  color: var(--color-ink);
   font-family: inherit;
   font-size: 0.92rem;
   font-weight: 600;
@@ -290,7 +342,7 @@
 .mega-topic:hover,
 .mega-topic.is-active {
   background: var(--color-surface);
-  color: var(--color-accent);
+  color: var(--color-link);
 }
 
 .mega-panel__lead {
@@ -308,7 +360,7 @@
 }
 
 .mega-panel__links a {
-  color: var(--color-navy);
+  color: var(--color-ink);
   font-size: 0.95rem;
   font-weight: 600;
   text-transform: none;
@@ -317,7 +369,7 @@
 }
 
 .mega-panel__links a:hover {
-  color: var(--color-accent);
+  color: var(--color-link);
 }
 
 .mega-panel__links a::after {
@@ -449,7 +501,7 @@
   .nav {
     position: fixed;
     z-index: 1;
-    top: var(--header-h);
+    top: var(--chrome-h);
     right: 0;
     bottom: 0;
     left: 0;
@@ -457,7 +509,7 @@
     overflow-y: auto;
     overscroll-behavior: contain;
     background: var(--color-header);
-    color: var(--color-navy);
+    color: var(--color-ink);
     padding: 0.25rem 0 calc(1.5rem + env(safe-area-inset-bottom, 0px));
     -webkit-overflow-scrolling: touch;
   }
@@ -489,7 +541,7 @@
   border: 0;
   border-bottom: 1px solid var(--color-border);
   background: none;
-  color: var(--color-navy);
+  color: var(--color-ink);
   font-family: inherit;
   font-size: 1rem;
   font-weight: 600;
@@ -508,7 +560,7 @@
 }
 
 .mnav__branch.is-current {
-  color: var(--color-accent);
+  color: var(--color-link);
 }
 
 .mnav__chevron {
@@ -527,7 +579,7 @@ h2.mnav__heading {
   min-height: 3.25rem;
   padding: 0.9rem 1.25rem;
   border-bottom: 1px solid var(--color-border);
-  color: var(--color-navy);
+  color: var(--color-ink);
   font-size: 1.02rem;
   font-weight: 600;
   line-height: 1.35;
@@ -538,7 +590,7 @@ h2.mnav__heading {
 
 .mnav__link:hover,
 .mnav__link.is-current {
-  color: var(--color-accent);
+  color: var(--color-link);
 }
 
 .mnav__login {
@@ -586,6 +638,15 @@ h2.mnav__heading {
   padding: 1rem;
   background: var(--color-white);
   border-radius: 0.5rem;
+}
+
+/* Navy wordmark is drawn on a transparent PNG, so dark surfaces need a white plate. */
+html[data-theme="dark"] .site-header .logo__img,
+html[data-theme="dark"] .program-intro__logo {
+  box-sizing: content-box;
+  padding: 0.2rem 0.35rem;
+  background: var(--color-white);
+  border-radius: 0.4rem;
 }
 
 .site-footer__copy {
@@ -646,7 +707,7 @@ h2.mnav__heading {
   --fund-slide: 0.8s;
   --fund-slide-ease: cubic-bezier(0.22, 0.61, 0.36, 1);
   padding-top: clamp(8rem, 14vw, 12rem);
-  background: var(--color-white);
+  background: var(--color-page);
 }
 
 .fund-use__intro h2 {
@@ -682,7 +743,7 @@ h2.mnav__heading {
   bottom: 0;
   margin-block: auto;
   border-radius: 3px;
-  background: color-mix(in srgb, var(--color-navy) 41%, transparent);
+  background: color-mix(in srgb, var(--color-ink) 41%, transparent);
   transition:
     left var(--fund-slide) var(--fund-slide-ease),
     width var(--fund-slide) var(--fund-slide-ease),
@@ -691,7 +752,7 @@ h2.mnav__heading {
 }
 
 .fund-use__dot.is-active {
-  background: var(--color-navy);
+  background: var(--color-ink);
 }
 
 .fund-use__pager.is-instant .fund-use__dot {
@@ -719,13 +780,13 @@ h2.mnav__heading {
   padding: 0;
   border: 1px solid var(--color-border);
   border-radius: 999px;
-  background: var(--color-white);
-  color: var(--color-navy);
+  background: var(--color-panel);
+  color: var(--color-ink);
   cursor: pointer;
 }
 
 .fund-use__nav button:hover:not(:disabled) {
-  border-color: var(--color-navy);
+  border-color: var(--color-ink);
 }
 
 .fund-use__nav button:disabled {
