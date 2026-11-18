@@ -121,15 +121,20 @@ main:focus {
   margin-bottom: var(--space-sm);
 }
 
-.reveal {
-  opacity: 0;
-  transform: translateY(1.25rem);
-  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
-}
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(1.5rem);
+    transition:
+      opacity 0.6s var(--ease),
+      transform 0.6s var(--ease);
+    transition-delay: var(--reveal-delay, 0ms);
+  }
 
-.reveal.is-visible {
-  opacity: 1;
-  transform: none;
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 .prose {
