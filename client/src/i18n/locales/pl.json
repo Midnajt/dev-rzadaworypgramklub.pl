@@ -3,7 +3,9 @@
   "theme": {
     "label": "Wygląd strony",
     "light": "Jasny",
-    "dark": "Ciemny"
+    "dark": "Ciemny",
+    "forced": "Samsung Internet sam przyciemnia stronę i ignoruje ten przełącznik. Wyłącz tryb ciemny stron: menu → Ustawienia → Wygląd → Tryb ciemny.",
+    "forcedDismiss": "Zamknij"
   },
   "meta": {
     "homeTitle": "Rządowy Program KLUB 2026 — rzadowyprogramklub.pl",

@@ -137,3 +137,7 @@ Sprawdzone na localhost:5173 (regulamin, wpis, kontakt, strona główna, Escape,
 Nad nagłówkiem jest belka z przyciskami słońca i księżyca z react-icons; pierwszy widok jest zawsze jasny, także gdy telefon ma tryb ciemny, a wybór księżyca zostaje w localStorage.
 `color-scheme: only light` wyłącza automatyczne przyciemnianie przeglądarki; ciemny motyw podmienia tokeny strony, a znak programu dostaje białą płytkę, żeby granatowy napis został czytelny.
 Sprawdzone na localhost:5173 przy prefers-color-scheme: dark (390 px i 1280 px: strona główna, aktualności, FAQ, menu). Na FTP nic nie poszło. Szczegóły: `.cursor/reports/motyw_jasny_ciemny_20261118.md`.
+
+Jasny motyw na telefonie zostaje przyciemniony przez filtr przeglądarki (pasek z domkiem i licznikiem kart to Samsung Internet), który ignoruje `color-scheme: only light` i maluje czarne tło oraz jasny tekst już po CSS.
+W Samsung Internet pod przyciskami słońca i księżyca jest krótka podpowiedź, jak wyłączyć „Tryb ciemny” stron; po „Zamknij” znika i zostaje w localStorage.
+Sprawdzone lokalnie z identyfikatorem SamsungBrowser oraz bez niego. Na FTP nic nie poszło. Szczegóły: `.cursor/reports/filtr_samsung_20261118.md`.
