@@ -1,5 +1,10 @@
 {
   "skip": "Przejdź do treści",
+  "theme": {
+    "label": "Wygląd strony",
+    "light": "Jasny",
+    "dark": "Ciemny"
+  },
   "meta": {
     "homeTitle": "Rządowy Program KLUB 2026 — rzadowyprogramklub.pl",
     "homeDesc": "Rządowy Program KLUB 2026: wsparcie finansowe dla małych klubów sportowych. Regulamin, najczęstsze pytania i aktualności w jednym miejscu.",
