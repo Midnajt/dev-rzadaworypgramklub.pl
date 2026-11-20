@@ -2,6 +2,7 @@ import { useTranslation } from "react-i18next";
 import { Reveal } from "@/components/motion/Reveal";
 import { FundUseCarousel } from "@/components/sections/FundUseCarousel";
 import { HeroVideo } from "@/components/sections/HeroVideo";
+import { HomeSamples } from "@/components/sections/HomeSamples";
 import { assets } from "@/config/assets";
 
 export function HomePage() {
@@ -26,6 +27,7 @@ export function HomePage() {
         </Reveal>
       </section>
       <FundUseCarousel />
+      <HomeSamples />
     </main>
   );
 }

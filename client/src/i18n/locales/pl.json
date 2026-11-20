@@ -106,6 +106,107 @@
           "alt": "Mecz halowej piłki nożnej na drewnianym parkiecie."
         }
       }
+    },
+    "samples": {
+      "eyebrow": "Wzory do oceny",
+      "title": "Przykładowe zachowania",
+      "intro": "Poniżej są trzy zachowania z dokumentu UX, z tekstem zastępczym. Mega-menu w tym samym wzorze jest już w nagłówku: Start, Aktualności i FAQ. Najechanie otwiera panel, a wybór działu podmienia prawą kolumnę.",
+      "reveal": {
+        "eyebrow": "Tekst przy scrollu",
+        "note": "Pasuje nad wstępem sekcji, nad dwiema kartami wejścia albo nad krótkim blokiem pod nagłówkiem. Wchodzi raz i zostaje.",
+        "title": "Lorem ipsum dolor sit amet",
+        "lead": "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
+        "cards": {
+          "one": {
+            "title": "Lorem ipsum",
+            "body": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+          },
+          "two": {
+            "title": "Sed ut perspiciatis",
+            "body": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores."
+          }
+        }
+      },
+      "steps": {
+        "eyebrow": "Kroki i zdjęcie",
+        "note": "Pasuje do ścieżki wniosku: kto składa, jakie są zasady, co przygotować i gdzie czytać regulamin. Na szerokim ekranie zdjęcie zostaje pod nagłówkiem, a tekst kolejnego kroku się rozjaśnia.",
+        "title": "Lorem ipsum dolor sit amet",
+        "items": {
+          "one": {
+            "title": "Lorem ipsum dolor",
+            "lead": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
+            "alt": "Trener kuca przy dzieciach w niebieskich koszulkach podczas zbiórki na trawie.",
+            "bullets": {
+              "a": "Totam rem aperiam",
+              "b": "Eaque ipsa quae",
+              "c": "Ab illo inventore"
+            }
+          },
+          "two": {
+            "title": "Consectetur adipiscing",
+            "lead": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur.",
+            "alt": "Dziecko kozłuje przy koszu, a dwóch starszych zawodników patrzy.",
+            "bullets": {
+              "a": "Neque porro quisquam",
+              "b": "Qui dolorem ipsum",
+              "c": "Quia dolor sit amet"
+            }
+          },
+          "three": {
+            "title": "Sed do eiusmod tempor",
+            "lead": "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.",
+            "alt": "Chłopiec w czerwonym podkoszulku i niebieskich bandażach w pozycji bokserskiej.",
+            "bullets": {
+              "a": "Nisi ut aliquid",
+              "b": "Ex ea commodi",
+              "c": "Consequatur quis autem"
+            }
+          },
+          "four": {
+            "title": "Ut enim ad minim",
+            "lead": "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae.",
+            "alt": "Dwie dziewczynki w kamizelkach na małej żaglówce.",
+            "bullets": {
+              "a": "Vel illum qui",
+              "b": "Dolorem eum fugiat",
+              "c": "Quo voluptas nulla"
+            }
+          }
+        }
+      },
+      "cards": {
+        "eyebrow": "Karuzela kart",
+        "note": "Pasuje do skrótów podstron. Karta jest linkiem. Strzałki i przeciągnięcie przesuwają rząd o jedną kartę, bez autoplay.",
+        "title": "Lorem ipsum dolor sit amet",
+        "prev": "Poprzednie",
+        "next": "Następne",
+        "items": {
+          "regulations": {
+            "title": "Lorem ipsum",
+            "body": "Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt."
+          },
+          "faq": {
+            "title": "Consectetur elit",
+            "body": "Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+          },
+          "news": {
+            "title": "Eiusmod tempor",
+            "body": "Incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud."
+          },
+          "basics": {
+            "title": "Ad minim veniam",
+            "body": "Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+          },
+          "contact": {
+            "title": "Duis aute irure",
+            "body": "Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
+          },
+          "downloads": {
+            "title": "Excepteur sint",
+            "body": "Occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim."
+          }
+        }
+      }
     }
   },
   "news": {
