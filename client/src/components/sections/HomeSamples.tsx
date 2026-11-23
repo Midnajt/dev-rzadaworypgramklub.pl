@@ -1,7 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { Reveal } from "@/components/motion/Reveal";
 import { StepScroll } from "@/components/sections/StepScroll";
-import { TextCardCarousel } from "@/components/sections/TextCardCarousel";
 
 const REVEAL_CARDS = ["one", "two"] as const;
 
@@ -37,7 +36,6 @@ export function HomeSamples() {
         </div>
       </section>
       <StepScroll />
-      <TextCardCarousel />
     </>
   );
 }

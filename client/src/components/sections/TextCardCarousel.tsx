@@ -2,16 +2,15 @@ import {
   useCallback,
   useEffect,
   useLayoutEffect,
+  useMemo,
   useRef,
   useState,
   type MouseEvent,
   type PointerEvent,
   type TransitionEvent,
 } from "react";
-import { useTranslation } from "react-i18next";
 import { HashLink } from "@/components/layout/HashLink";
 import { Reveal } from "@/components/motion/Reveal";
-import { sampleCards } from "@/content/home-samples";
 import { useReducedMotion } from "@/lib/use-media";
 import { cn } from "@/lib/utils";
 
@@ -19,10 +18,16 @@ const CLONES = 3;
 const DRAG_THRESHOLD = 48;
 const LOCK_MS = 800;
 
-type Slide = {
-  key: string;
+export type TextCard = {
   id: string;
-  href: string;
+  title: string;
+  body: string;
+  /** Without a link the card is plain text. */
+  href?: string;
+};
+
+type Slide = TextCard & {
+  key: string;
   clone: boolean;
 };
 
@@ -32,32 +37,23 @@ type Metrics = {
   fits: boolean;
 };
 
-function buildSlides(): Slide[] {
-  const head = sampleCards.slice(-CLONES).map((card) => ({
-    key: `prev-${card.id}`,
-    id: card.id,
-    href: card.href,
-    clone: true,
-  }));
-  const body = sampleCards.map((card) => ({
-    key: card.id,
-    id: card.id,
-    href: card.href,
-    clone: false,
-  }));
-  const tail = sampleCards.slice(0, CLONES).map((card) => ({
-    key: `next-${card.id}`,
-    id: card.id,
-    href: card.href,
-    clone: true,
-  }));
+type TextCardCarouselProps = {
+  id: string;
+  title: string;
+  cards: readonly TextCard[];
+  prevLabel: string;
+  nextLabel: string;
+  className?: string;
+};
+
+function buildSlides(cards: readonly TextCard[]): Slide[] {
+  const head = cards.slice(-CLONES).map((card) => ({ ...card, key: `prev-${card.id}`, clone: true }));
+  const body = cards.map((card) => ({ ...card, key: card.id, clone: false }));
+  const tail = cards.slice(0, CLONES).map((card) => ({ ...card, key: `next-${card.id}`, clone: true }));
   return [...head, ...body, ...tail];
 }
 
-const slides = buildSlides();
-
-function wrapIndex(index: number) {
-  const count = sampleCards.length;
+function wrapIndex(index: number, count: number) {
   if (index < CLONES) return index + count;
   if (index >= CLONES + count) return index - count;
   return index;
@@ -72,8 +68,9 @@ function Chevron({ direction }: { direction: "left" | "right" }) {
   );
 }
 
-export function TextCardCarousel() {
-  const { t } = useTranslation();
+export function TextCardCarousel({ id, title, cards, prevLabel, nextLabel, className }: TextCardCarouselProps) {
+  const slides = useMemo(() => buildSlides(cards), [cards]);
+  const count = cards.length;
   const reduced = useReducedMotion();
   const viewportRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
@@ -102,7 +99,6 @@ export function TextCardCarousel() {
     const styles = getComputedStyle(track);
     const gap = Number.parseFloat(styles.columnGap || styles.gap || "0") || 0;
     const stride = card.getBoundingClientRect().width + gap;
-    const count = sampleCards.length;
     const width = viewport.clientWidth;
     const total = count * stride - gap;
     const visible = stride > 0 ? Math.max(1, Math.min(count, Math.round((width + gap) / stride))) : 1;
@@ -112,7 +108,7 @@ export function TextCardCarousel() {
         ? current
         : { stride, visible, fits },
     );
-  }, []);
+  }, [count]);
 
   useLayoutEffect(() => {
     measure();
@@ -137,7 +133,7 @@ export function TextCardCarousel() {
       if (lockRef.current || metrics.fits) return;
       if (reduced) {
         setAnimate(false);
-        setIndex((current) => wrapIndex(current + direction));
+        setIndex((current) => wrapIndex(current + direction, count));
         return;
       }
       lockRef.current = true;
@@ -145,12 +141,12 @@ export function TextCardCarousel() {
       setAnimate(true);
       setIndex((current) => current + direction);
     },
-    [metrics.fits, reduced, releaseLock],
+    [count, metrics.fits, reduced, releaseLock],
   );
 
   const onTransitionEnd = (event: TransitionEvent<HTMLDivElement>) => {
     if (event.target !== event.currentTarget || event.propertyName !== "transform") return;
-    const next = wrapIndex(index);
+    const next = wrapIndex(index, count);
     if (next !== index) {
       setAnimate(false);
       setIndex(next);
@@ -209,12 +205,10 @@ export function TextCardCarousel() {
   const instant = !animate || reduced || offset !== 0;
 
   return (
-    <section className="section section--surface text-carousel" aria-labelledby="sample-cards-title">
+    <section className={cn("section text-carousel", className)} aria-labelledby={id}>
       <div className="container">
-        <p className="section__eyebrow">{t("home.samples.cards.eyebrow")}</p>
-        <p className="sample-note">{t("home.samples.cards.note")}</p>
-        <Reveal as="h2" id="sample-cards-title" rootMargin="0px 0px -18% 0px" threshold={0.2}>
-          {t("home.samples.cards.title")}
+        <Reveal as="h2" id={id} rootMargin="0px 0px -18% 0px" threshold={0.2}>
+          {title}
         </Reveal>
         <div
           ref={viewportRef}
@@ -233,30 +227,42 @@ export function TextCardCarousel() {
           >
             {slides.map((slide, trackIndex) => {
               const inView = metrics.stride === 0 ? !slide.clone : trackIndex >= origin && trackIndex < origin + metrics.visible;
-              return (
+              const content = (
+                <>
+                  <h3>{slide.title}</h3>
+                  <p>{slide.body}</p>
+                </>
+              );
+              const hidden = {
+                "aria-hidden": inView ? undefined : true,
+                inert: inView ? undefined : true,
+              } as const;
+              return slide.href ? (
                 <HashLink
                   key={slide.key}
                   to={slide.href}
                   className="text-carousel__card"
                   data-text-card=""
-                  aria-hidden={inView ? undefined : true}
+                  {...hidden}
                   tabIndex={inView ? undefined : -1}
-                  inert={inView ? undefined : true}
                   draggable={false}
                 >
-                  <h3>{t(`home.samples.cards.items.${slide.id}.title`)}</h3>
-                  <p>{t(`home.samples.cards.items.${slide.id}.body`)}</p>
+                  {content}
                 </HashLink>
+              ) : (
+                <article key={slide.key} className="text-carousel__card" data-text-card="" {...hidden}>
+                  {content}
+                </article>
               );
             })}
           </div>
         </div>
         <div className="text-carousel__toolbar">
           <div className="text-carousel__nav">
-            <button type="button" onClick={() => step(-1)} disabled={metrics.fits} aria-label={t("home.samples.cards.prev")}>
+            <button type="button" onClick={() => step(-1)} disabled={metrics.fits} aria-label={prevLabel}>
               <Chevron direction="left" />
             </button>
-            <button type="button" onClick={() => step(1)} disabled={metrics.fits} aria-label={t("home.samples.cards.next")}>
+            <button type="button" onClick={() => step(1)} disabled={metrics.fits} aria-label={nextLabel}>
               <Chevron direction="right" />
             </button>
           </div>

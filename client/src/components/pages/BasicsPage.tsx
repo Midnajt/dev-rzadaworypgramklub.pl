@@ -1,11 +1,22 @@
+import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { Reveal } from "@/components/motion/Reveal";
 import { HashLink } from "@/components/layout/HashLink";
 import { PageFrame } from "@/components/layout/PageBanner";
-import { basicsBlocks, basicsIntro, basicsNote, basicsSteps } from "@/content/basics";
+import { TextCardCarousel } from "@/components/sections/TextCardCarousel";
+import { basicsBlocks, basicsHighlights, basicsIntro, basicsNote, basicsSteps } from "@/content/basics";
 
 export function BasicsPage() {
   const { t } = useTranslation();
+  const highlights = useMemo(
+    () =>
+      basicsHighlights.map((id) => ({
+        id,
+        title: t(`basics.highlights.items.${id}.title`),
+        body: t(`basics.highlights.items.${id}.body`),
+      })),
+    [t],
+  );
 
   return (
     <PageFrame>
@@ -17,6 +28,13 @@ export function BasicsPage() {
           <p>{basicsIntro}</p>
         </Reveal>
       </section>
+      <TextCardCarousel
+        id="basics-highlights-title"
+        title={t("basics.highlights.title")}
+        cards={highlights}
+        prevLabel={t("basics.highlights.prev")}
+        nextLabel={t("basics.highlights.next")}
+      />
       <section className="section section--surface">
         <Reveal className="container">
           <h2>{t("basics.stepsTitle")}</h2>
