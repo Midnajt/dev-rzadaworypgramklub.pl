@@ -110,7 +110,7 @@
     "samples": {
       "eyebrow": "Wzory do oceny",
       "title": "Przykładowe zachowania",
-      "intro": "Poniżej są trzy zachowania z dokumentu UX, z tekstem zastępczym. Mega-menu w tym samym wzorze jest już w nagłówku: Start, Aktualności i FAQ. Najechanie otwiera panel, a wybór działu podmienia prawą kolumnę.",
+      "intro": "Poniżej jest wzór z dokumentu UX z tekstem zastępczym oraz kroki dołączenia do programu. Mega-menu w tym samym wzorze jest już w nagłówku: Start, Aktualności i FAQ. Najechanie otwiera panel, a wybór działu podmienia prawą kolumnę.",
       "reveal": {
         "eyebrow": "Tekst przy scrollu",
         "note": "Pasuje nad wstępem sekcji, nad dwiema kartami wejścia albo nad krótkim blokiem pod nagłówkiem. Wchodzi raz i zostaje.",
@@ -128,8 +128,6 @@
         }
       },
       "steps": {
-        "eyebrow": "Kroki i zdjęcie",
-        "note": "Pasuje do ścieżki wniosku: kto składa, jakie są zasady, co przygotować i gdzie czytać regulamin. Na szerokim ekranie zdjęcie zostaje pod nagłówkiem, a tekst kolejnego kroku się rozjaśnia.",
         "title": "Jak dołączyć do Programu KLUB",
         "items": {
           "one": {
@@ -173,39 +171,6 @@
             }
           }
         }
-      },
-      "cards": {
-        "eyebrow": "Karuzela kart",
-        "note": "Pasuje do skrótów podstron. Karta jest linkiem. Strzałki i przeciągnięcie przesuwają rząd o jedną kartę, bez autoplay.",
-        "title": "Lorem ipsum dolor sit amet",
-        "prev": "Poprzednie",
-        "next": "Następne",
-        "items": {
-          "regulations": {
-            "title": "Lorem ipsum",
-            "body": "Dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt."
-          },
-          "faq": {
-            "title": "Consectetur elit",
-            "body": "Adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-          },
-          "news": {
-            "title": "Eiusmod tempor",
-            "body": "Incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam quis nostrud."
-          },
-          "basics": {
-            "title": "Ad minim veniam",
-            "body": "Quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-          },
-          "contact": {
-            "title": "Duis aute irure",
-            "body": "Dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-          },
-          "downloads": {
-            "title": "Excepteur sint",
-            "body": "Occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim."
-          }
-        }
       }
     }
   },
@@ -238,7 +203,42 @@
     "title": "Podstawowe informacje",
     "lead": "Rządowy Program „KLUB” — edycja 2026. Skrót zasad; szczegóły są w Regulaminie.",
     "stepsTitle": "Krok po kroku",
-    "toRegulations": "Przejdź do Regulaminu"
+    "toRegulations": "Przejdź do Regulaminu",
+    "highlights": {
+      "title": "Program w skrócie",
+      "prev": "Poprzednie",
+      "next": "Następne",
+      "items": {
+        "uczestnicy": {
+          "title": "Uczestnicy Programu",
+          "body": "Kluby sportowe, w tym uczniowskie kluby sportowe (UKS) działające w formie stowarzyszenia, realizujące zadania z zakresu upowszechniania kultury fizycznej i sportu wśród dzieci i młodzieży."
+        },
+        "bezposredni": {
+          "title": "Bezpośredni uczestnicy",
+          "body": "Wyłącznie dzieci i młodzież w wieku do 18. roku życia, biorący udział w systematycznych zajęciach sportowych, szkoleniu sportowym i obozach sportowych klubu."
+        },
+        "kwoty": {
+          "title": "Wysokości dofinansowania",
+          "body": "Kluby jednosekcyjne — 12 tys. złotych, kluby wielosekcyjne — 17 tys. złotych (wymóg: min. 2 różnych szkoleniowców z 2 różnych zgłoszonych sekcji)."
+        },
+        "przeznaczenie": {
+          "title": "Przeznaczenie środków",
+          "body": "Wynagrodzenia szkoleniowców prowadzących zajęcia sportowe, zakup sprzętu sportowego i/lub organizacja obozów sportowych."
+        },
+        "termin": {
+          "title": "Termin realizacji",
+          "body": "Od 1 stycznia do 30 listopada 2026; ostatnie wydatki ze środków przyznanej dotacji mogą być dokonane najpóźniej do 30 listopada 2026."
+        },
+        "wklad": {
+          "title": "Udział środków własnych",
+          "body": "Nie mniej niż 5% całości kosztów zadania — ze środków własnych lub pochodzących z innych źródeł, ale nie ze środków Ministerstwa Sportu i Turystyki."
+        },
+        "finansowanie": {
+          "title": "Finansowanie",
+          "body": "Fundusz Rozwoju Kultury Fizycznej (FRKF), którego dysponentem jest Minister Sportu i Turystyki; środki przekazuje Operator Krajowy — KZ LZS."
+        }
+      }
+    }
   },
   "downloads": {
     "eyebrow": "Materiały",
