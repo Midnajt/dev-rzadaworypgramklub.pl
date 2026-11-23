@@ -1126,7 +1126,7 @@ html[data-theme="dark"] .program-intro__logo {
   color: var(--color-text-muted);
 }
 
-.text-carousel__card:hover {
+a.text-carousel__card:hover {
   border-color: var(--color-accent);
   color: var(--color-text);
 }

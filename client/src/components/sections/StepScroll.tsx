@@ -52,8 +52,6 @@ export function StepScroll() {
   return (
     <section className="section step-scroll" aria-labelledby="sample-steps-title">
       <div className="container">
-        <p className="section__eyebrow">{t("home.samples.steps.eyebrow")}</p>
-        <p className="sample-note">{t("home.samples.steps.note")}</p>
         <Reveal as="h2" id="sample-steps-title" rootMargin="0px 0px -18% 0px" threshold={0.2}>
           {t("home.samples.steps.title")}
         </Reveal>

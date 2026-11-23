@@ -109,6 +109,17 @@ export const basicsBlocks: InfoBlock[] = [
   },
 ];
 
+/** Card copy lives in pl.json under basics.highlights.items. */
+export const basicsHighlights = [
+  "uczestnicy",
+  "bezposredni",
+  "kwoty",
+  "przeznaczenie",
+  "termin",
+  "wklad",
+  "finansowanie",
+] as const;
+
 export const basicsSteps = [
   {
     id: "step-1",
