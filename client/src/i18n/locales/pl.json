@@ -130,46 +130,46 @@
       "steps": {
         "eyebrow": "Kroki i zdjęcie",
         "note": "Pasuje do ścieżki wniosku: kto składa, jakie są zasady, co przygotować i gdzie czytać regulamin. Na szerokim ekranie zdjęcie zostaje pod nagłówkiem, a tekst kolejnego kroku się rozjaśnia.",
-        "title": "Lorem ipsum dolor sit amet",
+        "title": "Jak dołączyć do Programu KLUB",
         "items": {
           "one": {
-            "title": "Lorem ipsum dolor",
-            "lead": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
+            "title": "Sprawdź, czy klub może złożyć wniosek",
+            "lead": "Program jest dla klubów sportowych i UKS działających jako stowarzyszenie, które prowadzą zajęcia dla dzieci i młodzieży do 18. roku życia.",
             "alt": "Trener kuca przy dzieciach w niebieskich koszulkach podczas zbiórki na trawie.",
             "bullets": {
-              "a": "Totam rem aperiam",
-              "b": "Eaque ipsa quae",
-              "c": "Ab illo inventore"
+              "a": "Co najmniej 3 lata zarejestrowanej działalności",
+              "b": "Do 250 tys. zł dotacji publicznych na szkolenie w 2025 r.",
+              "c": "Jeden wniosek na klub"
             }
           },
           "two": {
-            "title": "Consectetur adipiscing",
-            "lead": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur.",
+            "title": "Wybierz kwotę i zaplanuj zadanie",
+            "lead": "Dotacja pokrywa wynagrodzenia szkoleniowców, sprzęt sportowy i obozy. Zajęcia trwają co najmniej 2 miesiące w okresie od 1 stycznia do 30 listopada 2026 r.",
             "alt": "Dziecko kozłuje przy koszu, a dwóch starszych zawodników patrzy.",
             "bullets": {
-              "a": "Neque porro quisquam",
-              "b": "Qui dolorem ipsum",
-              "c": "Quia dolor sit amet"
+              "a": "Klub jednosekcyjny: 12 tys. zł",
+              "b": "Klub wielosekcyjny: 17 tys. zł i dwóch szkoleniowców",
+              "c": "Wkład własny min. 5%: 600 zł albo 850 zł"
             }
           },
           "three": {
-            "title": "Sed do eiusmod tempor",
-            "lead": "Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam.",
+            "title": "Przygotuj załączniki w PDF",
+            "lead": "Oświadczenia pobierasz z systemu AMODIT, wypełniasz na komputerze i podpisujesz elektronicznie. Podpisują osoby uprawnione do reprezentowania klubu zgodnie ze statutem.",
             "alt": "Chłopiec w czerwonym podkoszulku i niebieskich bandażach w pozycji bokserskiej.",
             "bullets": {
-              "a": "Nisi ut aliquid",
-              "b": "Ex ea commodi",
-              "c": "Consequatur quis autem"
+              "a": "Wypis z KRS lub ewidencji, nie starszy niż 3 miesiące",
+              "b": "Statut klubu w jednym pliku PDF",
+              "c": "Oświadczenie o dotacjach za 2025 r. i o zgodności dokumentów"
             }
           },
           "four": {
-            "title": "Ut enim ad minim",
-            "lead": "Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae.",
+            "title": "Złóż wniosek w systemie AMODIT",
+            "lead": "Nabór trwa od 2 marca 2026 r. (godz. 12:00) do 30 marca 2026 r. (godz. 23:59). Po kliknięciu „WYŚLIJ” wniosku nie da się już poprawić.",
             "alt": "Dwie dziewczynki w kamizelkach na małej żaglówce.",
             "bullets": {
-              "a": "Vel illum qui",
-              "b": "Dolorem eum fugiat",
-              "c": "Quo voluptas nulla"
+              "a": "Ocena, umowa i rozliczenie odbywają się w AMODIT",
+              "b": "O dotacji decyduje ranking punktowy",
+              "c": "Wydatki rozlicz do 30 listopada 2026 r."
             }
           }
         }
