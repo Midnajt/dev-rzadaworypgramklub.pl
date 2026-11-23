@@ -145,3 +145,7 @@ Sprawdzone lokalnie z identyfikatorem SamsungBrowser oraz bez niego. Na FTP nic 
 Na stronie głównej, pod karuzelą środków, są trzy przykładowe wzorce z `docs/ux_squarespace_wzor_promptow_20261117.md`: wejście nagłówka przy scrollu, kroki ze zdjęciem przyklejonym pod nagłówkiem oraz karuzela kart z lorem ipsum.
 Mega-menu w tym samym wzorze zostaje w nagłówku (Start, Aktualności, FAQ). Tekst wzorów jest zastępczy, a zdjęcia kroków biorą piłkę nożną, koszykówkę, boks i żeglarstwo z galerii.
 Sprawdzone na localhost:5173 (wejście tekstu raz, cztery kroki, pętla karuzeli, 390 px, reduced motion). Na FTP nic nie poszło. Szczegóły: `.cursor/reports/wzory_ux_strona_glowna_20261118.md`.
+
+We wzorze „Kroki i zdjęcie” (`home.samples.steps` w `pl.json`) lorem ipsum zastąpiła instrukcja „Jak dołączyć do Programu KLUB” w czterech krokach: warunki, kwota i plan, załączniki w PDF, wniosek w AMODIT (nabór 2–30 marca 2026), oparta na Regulaminie 2026.
+Układ, zdjęcia, `eyebrow`, `note` i `alt` bez zmian; wkład własny podano za § 4 ust. 18 (600 / 850 zł), co nadal kłóci się z „Podstawowymi informacjami” i czeka na klienta.
+Wzory „Tekst przy scrollu” i „Karuzela kart” mają jeszcze lorem. Na FTP nic nie poszło. Szczegóły: `.cursor/reports/kroki_dolaczenia_20261123.md`.
