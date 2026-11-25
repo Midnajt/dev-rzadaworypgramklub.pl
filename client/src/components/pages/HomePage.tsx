@@ -3,7 +3,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { FundUseCarousel } from "@/components/sections/FundUseCarousel";
 import { HeroVideo } from "@/components/sections/HeroVideo";
 import { HomeSamples } from "@/components/sections/HomeSamples";
-import { assets } from "@/config/assets";
+import { site } from "@/config/site";
 
 export function HomePage() {
   const { t } = useTranslation();
@@ -13,16 +13,9 @@ export function HomePage() {
       <HeroVideo />
       <section className="section section--surface">
         <Reveal className="container program-intro">
-          <img
-            className="program-intro__logo"
-            src={assets.programLogo}
-            alt={t("home.programLogoAlt")}
-            width={490}
-            height={433}
-          />
           <div className="prose">
             <h2>{t("home.sectionTitle")}</h2>
-            <p>{t("home.sectionBody")}</p>
+            <p>{t("home.sectionBody", { org: site.address.org })}</p>
           </div>
         </Reveal>
       </section>

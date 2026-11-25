@@ -153,3 +153,7 @@ Wzory „Tekst przy scrollu” i „Karuzela kart” mają jeszcze lorem. Na FTP
 Kroki na stronie głównej nie mają już nadtytułu „Kroki i zdjęcie” ani notatki, a „Karuzela kart” zeszła z głównej na `#/podstawowe-informacje` jako „Program w skrócie” (7 kart z bloków strony, teksty w `basics.highlights`, kolejność w `basicsHighlights`).
 `TextCardCarousel` bierze karty, tytuł i etykiety z propsów; karta bez `href` jest zwykłym `article` bez czerwonej ramki po najechaniu.
 Na głównej z wzorów został tylko „Tekst przy scrollu” z lorem. Na FTP nic nie poszło. Szczegóły: `.cursor/reports/karuzela_podstawowe_informacje_20261123.md`.
+
+Z bloku „Program dla klubów” na stronie głównej zszedł znak „Witaj w Klubie”; akapit zaczyna się od zdania, że Rządowy Program KLUB jest platformą wniosków prowadzoną przez Krajowe Zrzeszenie LZS, a dalszy tekst o zajęciach do 18. roku życia zostaje.
+Nazwa zrzeszenia bierze się z `site.address.org`, a znak programu zostaje w nagłówku i w stopce.
+Sprawdzone na localhost:5173 (1280 px, 390 px, ciemny motyw). Na FTP nic nie poszło. Szczegóły: `.cursor/reports/wstep_platforma_20261125.md`.
