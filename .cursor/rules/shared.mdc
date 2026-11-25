@@ -157,3 +157,55 @@ Na głównej z wzorów został tylko „Tekst przy scrollu” z lorem. Na FTP ni
 Z bloku „Program dla klubów” na stronie głównej zszedł znak „Witaj w Klubie”; akapit zaczyna się od zdania, że Rządowy Program KLUB jest platformą wniosków prowadzoną przez Krajowe Zrzeszenie LZS, a dalszy tekst o zajęciach do 18. roku życia zostaje.
 Nazwa zrzeszenia bierze się z `site.address.org`, a znak programu zostaje w nagłówku i w stopce.
 Sprawdzone na localhost:5173 (1280 px, 390 px, ciemny motyw). Na FTP nic nie poszło. Szczegóły: `.cursor/reports/wstep_platforma_20261125.md`.
+
+Belka Jasny/Ciemny zeszła: strona zostaje przy jasnych tokenach i `color-scheme: only light`, a nagłówek wraca pod górną krawędź okna.
+Linki mega-menu z nazwą sekcji mają kotwicę (`#/podstawowe-informacje/kroki`, `#/podstawowe-informacje/kwoty`, `#/regulamin/nabor`, `#/faq/…`, `#/kontakt/godziny`) i przewijają do niej pod nagłówkiem.
+Na `#/do-pobrania` są te same cztery logotypy co na produkcji. Na FTP nic nie poszło. Szczegóły: `.cursor/reports/motyw_kotwice_20261125.md`.
+
+Klik w temat lewej kolumny mega-menu otwiera stronę: pierwszy link tematu (podstawowe informacje, regulamin, do pobrania, wpis, kategoria FAQ, kontakt), a najechanie nadal przełącza opis po prawej.
+Tematy to linki `HashLink` w `MegaMenu.tsx`; styl `.nav__list a.mega-topic` zostawia zwykłą wielkość liter, bez kreski pod spodem.
+Sprawdzone na localhost:5173 (podstawowe informacje, regulamin, wpis o rekordzie, `#/faq/dotacje`). Na FTP nic nie poszło. Szczegóły: `.cursor/reports/mega_temat_strona_20261125.md`.
+
+Blok „Program dla klubów” na stronie głównej siedzi po prawej stronie kontenera: `.program-intro .prose` w `pages.css` ma `margin-left: auto` przy `max-width: 36rem`, a tekst w środku zostaje wyrównany do lewej.
+Na wąskim widoku (390 px) akapit wraca na pełną szerokość kontenera, bo 36 rem jest szersze niż kolumna i lewy margines schodzi do zera.
+Sprawdzone na localhost:5173 (1280 px: nagłówek left 617, width 576; 390 px: left 20, width 350). Na FTP nic nie poszło i nie było commita. Szczegóły: `.cursor/reports/wstep_prawa_20261125.md`.
+
+Kredyt AddPattern i pixabay zszedł spod prawej kolumny pod granatowy pasek stopki: `.footer-credit` jest osobnym rzędem na pełną szerokość, a oba zdania stoją w jednym akapicie rozdzielone kropką środkową.
+Na desktopie (okno 1191 px) rząd ma left 0, width 1176 i height 51, w jednej linii; przy 390 px zostaje pod stopką i zawija się na dwie linie tego samego zdania, bo całość nie mieści się w czytelnym kroju.
+Linki do addpattern.pl i pixabay.com zostają klikalne. Na FTP nic nie poszło i nie było commita. Szczegóły: `.cursor/reports/stopka_kredyt_linia_20261125.md`.
+
+Regulamin na `#/regulamin` nie jest już ścianą tekstu: akapity mają 1,25 rem i line-height 1,8, a między blokami § jest jedna czerwona linia `2px solid var(--color-accent)` nad drugim i kolejnymi `h2.legal__heading` (nad § 1 linii nie ma).
+Nagłówki § są większe i grubsze, śródtytuły `h3` zostają mniejsze od §, a parser w `RegulationsPage.tsx` normalizuje CRLF, bo inaczej cały plik sklejał się w jedną listę i filtr nie widział paragrafów.
+Sprawdzone na localhost:5173 (desktop i 390 px: linia przed § 2, „AMODIT” zostawia § 1, 4, 5, 8, 9 i 10 z 12 podkreśleniami, puste pole przywraca 11 nagłówków, „qqqq-brak” pokazuje komunikat). Na FTP nic nie poszło i nie było commita. Szczegóły: `.cursor/reports/regulamin_wyglad_20261125.md`.
+
+Blok „Program dla klubów” na stronie głównej jest na środku kontenera: `.program-intro .prose` w `pages.css` ma `margin-inline: auto` i `text-align: center` przy `max-width: 36rem`.
+Przy 1280 px kontener ma left 72,5 i width 1120, a blok tekstu left 344,5 i width 576 (odstępy po 272 px); przy 390 px oba mają left 20 i width 350, tekst jest wyśrodkowany i nie jest ucięty.
+Na FTP nic nie poszło i nie było commita. Szczegóły: `.cursor/reports/wstep_srodek_20261125.md`.
+
+Desktopowe mega-menu Aktualności ma po lewej „Wszystkie wpisy” (`#/aktualnosci`) i „Archiwum” (`#/aktualnosci/archiwum`), a po prawej cztery najnowsze wpisy 2026 jako linki do artykułów; podświetlenie lewej pozycji nie podmienia prawej listy.
+Kotwica `archiwum` jest na nagłówku sekcji 2025 w `NewsPage`, a `parseHash` traktuje ten segment jako `HashView.anchor`, nie jako slug wpisu. Szuflada mobilna ma te dwie pozycje nad listą wpisów.
+Sprawdzone na localhost:5173 (desktop 1191 px: klik „Wszystkie wpisy”, „Archiwum” z nagłówkiem 168 px pod belką 76 px, wpis „MAMY REKORD”, Start i FAQ bez zmian; 390 px: szuflada). Na FTP nic nie poszło i nie było commita. Szczegóły: `.cursor/reports/menu_aktualnosci_20261125.md`.
+
+Karuzela „W jaki sposób kluby wykorzystują nasze środki” sama jedzie do przodu co 5 s (`AUTO_MS` w `FundUseCarousel.tsx`), tym samym krokiem co strzałki: krzywa 0,8 s, pętla i kropki.
+Klik „Następne” albo „Poprzednie” oraz przeciągnięcie zerują licznik i odczekują pełne 5 s; przy `prefers-reduced-motion: reduce`, gdy sekcja jest poza ekranem albo dokument jest ukryty, ticków nie ma.
+Sprawdzone na localhost:5173: przed kliknięciem `translateX(-624px)`, tuż po „Następne” `−936px`, po 2 s nadal `−936px`, a po około 5 s `−1248px`. Na FTP nic nie poszło i nie było commita. Szczegóły: `.cursor/reports/karuzela_auto_20261125.md`.
+
+Klik w najnowszy wpis w mega-menu Aktualności prowadzi na `#/aktualnosci/{slug}/wpis`: nagłówek artykułu ma `id="wpis"`, a istniejące `scrollIntoView` zjeżdża do niego płynnie (przy `prefers-reduced-motion` skokiem), z `scroll-margin-top: 1.5rem`, żeby po wejściu Reveal h1 usiadł na dole belki (zmierzone 76 px, belka też 76 px).
+„Wszystkie wpisy” zostaje przy `#/aktualnosci` i liście od góry, bez zjazdu do nagłówka artykułu; drugi wpis (rekord) dojeżdża tak samo.
+Na FTP nic nie poszło i nie było commita. Szczegóły: `.cursor/reports/wpis_scroll_naglowek_20261125.md`.
+
+Na stronie głównej kroki „Jak dołączyć do Programu KLUB” stoją zaraz pod filmem, wstęp „Program dla klubów” i lorem wzoru zeszły, a nad stopką jest kontakt w dawnym układzie wzoru: numer 667 099 565, adres, dwa e-maile i zwinięta lista operatorów wojewódzkich.
+Granatowa stopka ma znak „Witaj w Klubie” z copyrightem po lewej oraz infolinię i biuro@ po prawej, a pasek AddPattern ma tło `var(--color-black)`.
+Sprawdzone na localhost:5173 przy 1191 px i 390 px (kolejność, karty, otwarcie 16 numerów, `#/kontakt` bez zmian); na FTP nic nie poszło i nie było commita, szczegóły w `.cursor/reports/kontakt_stopka_20261125.md`.
+
+Nazwy województw w `contact.ts` zaczynają się wielką literą (także na `#/kontakt`), a numer `667 099 565` w sekcji kontaktu ma krój `var(--font-body)` zamiast Georgia.
+W stopce, między znakiem a infolinią, są linki Start, Aktualności i FAQ oraz czerwony przycisk Kontakt.
+Sprawdzone na localhost:5173 (1191 px: linki w jednym rzędzie, przycisk `#c8102e`; 390 px: rząd mieści się w 350 px, bez wychodzenia poza okno). Na FTP nic nie poszło. Szczegóły: `.cursor/reports/stopka_nav_wojewodztwa_20261125.md`.
+
+Nawigacja w stopce stoi pionowo: Start, Aktualności, FAQ, Regulamin (`#/regulamin`), Zaloguj się (AMODIT w nowej karcie) i czerwony przycisk Kontakt na dole kolumny.
+Przy 1191 px kolumna jest na środku belki (left 498, height 247), znak i infolinia zostają po bokach; przy 390 px ta sama kolumna schodzi pod logo, left 20.
+Sprawdzone kliknięciem Regulaminu na `#/regulamin`. Na FTP nic nie poszło. Szczegóły: `.cursor/reports/stopka_nav_pion_20261125.md`.
+
+„Czytaj regulamin” i „Logotypy do pobrania” w mega-menu prowadzą na `#/regulamin/naglowek` i `#/do-pobrania/naglowek`, a `h1` tych stron ma `id="naglowek"` i `scroll-margin-top: 1.5rem`.
+„Terminy naboru” zostaje przy `#/regulamin/nabor`, ale kotwica siedzi na akapicie z datami 2–30 marca 2026, bo wcześniej `id` było tylko na liście i w tekście go nie było.
+Sprawdzone na localhost:5173 (okno 1191 px): nagłówek regulaminu i „Do pobrania” mają top 76 px przy belce 76 px, akapit naboru top 100 px, `scrollY` 565 i 3453. Na FTP nic nie poszło. Szczegóły: `.cursor/reports/mega_scroll_naglowki_20261125.md`.

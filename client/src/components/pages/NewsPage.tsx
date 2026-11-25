@@ -2,7 +2,7 @@ import { useTranslation } from "react-i18next";
 import { Reveal } from "@/components/motion/Reveal";
 import { HashLink } from "@/components/layout/HashLink";
 import { PageFrame } from "@/components/layout/PageBanner";
-import { findNewsPost, newsArchive, newsPosts, newsYear } from "@/content/news";
+import { findNewsPost, newsArchive, newsArchiveAnchor, newsPostAnchor, newsPosts, newsYear } from "@/content/news";
 import { formatDate } from "@/lib/format-date";
 import { useHashView } from "@/lib/hash-view";
 import { NotFoundPage } from "./NotFoundPage";
@@ -21,7 +21,7 @@ export function NewsPage() {
           <Reveal className="container prose">
             <p className="section__eyebrow">{t("news.eyebrow")}</p>
             <p className="news-date">{formatDate(post.date)}</p>
-            <h1>{post.title}</h1>
+            <h1 id={newsPostAnchor}>{post.title}</h1>
             {post.paragraphs.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
@@ -74,7 +74,9 @@ export function NewsPage() {
       </section>
       <section className="section section--surface">
         <div className="container">
-          <h2>{t("news.archiveTitle")}</h2>
+          <h2 id={newsArchiveAnchor} className="news-archive__heading">
+            {t("news.archiveTitle")}
+          </h2>
           <p>{t("news.archiveLead")}</p>
           {Object.keys(archiveByYear)
             .sort((a, b) => Number(b) - Number(a))

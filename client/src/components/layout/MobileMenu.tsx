@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { newsArchiveAnchor } from "@/content/news";
 import { mobileDestinations, NAV_ITEMS, type MobileEntry, type NavItem } from "@/config/nav";
 import { site } from "@/config/site";
 import { useHashView, viewHref } from "@/lib/hash-view";
@@ -15,12 +16,19 @@ function Chevron({ direction }: { direction: "left" | "right" }) {
   );
 }
 
-function entriesFor(item: NavItem, labels: { homePage: string; allNews: string; faqPage: string }): MobileEntry[] {
+function entriesFor(
+  item: NavItem,
+  labels: { homePage: string; allPosts: string; archive: string; faqPage: string },
+): MobileEntry[] {
   if (item.id === "home") {
     return [{ id: "home-root", label: labels.homePage, href: "#" }, ...mobileDestinations(item)];
   }
   if (item.id === "news") {
-    return [{ id: "all-news", label: labels.allNews, href: "#/aktualnosci" }, ...mobileDestinations(item)];
+    return [
+      { id: "all-posts", label: labels.allPosts, href: "#/aktualnosci" },
+      { id: "archive", label: labels.archive, href: `#/aktualnosci/${newsArchiveAnchor}` },
+      ...mobileDestinations(item),
+    ];
   }
   if (item.id === "faq") {
     return [{ id: "faq-page", label: labels.faqPage, href: "#/faq" }, ...mobileDestinations(item)];
@@ -66,7 +74,8 @@ export function MobileMenu({ open, onNavigate }: { open: boolean; onNavigate: ()
   if (section) {
     const entries = entriesFor(section, {
       homePage: t("nav.homePage"),
-      allNews: t("nav.allNews"),
+      allPosts: t("nav.allPosts"),
+      archive: t("news.archiveTitle"),
       faqPage: t("nav.faqPage"),
     });
     return (

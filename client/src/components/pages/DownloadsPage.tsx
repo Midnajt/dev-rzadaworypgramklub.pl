@@ -11,7 +11,7 @@ export function DownloadsPage() {
       <section className="page-hero">
         <Reveal className="container">
           <p className="section__eyebrow">{t("downloads.eyebrow")}</p>
-          <h1>{t("downloads.title")}</h1>
+          <h1 id="naglowek">{t("downloads.title")}</h1>
           <p>{t("downloads.lead")}</p>
         </Reveal>
       </section>

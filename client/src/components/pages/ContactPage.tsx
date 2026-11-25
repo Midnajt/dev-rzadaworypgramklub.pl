@@ -13,7 +13,7 @@ export function ContactPage() {
         <Reveal className="container">
           <p className="section__eyebrow">{t("contact.eyebrow")}</p>
           <h1>{t("contact.title")}</h1>
-          <p>{t("contact.lead", { hours: site.helplineHours })}</p>
+          <p id="godziny" className="scroll-anchor">{t("contact.lead", { hours: site.helplineHours })}</p>
         </Reveal>
       </section>
       <section className="section section--surface">

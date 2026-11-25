@@ -1,4 +1,4 @@
-// Mirror of :root and html[data-theme="dark"] in client/src/index.css. Change both together.
+// Mirror of :root in client/src/index.css. Change both together.
 export const theme = {
   colors: {
     accent: "#c8102e",
@@ -18,19 +18,6 @@ export const theme = {
     link: "#c8102e",
     linkHover: "#a00d24",
     themeColor: "#ffffff",
-  },
-  dark: {
-    page: "#121820",
-    panel: "#1b2433",
-    surface: "#1b2433",
-    text: "#e8eef7",
-    textMuted: "#b7c0d1",
-    header: "#0e1520",
-    ink: "#f5f7fb",
-    link: "#ff5c73",
-    linkHover: "#ffd0d8",
-    border: "rgba(255, 255, 255, 0.16)",
-    themeColor: "#0e1520",
   },
   fonts: {
     display: '"Georgia", serif',

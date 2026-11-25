@@ -35,7 +35,7 @@ export function BasicsPage() {
         prevLabel={t("basics.highlights.prev")}
         nextLabel={t("basics.highlights.next")}
       />
-      <section className="section section--surface">
+      <section className="section section--surface" id="kroki">
         <Reveal className="container">
           <h2>{t("basics.stepsTitle")}</h2>
           <ol className="step-list">
@@ -54,19 +54,21 @@ export function BasicsPage() {
       <section className="section">
         <div className="container prose-wide">
           {basicsBlocks.map((block) => (
-            <Reveal key={block.id} className="info-block" as="article">
-              <h2>{block.title}</h2>
-              {block.paragraphs.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-              {block.bullets ? (
-                <ul>
-                  {block.bullets.map((bullet) => (
-                    <li key={bullet}>{bullet}</li>
-                  ))}
-                </ul>
-              ) : null}
-            </Reveal>
+            <article key={block.id} id={block.id} className="info-block">
+              <Reveal>
+                <h2>{block.title}</h2>
+                {block.paragraphs.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+                {block.bullets ? (
+                  <ul>
+                    {block.bullets.map((bullet) => (
+                      <li key={bullet}>{bullet}</li>
+                    ))}
+                  </ul>
+                ) : null}
+              </Reveal>
+            </article>
           ))}
           <p className="note">{basicsNote}</p>
           <p>

@@ -4,7 +4,7 @@
 @import "./styles/pages.css";
 
 /* Mirror of client/src/config/theme.ts. Change both together.
-   only light stops the phone browser from auto-darkening the page. */
+   only light keeps the page light even when the browser prefers a dark scheme. */
 :root {
   color-scheme: light;
   color-scheme: only light;
@@ -42,28 +42,11 @@
   --radius-lg: 1.25rem;
 
   --shadow-soft: 0 18px 50px rgba(29, 35, 43, 0.08);
-  --theme-bar-h: 3rem;
   --header-h: 4.75rem;
-  --chrome-h: calc(var(--theme-stack, var(--theme-bar-h)) + var(--header-h));
+  --chrome-h: var(--header-h);
   --container: min(1120px, calc(100% - 2.5rem));
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --duration: 0.45s;
-}
-
-html[data-theme="dark"] {
-  color-scheme: dark;
-
-  --color-page: #121820;
-  --color-panel: #1b2433;
-  --color-surface: #1b2433;
-  --color-text: #e8eef7;
-  --color-text-muted: #b7c0d1;
-  --color-header: #0e1520;
-  --color-ink: #f5f7fb;
-  --color-link: #ff5c73;
-  --color-link-hover: #ffd0d8;
-  --color-border: rgba(255, 255, 255, 0.16);
-  --shadow-soft: 0 18px 50px rgba(0, 0, 0, 0.45);
 }
 
 html {

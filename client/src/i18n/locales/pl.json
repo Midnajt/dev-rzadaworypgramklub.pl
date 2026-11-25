@@ -1,12 +1,5 @@
 {
   "skip": "Przejdź do treści",
-  "theme": {
-    "label": "Wygląd strony",
-    "light": "Jasny",
-    "dark": "Ciemny",
-    "forced": "Samsung Internet sam przyciemnia stronę i ignoruje ten przełącznik. Wyłącz tryb ciemny stron: menu → Ustawienia → Wygląd → Tryb ciemny.",
-    "forcedDismiss": "Zamknij"
-  },
   "meta": {
     "homeTitle": "Rządowy Program KLUB 2026 — rzadowyprogramklub.pl",
     "homeDesc": "Rządowy Program KLUB 2026: wsparcie finansowe dla małych klubów sportowych. Regulamin, najczęstsze pytania i aktualności w jednym miejscu.",
@@ -34,10 +27,12 @@
     "home": "Start",
     "news": "Aktualności",
     "faq": "FAQ",
+    "regulations": "Regulamin",
     "login": "Zaloguj się",
     "back": "Wróć",
     "homePage": "Strona główna",
     "allNews": "Wszystkie aktualności",
+    "allPosts": "Wszystkie wpisy",
     "faqPage": "Pytania i odpowiedzi"
   },
   "hero": {
@@ -46,8 +41,6 @@
     "lead": "Wsparcie dla małych klubów sportowych, które każdego dnia budują sport w swojej okolicy."
   },
   "home": {
-    "sectionTitle": "Program dla klubów",
-    "sectionBody": "Rządowy Program KLUB jest platformą wniosków prowadzoną przez {{org}}. Wspiera stowarzyszenia prowadzące zajęcia dla dzieci i młodzieży do 18. roku życia. Regulamin, FAQ i aktualności są w menu powyżej.",
     "fundUse": {
       "title": "W jaki sposób kluby wykorzystują nasze środki",
       "lead": "Dotacja idzie na wynagrodzenie szkoleniowca, sprzęt albo obóz. W 2025 roku skorzystało z niej ponad 360 tys. dzieci i młodzieży.",
@@ -107,25 +100,6 @@
       }
     },
     "samples": {
-      "eyebrow": "Wzory do oceny",
-      "title": "Przykładowe zachowania",
-      "intro": "Poniżej jest wzór z dokumentu UX z tekstem zastępczym oraz kroki dołączenia do programu. Mega-menu w tym samym wzorze jest już w nagłówku: Start, Aktualności i FAQ. Najechanie otwiera panel, a wybór działu podmienia prawą kolumnę.",
-      "reveal": {
-        "eyebrow": "Tekst przy scrollu",
-        "note": "Pasuje nad wstępem sekcji, nad dwiema kartami wejścia albo nad krótkim blokiem pod nagłówkiem. Wchodzi raz i zostaje.",
-        "title": "Lorem ipsum dolor sit amet",
-        "lead": "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.",
-        "cards": {
-          "one": {
-            "title": "Lorem ipsum",
-            "body": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur."
-          },
-          "two": {
-            "title": "Sed ut perspiciatis",
-            "body": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores."
-          }
-        }
-      },
       "steps": {
         "title": "Jak dołączyć do Programu KLUB",
         "items": {
@@ -262,6 +236,7 @@
     "backHome": "Wróć na stronę główną"
   },
   "footer": {
+    "nav": "Nawigacja w stopce",
     "copy": "© {{year}} {{name}}",
     "credits": "Strona w trakcie przygotowania przez firmę",
     "addPattern": "AddPattern",

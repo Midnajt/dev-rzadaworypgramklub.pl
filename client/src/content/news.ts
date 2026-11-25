@@ -92,6 +92,12 @@ export const newsPosts: NewsPost[] = [
   },
 ];
 
+/** In-page target on the news list (`#/aktualnosci/archiwum`). Not a post slug. */
+export const newsArchiveAnchor = "archiwum";
+
+/** Article heading (`#/aktualnosci/{slug}/wpis`). Same scroll path as other in-page anchors. */
+export const newsPostAnchor = "wpis";
+
 /** Tytuły od 2025-01-01 włącznie. Wpisy sprzed tej daty nie wracają tu ani do `newsPosts` — patrz `docs/old-website-info.md`, sekcja 5. */
 export const newsArchive: NewsListing[] = [
   { slug: "podsumowanie-rzadowego-programu-klub-2025-warszawa", date: "2025-12-19", title: "Podsumowanie Rządowego Programu KLUB 2025 – Warszawa" },

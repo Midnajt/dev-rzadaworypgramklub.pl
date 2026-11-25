@@ -3,7 +3,6 @@ import { useTranslation } from "react-i18next";
 import { DocumentMeta } from "@/components/layout/DocumentMeta";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
-import { ThemeBar } from "@/components/layout/ThemeBar";
 import { IntroFade } from "@/components/motion/IntroFade";
 import { BasicsPage } from "@/components/pages/BasicsPage";
 import { ContactPage } from "@/components/pages/ContactPage";
@@ -15,6 +14,19 @@ import { NotFoundPage } from "@/components/pages/NotFoundPage";
 import { RegulationsPage } from "@/components/pages/RegulationsPage";
 import { findNewsPost } from "@/content/news";
 import { useHashView } from "@/lib/hash-view";
+
+/** Same offset as today: `scroll-padding-top` on `html` and `scroll-margin` on the target. */
+function scrollToHashTarget(anchor: string | undefined) {
+  const behavior: ScrollBehavior = window.matchMedia("(prefers-reduced-motion: reduce)").matches
+    ? "instant"
+    : "smooth";
+  const el = anchor ? document.getElementById(anchor) : null;
+  if (!el) {
+    window.scrollTo({ top: 0, left: 0, behavior });
+    return;
+  }
+  el.scrollIntoView({ block: "start", behavior });
+}
 
 function CurrentView() {
   const { view } = useHashView();
@@ -46,8 +58,8 @@ export default function App() {
   const missingNews = view.name === "news" && Boolean(view.slug) && !newsPost;
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [view.name, view.slug, scrollTick]);
+    scrollToHashTarget(view.anchor);
+  }, [view.name, view.slug, view.anchor, scrollTick]);
 
   return (
     <>
@@ -62,7 +74,6 @@ export default function App() {
       >
         {t("skip")}
       </a>
-      <ThemeBar />
       <DocumentMeta
         view={missingNews ? { name: "notFound" } : view}
         pageTitle={newsPost?.title}

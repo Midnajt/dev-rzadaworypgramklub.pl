@@ -19,6 +19,7 @@ function matches(query: string, text: string): boolean {
 
 function paragraphs(source: string): string[] {
   return source
+    .replace(/\r\n?/g, "\n")
     .split(/\n{2,}/)
     .map((block) => block.replace(/\s+\n/g, "\n").trim())
     .filter(Boolean);
@@ -139,15 +140,16 @@ function BlockView({ block, needle }: { block: Block; needle: string }) {
     return (
       <ul>
         {block.items.map((item) => (
-          <li key={item}>
+            <li key={item}>
             <Highlight text={item} needle={needle} />
           </li>
         ))}
       </ul>
     );
   }
+  const nabor = block.text.includes("termin naboru wniosków");
   return (
-    <p>
+    <p id={nabor ? "nabor" : undefined} className={nabor ? "scroll-anchor" : undefined}>
       <Highlight text={block.text} needle={needle} />
     </p>
   );
@@ -172,7 +174,7 @@ export function RegulationsPage() {
       <section className="page-hero">
         <Reveal className="container">
           <p className="section__eyebrow">{t("regulations.eyebrow")}</p>
-          <h1>{t("regulations.title")}</h1>
+          <h1 id="naglowek">{t("regulations.title")}</h1>
           <p>{t("regulations.lead")}</p>
           <label className="faq-search">
             <span className="visually-hidden">{t("regulations.searchLabel")}</span>

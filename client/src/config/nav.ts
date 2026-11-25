@@ -1,4 +1,4 @@
-import { newsPosts } from "@/content/news";
+import { newsArchiveAnchor, newsPostAnchor, newsPosts } from "@/content/news";
 import { faqCategories } from "@/content/faq";
 import type { ViewName } from "@/lib/hash-view";
 
@@ -11,7 +11,9 @@ export type MegaLink = {
 
 export type MegaTopic = {
   id: string;
-  label: string;
+  /** Visible text. Omit when `labelKey` is set. */
+  label?: string;
+  labelKey?: string;
   lead: string;
   links: MegaLink[];
 };
@@ -22,6 +24,8 @@ export type NavItem = {
   views: ViewName[];
   panelId: string;
   topics: MegaTopic[];
+  /** Right column that stays put while the left topic only highlights. */
+  detailLinks?: MegaLink[];
 };
 
 export type MobileEntry = {
@@ -45,8 +49,8 @@ export const NAV_ITEMS: NavItem[] = [
         lead: "Cele, kwoty 12 i 17 tys. zł, wymogi dla klubów i wkład własny 5%. Skrót Regulaminu edycji 2026 plus krok po kroku.",
         links: [
           { id: "basics-page", label: "Czytaj podstawowe informacje", href: "#/podstawowe-informacje" },
-          { id: "basics-steps", label: "Krok po kroku", href: "#/podstawowe-informacje" },
-          { id: "basics-kwoty", label: "Kwoty dofinansowania", href: "#/podstawowe-informacje" },
+          { id: "basics-steps", label: "Krok po kroku", href: "#/podstawowe-informacje/kroki" },
+          { id: "basics-kwoty", label: "Kwoty dofinansowania", href: "#/podstawowe-informacje/kwoty" },
         ],
       },
       {
@@ -54,15 +58,15 @@ export const NAV_ITEMS: NavItem[] = [
         label: "Regulamin",
         lead: "Pełny Regulamin zadania Rządowy Program „KLUB” — edycja 2026. Nabór, załączniki, ocena wniosków i obowiązki beneficjenta.",
         links: [
-          { id: "reg-page", label: "Czytaj regulamin", href: "#/regulamin" },
-          { id: "reg-nabor", label: "Terminy naboru", href: "#/regulamin" },
+          { id: "reg-page", label: "Czytaj regulamin", href: "#/regulamin/naglowek" },
+          { id: "reg-nabor", label: "Terminy naboru", href: "#/regulamin/nabor" },
         ],
       },
       {
         id: "downloads",
         label: "Do pobrania",
         lead: "Logotypy MSiT, LZS Operator KLUB i „Witaj w Klubie” — wyłącznie dla beneficjentów, do celów promocji i informacji.",
-        links: [{ id: "dl-page", label: "Logotypy do pobrania", href: "#/do-pobrania" }],
+        links: [{ id: "dl-page", label: "Logotypy do pobrania", href: "#/do-pobrania/naglowek" }],
       },
     ],
   },
@@ -71,14 +75,24 @@ export const NAV_ITEMS: NavItem[] = [
     labelKey: "nav.news",
     views: ["news"],
     panelId: "mega-news",
-    topics: latestNews.map((post) => ({
+    topics: [
+      {
+        id: "all-posts",
+        labelKey: "nav.allPosts",
+        lead: "",
+        links: [{ id: "all-posts", label: "", href: "#/aktualnosci" }],
+      },
+      {
+        id: "archive",
+        labelKey: "news.archiveTitle",
+        lead: "",
+        links: [{ id: "archive", label: "", href: `#/aktualnosci/${newsArchiveAnchor}` }],
+      },
+    ],
+    detailLinks: latestNews.map((post) => ({
       id: post.slug,
-      label: post.title.length > 52 ? `${post.title.slice(0, 49)}…` : post.title,
-      lead: post.excerpt,
-      links: [
-        { id: `${post.slug}-read`, label: "Czytaj wpis", href: `#/aktualnosci/${post.slug}` },
-        { id: "all-news", label: "Wszystkie aktualności", href: "#/aktualnosci" },
-      ],
+      label: post.title,
+      href: `#/aktualnosci/${post.slug}/${newsPostAnchor}`,
     })),
   },
   {
@@ -92,11 +106,11 @@ export const NAV_ITEMS: NavItem[] = [
         label: category.title,
         lead: category.items[0]?.question ?? "",
         links: [
-          { id: `${category.id}-faq`, label: "Przejdź do FAQ", href: "#/faq" },
+          { id: `${category.id}-faq`, label: "Przejdź do FAQ", href: `#/faq/${category.id}` },
           ...category.items.slice(0, 2).map((item) => ({
             id: item.id,
             label: item.question,
-            href: "#/faq",
+            href: `#/faq/${item.id}`,
           })),
         ],
       })),
@@ -106,7 +120,7 @@ export const NAV_ITEMS: NavItem[] = [
         lead: "Infolinia krajowa 667 099 565 oraz 16 infolinii wojewódzkich. Pomoc merytoryczna i techniczna AMODIT.",
         links: [
           { id: "contact-page", label: "Infolinie i adres", href: "#/kontakt" },
-          { id: "contact-hours", label: "Godziny: pon.–pt. 10:00–15:00", href: "#/kontakt" },
+          { id: "contact-hours", label: "Godziny: pon.–pt. 10:00–15:00", href: "#/kontakt/godziny" },
         ],
       },
     ],
@@ -119,7 +133,7 @@ export function mobileDestinations(item: NavItem): MobileEntry[] {
     return latestNews.map((post) => ({
       id: post.slug,
       label: post.title,
-      href: `#/aktualnosci/${post.slug}`,
+      href: `#/aktualnosci/${post.slug}/${newsPostAnchor}`,
     }));
   }
 

@@ -7,6 +7,7 @@ import {
   useState,
   type ReactNode,
 } from "react";
+import { newsArchiveAnchor } from "@/content/news";
 
 // New view: extend ViewName, add a case in parseHash and viewHref,
 // a branch in App.tsx, meta keys in DocumentMeta and the hash in HASH_PAGES (vite.config.ts).
@@ -23,6 +24,8 @@ export type ViewName =
 export type HashView = {
   name: ViewName;
   slug?: string;
+  /** In-page target, the segment after a known view: `#/regulamin/nabor`. */
+  anchor?: string;
 };
 
 export function parseHash(raw: string): HashView {
@@ -30,21 +33,27 @@ export function parseHash(raw: string): HashView {
   if (!trimmed) return { name: "home" };
 
   const [head, ...rest] = trimmed.split("/");
-  const slug = rest.filter(Boolean).join("/") || undefined;
 
   switch (head) {
-    case "aktualnosci":
-      return { name: "news", slug };
+    case "aktualnosci": {
+      const segment = rest[0];
+      if (!segment) return { name: "news" };
+      if (segment === newsArchiveAnchor && rest.length === 1) {
+        return { name: "news", anchor: segment };
+      }
+      const anchor = rest[1];
+      return anchor ? { name: "news", slug: segment, anchor } : { name: "news", slug: segment };
+    }
     case "faq":
-      return { name: "faq" };
+      return { name: "faq", anchor: rest[0] };
     case "regulamin":
-      return { name: "regulations" };
+      return { name: "regulations", anchor: rest[0] };
     case "podstawowe-informacje":
-      return { name: "basics" };
+      return { name: "basics", anchor: rest[0] };
     case "do-pobrania":
-      return { name: "downloads" };
+      return { name: "downloads", anchor: rest[0] };
     case "kontakt":
-      return { name: "contact" };
+      return { name: "contact", anchor: rest[0] };
     case "404":
       return { name: "notFound" };
     default:
@@ -57,15 +66,18 @@ export function viewHref(view: HashView): string {
     case "home":
       return "#";
     case "news":
-      return view.slug ? `#/aktualnosci/${view.slug}` : "#/aktualnosci";
+      if (view.slug && view.anchor) return `#/aktualnosci/${view.slug}/${view.anchor}`;
+      if (view.slug) return `#/aktualnosci/${view.slug}`;
+      if (view.anchor) return `#/aktualnosci/${view.anchor}`;
+      return "#/aktualnosci";
     case "faq":
       return "#/faq";
     case "regulations":
-      return "#/regulamin";
+      return view.anchor ? `#/regulamin/${view.anchor}` : "#/regulamin";
     case "basics":
       return "#/podstawowe-informacje";
     case "downloads":
-      return "#/do-pobrania";
+      return view.anchor ? `#/do-pobrania/${view.anchor}` : "#/do-pobrania";
     case "contact":
       return "#/kontakt";
     case "notFound":

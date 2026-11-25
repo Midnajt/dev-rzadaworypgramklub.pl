@@ -14,6 +14,7 @@ import { cn } from "@/lib/utils";
 const CLONES = 2;
 const DRAG_THRESHOLD = 48;
 const LOCK_MS = 1000;
+const AUTO_MS = 5000;
 const PAGER_OFFSETS = [-2, -1, 0, 1, 2] as const;
 
 type Slide = {
@@ -110,8 +111,13 @@ export function FundUseCarousel() {
   const reduced = useReducedMotion();
   const viewportRef = useRef<HTMLDivElement>(null);
   const trackRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const lockRef = useRef(false);
   const timerRef = useRef<number | null>(null);
+  const autoTimerRef = useRef<number | null>(null);
+  const pausedRef = useRef(true);
+  const draggingRef = useRef(false);
+  const mountedRef = useRef(true);
   const dragRef = useRef({
     pointerId: -1,
     startX: 0,
@@ -181,6 +187,98 @@ export function FundUseCarousel() {
     [fits, reduced, releaseLock],
   );
 
+  const stepRef = useRef(step);
+  const reducedRef = useRef(reduced);
+  const fitsRef = useRef(fits);
+  stepRef.current = step;
+  reducedRef.current = reduced;
+  fitsRef.current = fits;
+
+  const clearAuto = useCallback(() => {
+    if (autoTimerRef.current !== null) {
+      window.clearTimeout(autoTimerRef.current);
+      autoTimerRef.current = null;
+    }
+  }, []);
+
+  const armAutoRef = useRef<() => void>(() => {});
+
+  const armAuto = useCallback(() => {
+    clearAuto();
+    if (reducedRef.current || fitsRef.current || pausedRef.current || !mountedRef.current) return;
+    autoTimerRef.current = window.setTimeout(() => {
+      autoTimerRef.current = null;
+      if (
+        !mountedRef.current ||
+        document.hidden ||
+        reducedRef.current ||
+        fitsRef.current ||
+        pausedRef.current
+      ) {
+        return;
+      }
+      if (draggingRef.current) {
+        armAutoRef.current();
+        return;
+      }
+      stepRef.current(1);
+      armAutoRef.current();
+    }, AUTO_MS);
+  }, [clearAuto]);
+
+  armAutoRef.current = armAuto;
+
+  useEffect(() => {
+    if (reduced || fits) {
+      clearAuto();
+      return;
+    }
+    if (!pausedRef.current) armAuto();
+  }, [reduced, fits, clearAuto, armAuto]);
+
+  useEffect(() => {
+    const node = sectionRef.current;
+    if (!node) return;
+
+    let cancelled = false;
+    let inView = false;
+
+    const sync = () => {
+      if (cancelled) return;
+      const nextPaused = document.hidden || !inView;
+      if (nextPaused === pausedRef.current) return;
+      pausedRef.current = nextPaused;
+      if (nextPaused || reducedRef.current || fitsRef.current) {
+        clearAuto();
+        return;
+      }
+      armAutoRef.current();
+    };
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (cancelled) return;
+      inView = entry.isIntersecting;
+      sync();
+    });
+    observer.observe(node);
+    document.addEventListener("visibilitychange", sync);
+
+    return () => {
+      cancelled = true;
+      pausedRef.current = true;
+      observer.disconnect();
+      document.removeEventListener("visibilitychange", sync);
+      clearAuto();
+    };
+  }, [clearAuto]);
+
+  useEffect(() => {
+    mountedRef.current = true;
+    return () => {
+      mountedRef.current = false;
+    };
+  }, []);
+
   const onTransitionEnd = (event: TransitionEvent<HTMLDivElement>) => {
     if (event.target !== event.currentTarget || event.propertyName !== "transform") return;
     const next = wrapIndex(index);
@@ -194,6 +292,7 @@ export function FundUseCarousel() {
 
   const onPointerDown = (event: PointerEvent<HTMLDivElement>) => {
     if (fits || lockRef.current || event.button !== 0) return;
+    draggingRef.current = true;
     dragRef.current = {
       pointerId: event.pointerId,
       startX: event.clientX,
@@ -201,6 +300,20 @@ export function FundUseCarousel() {
       dx: 0,
       tracking: true,
     };
+    const endOutside = (native: globalThis.PointerEvent) => {
+      window.removeEventListener("pointerup", endOutside);
+      window.removeEventListener("pointercancel", endOutside);
+      if (!draggingRef.current || !mountedRef.current) return;
+      const viewport = viewportRef.current;
+      const target = native.target;
+      if (viewport && target instanceof Node && viewport.contains(target)) return;
+      draggingRef.current = false;
+      dragRef.current.tracking = false;
+      dragRef.current.dx = 0;
+      armAutoRef.current();
+    };
+    window.addEventListener("pointerup", endOutside);
+    window.addEventListener("pointercancel", endOutside);
   };
 
   const onPointerMove = (event: PointerEvent<HTMLDivElement>) => {
@@ -221,12 +334,14 @@ export function FundUseCarousel() {
     const drag = dragRef.current;
     if (!drag.tracking || event.pointerId !== drag.pointerId) return;
     const dx = drag.dx;
+    draggingRef.current = false;
     dragRef.current = { ...drag, tracking: false, dx: 0 };
     if (event.currentTarget.hasPointerCapture(event.pointerId)) {
       event.currentTarget.releasePointerCapture(event.pointerId);
     }
     setOffset(0);
     if (Math.abs(dx) >= DRAG_THRESHOLD) step(dx < 0 ? 1 : -1);
+    armAuto();
   };
 
   const translate = stride === 0 ? 0 : -index * stride + offset;
@@ -235,7 +350,7 @@ export function FundUseCarousel() {
   const instant = !animate || reduced;
 
   return (
-    <section className="section fund-use" aria-labelledby="fund-use-title">
+    <section ref={sectionRef} className="section fund-use" aria-labelledby="fund-use-title">
       <div className="container fund-use__intro">
         <h2 id="fund-use-title">{t("home.fundUse.title")}</h2>
         <p className="fund-use__lead">{t("home.fundUse.lead")}</p>
@@ -297,10 +412,26 @@ export function FundUseCarousel() {
           </div>
         )}
         <div className="fund-use__nav">
-          <button type="button" onClick={() => step(-1)} disabled={fits} aria-label={t("home.fundUse.prev")}>
+          <button
+            type="button"
+            onClick={() => {
+              step(-1);
+              armAuto();
+            }}
+            disabled={fits}
+            aria-label={t("home.fundUse.prev")}
+          >
             <Chevron direction="left" />
           </button>
-          <button type="button" onClick={() => step(1)} disabled={fits} aria-label={t("home.fundUse.next")}>
+          <button
+            type="button"
+            onClick={() => {
+              step(1);
+              armAuto();
+            }}
+            disabled={fits}
+            aria-label={t("home.fundUse.next")}
+          >
             <Chevron direction="right" />
           </button>
         </div>

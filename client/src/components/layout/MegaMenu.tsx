@@ -60,6 +60,11 @@ export function MegaTrigger({ item, open, onOpen, current }: Omit<MegaMenuProps,
   );
 }
 
+function topicLabel(topic: MegaTopic, translate: (key: string) => string) {
+  if (topic.labelKey) return translate(topic.labelKey);
+  return topic.label ?? "";
+}
+
 export function MegaPanel({ item, open, onNavigate }: Pick<MegaMenuProps, "item" | "open" | "onNavigate">) {
   const { t } = useTranslation();
   const [activeId, setActiveId] = useState(item.topics[0]?.id);
@@ -82,7 +87,7 @@ export function MegaPanel({ item, open, onNavigate }: Pick<MegaMenuProps, "item"
     }
     if (!nextId) return;
     setActiveId(nextId);
-    event.currentTarget.querySelector<HTMLButtonElement>(`[data-topic="${nextId}"]`)?.focus();
+    event.currentTarget.querySelector<HTMLAnchorElement>(`[data-topic="${nextId}"]`)?.focus();
   };
 
   if (!active) return null;
@@ -98,31 +103,50 @@ export function MegaPanel({ item, open, onNavigate }: Pick<MegaMenuProps, "item"
     >
       <div className="mega-panel__grid">
         <ul className="mega-panel__topics">
-          {item.topics.map((topic) => (
-            <li key={topic.id}>
-              <button
-                type="button"
-                className={cn("mega-topic", topic.id === active.id && "is-active")}
-                data-topic={topic.id}
-                onMouseEnter={() => setActiveId(topic.id)}
-                onFocus={() => setActiveId(topic.id)}
-              >
-                {topic.label}
-              </button>
-            </li>
-          ))}
-        </ul>
-        <div className="mega-panel__detail">
-          <p className="mega-panel__lead">{active.lead}</p>
-          <ul className="mega-panel__links">
-            {active.links.map((link) => (
-              <li key={link.id}>
-                <HashLink to={link.href} onClick={onNavigate}>
-                  {link.label}
+          {item.topics.map((topic) => {
+            const href = topic.links[0]?.href;
+            if (!href) return null;
+            return (
+              <li key={topic.id}>
+                <HashLink
+                  to={href}
+                  className={cn("mega-topic", topic.id === active.id && "is-active")}
+                  data-topic={topic.id}
+                  onMouseEnter={() => setActiveId(topic.id)}
+                  onFocus={() => setActiveId(topic.id)}
+                  onClick={onNavigate}
+                >
+                  {topicLabel(topic, t)}
                 </HashLink>
               </li>
-            ))}
-          </ul>
+            );
+          })}
+        </ul>
+        <div className="mega-panel__detail">
+          {item.detailLinks ? (
+            <ul className="mega-panel__links">
+              {item.detailLinks.map((link) => (
+                <li key={link.id}>
+                  <HashLink to={link.href} onClick={onNavigate}>
+                    {link.label}
+                  </HashLink>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <>
+              <p className="mega-panel__lead">{active.lead}</p>
+              <ul className="mega-panel__links">
+                {active.links.map((link) => (
+                  <li key={link.id}>
+                    <HashLink to={link.href} onClick={onNavigate}>
+                      {link.label}
+                    </HashLink>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
         </div>
       </div>
     </div>

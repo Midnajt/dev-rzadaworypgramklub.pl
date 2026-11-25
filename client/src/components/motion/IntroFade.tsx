@@ -1,10 +1,9 @@
 import { useState } from "react";
-import { parseHash } from "@/lib/hash-view";
 
 function shouldShowIntro() {
   if (typeof window === "undefined") return false;
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return false;
-  return parseHash(window.location.hash).name === "home";
+  return true;
 }
 
 export function IntroFade() {

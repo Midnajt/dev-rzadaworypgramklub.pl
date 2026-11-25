@@ -9,6 +9,12 @@ html {
   background: var(--color-page);
 }
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 body {
   margin: 0;
   font-family: var(--font-body);
@@ -96,7 +102,7 @@ ul {
 }
 
 .skip-link:focus {
-  top: calc(var(--theme-bar-h) + 0.35rem);
+  top: 0.35rem;
   color: var(--color-white);
 }
 
