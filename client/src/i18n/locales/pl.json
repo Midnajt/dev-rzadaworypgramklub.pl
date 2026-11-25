@@ -49,6 +49,11 @@
     "sectionTitle": "Program dla klubów",
     "sectionBody": "Rządowy Program KLUB wspiera stowarzyszenia prowadzące zajęcia dla dzieci i młodzieży do 18. roku życia. Regulamin, FAQ i aktualności są w menu powyżej.",
     "programLogoAlt": "Witaj w Klubie — Rządowy Program KLUB",
+    "platform": {
+      "line1": "Rządowy Program KLUB – jest platformą wniosków",
+      "line2": "prowadzoną przez Krajowe Zrzeszenie LZS",
+      "cta": "O nas"
+    },
     "fundUse": {
       "title": "W jaki sposób kluby wykorzystują nasze środki",
       "lead": "Dotacja idzie na wynagrodzenie szkoleniowca, sprzęt albo obóz. W 2025 roku skorzystało z niej ponad 360 tys. dzieci i młodzieży.",

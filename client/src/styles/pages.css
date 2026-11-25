@@ -163,6 +163,105 @@
   max-width: 52rem;
 }
 
+.platform-banner {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(3.25rem, 9vw, 5.5rem);
+  background: var(--color-page);
+}
+
+.platform-banner::before,
+.platform-banner::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.platform-banner::before {
+  top: -35%;
+  right: -8%;
+  z-index: 0;
+  width: min(42vw, 22rem);
+  height: 165%;
+  background: var(--color-black);
+  transform: rotate(-24deg);
+}
+
+@media (max-width: 760px) {
+  .platform-banner::before {
+    top: -55%;
+    right: -28%;
+    width: 7.5rem;
+    height: 130%;
+  }
+
+  .platform-banner::after {
+    left: auto;
+    right: -15%;
+    bottom: 15%;
+    width: 9rem;
+    height: 40%;
+    opacity: 0.65;
+  }
+}
+
+.platform-banner::after {
+  bottom: 8%;
+  left: 18%;
+  width: min(52vw, 28rem);
+  height: 55%;
+  background: color-mix(in srgb, var(--color-surface) 72%, var(--color-page));
+  transform: rotate(-24deg);
+  z-index: 0;
+}
+
+html[data-theme="dark"] .platform-banner::before {
+  background: color-mix(in srgb, var(--color-black) 55%, var(--color-panel));
+}
+
+.platform-banner__inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  gap: clamp(1.5rem, 4vw, 2.25rem);
+}
+
+.platform-banner__title {
+  margin: 0;
+  max-width: 46rem;
+  display: grid;
+  gap: 0.35em;
+  font-family: var(--font-body);
+  font-size: clamp(0.8rem, 2.1vw, 1.05rem);
+  font-weight: 300;
+  line-height: 1.6;
+  letter-spacing: 0.16em;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--color-text);
+}
+
+.platform-banner__line {
+  display: block;
+}
+
+.platform-banner__cta {
+  min-width: 8.5rem;
+  padding-inline: 2rem;
+  border-color: color-mix(in srgb, var(--color-navy) 38%, var(--color-white));
+  background: transparent;
+  color: var(--color-text);
+  font-weight: 400;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.platform-banner__cta:hover {
+  border-color: var(--color-accent);
+  color: var(--color-link);
+}
+
 .program-intro {
   display: grid;
   grid-template-columns: auto minmax(0, 36rem);

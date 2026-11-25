@@ -3,6 +3,7 @@ import { Reveal } from "@/components/motion/Reveal";
 import { FundUseCarousel } from "@/components/sections/FundUseCarousel";
 import { HeroVideo } from "@/components/sections/HeroVideo";
 import { HomeSamples } from "@/components/sections/HomeSamples";
+import { PlatformBanner } from "@/components/sections/PlatformBanner";
 import { assets } from "@/config/assets";
 
 export function HomePage() {
@@ -11,6 +12,7 @@ export function HomePage() {
   return (
     <main id="main" tabIndex={-1}>
       <HeroVideo />
+      <PlatformBanner />
       <section className="section section--surface">
         <Reveal className="container program-intro">
           <img
