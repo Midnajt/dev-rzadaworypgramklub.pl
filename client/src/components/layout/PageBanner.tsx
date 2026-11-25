@@ -21,6 +21,7 @@ const position: Record<BannerId, string> = {
   basics: "center 35%",
   regulations: "center 42%",
   downloads: "center 40%",
+  gallery: "center 42%",
   contact: "center 70%",
   faq: "center 32%",
   news: "center 42%",

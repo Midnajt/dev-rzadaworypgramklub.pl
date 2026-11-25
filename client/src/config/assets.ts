@@ -2,6 +2,7 @@
 // import logoUrl from "../../assets/logo.png?url";
 // Register every file in client/assets/ASSETS.md.
 import addPatternLogoUrl from "../../assets/addpattern-logo.png?url";
+import bannerGalleryUrl from "../../../custom-assets/galeria/koszykowka-3.jpg?w=1600&withoutEnlargement&format=jpg";
 import bannerBasicsUrl from "../../assets/banners/basics.jpg?url";
 import bannerDownloadsUrl from "../../assets/banners/do-pobrania.jpg?url";
 import bannerFaqUrl from "../../assets/banners/faq.jpg?url";
@@ -41,6 +42,7 @@ export const assets = {
     basics: bannerBasicsUrl,
     regulations: bannerRegulationsUrl,
     downloads: bannerDownloadsUrl,
+    gallery: bannerGalleryUrl,
     contact: bannerContactUrl,
     faq: bannerFaqUrl,
     news: bannerNewsUrl,

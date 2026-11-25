@@ -636,11 +636,12 @@ h2.mnav__heading {
 
 .site-footer__phone {
   margin: 0;
-  font-family: var(--font-display);
+  font-family: var(--font-body);
   font-size: clamp(1.35rem, 2.2vw, 1.85rem);
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.15;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums;
   color: var(--color-white);
 }
 

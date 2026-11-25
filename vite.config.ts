@@ -15,6 +15,7 @@ const HASH_PAGES = [
   "#/regulamin",
   "#/podstawowe-informacje",
   "#/do-pobrania",
+  "#/galeria",
   "#/kontakt",
 ];
 

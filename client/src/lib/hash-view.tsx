@@ -18,6 +18,7 @@ export type ViewName =
   | "regulations"
   | "basics"
   | "downloads"
+  | "gallery"
   | "contact"
   | "notFound";
 
@@ -52,6 +53,8 @@ export function parseHash(raw: string): HashView {
       return { name: "basics", anchor: rest[0] };
     case "do-pobrania":
       return { name: "downloads", anchor: rest[0] };
+    case "galeria":
+      return { name: "gallery", anchor: rest[0] };
     case "kontakt":
       return { name: "contact", anchor: rest[0] };
     case "404":
@@ -78,6 +81,8 @@ export function viewHref(view: HashView): string {
       return "#/podstawowe-informacje";
     case "downloads":
       return view.anchor ? `#/do-pobrania/${view.anchor}` : "#/do-pobrania";
+    case "gallery":
+      return view.anchor ? `#/galeria/${view.anchor}` : "#/galeria";
     case "contact":
       return "#/kontakt";
     case "notFound":

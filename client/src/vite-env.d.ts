@@ -14,6 +14,11 @@ declare module "*?url" {
   export default src;
 }
 
+declare module "*?w=1600&withoutEnlargement&format=jpg" {
+  const src: string;
+  export default src;
+}
+
 declare module "*.txt?raw" {
   const text: string;
   export default text;

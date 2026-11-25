@@ -7,6 +7,7 @@ import { IntroFade } from "@/components/motion/IntroFade";
 import { BasicsPage } from "@/components/pages/BasicsPage";
 import { ContactPage } from "@/components/pages/ContactPage";
 import { DownloadsPage } from "@/components/pages/DownloadsPage";
+import { GalleryPage } from "@/components/pages/GalleryPage";
 import { FaqPage } from "@/components/pages/FaqPage";
 import { HomePage } from "@/components/pages/HomePage";
 import { NewsPage } from "@/components/pages/NewsPage";
@@ -44,6 +45,8 @@ function CurrentView() {
       return <BasicsPage />;
     case "downloads":
       return <DownloadsPage />;
+    case "gallery":
+      return <GalleryPage />;
     case "contact":
       return <ContactPage />;
     default:

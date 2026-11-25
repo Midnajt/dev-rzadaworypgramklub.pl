@@ -40,7 +40,7 @@ export const NAV_ITEMS: NavItem[] = [
   {
     id: "home",
     labelKey: "nav.home",
-    views: ["home", "basics", "regulations", "downloads"],
+    views: ["home", "basics", "regulations", "downloads", "gallery"],
     panelId: "mega-home",
     topics: [
       {
@@ -67,6 +67,12 @@ export const NAV_ITEMS: NavItem[] = [
         label: "Do pobrania",
         lead: "Logotypy MSiT, LZS Operator KLUB i „Witaj w Klubie” — wyłącznie dla beneficjentów, do celów promocji i informacji.",
         links: [{ id: "dl-page", label: "Logotypy do pobrania", href: "#/do-pobrania/naglowek" }],
+      },
+      {
+        id: "gallery",
+        label: "Galeria",
+        lead: "Zdjęcia z treningów, zawodów i wyjazdów klubów, które korzystają ze środków Programu KLUB.",
+        links: [{ id: "gallery-page", label: "Zobacz galerię", href: "#/galeria" }],
       },
     ],
   },
@@ -140,7 +146,7 @@ export function mobileDestinations(item: NavItem): MobileEntry[] {
   if (item.id === "faq") {
     const contact = item.topics.find((topic) => topic.id === "contact");
     const link = contact?.links[0];
-    if (!contact || !link) return [];
+    if (!contact?.label || !link) return [];
     return [{ id: contact.id, label: contact.label, href: link.href }];
   }
 
@@ -148,9 +154,10 @@ export function mobileDestinations(item: NavItem): MobileEntry[] {
   const entries: MobileEntry[] = [];
   for (const topic of item.topics) {
     const href = topic.links[0]?.href;
-    if (!href || seen.has(href)) continue;
+    const label = topic.label;
+    if (!href || !label || seen.has(href)) continue;
     seen.add(href);
-    entries.push({ id: topic.id, label: topic.label, href });
+    entries.push({ id: topic.id, label, href });
   }
   return entries;
 }

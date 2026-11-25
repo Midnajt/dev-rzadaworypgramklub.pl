@@ -22,7 +22,9 @@
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "react-i18next": "^17.0.13",
-    "tailwind-merge": "^3.6.0"
+    "react-photo-album": "^3.6.2",
+    "tailwind-merge": "^3.6.0",
+    "yet-another-react-lightbox": "^3.33.1"
   },
   "devDependencies": {
     "@eslint/js": "^10.0.1",

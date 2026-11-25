@@ -13,6 +13,8 @@
     "basicsDesc": "Cele, kwoty, wymogi i wkład własny w Rządowym Programie KLUB 2026.",
     "downloadsTitle": "Do pobrania — Rządowy Program KLUB",
     "downloadsDesc": "Logotypy Rządowego Programu KLUB i Operatora Krajowego do pobrania przez beneficjentów.",
+    "galleryTitle": "Galeria — Rządowy Program KLUB",
+    "galleryDesc": "Zdjęcia zajęć, sprzętu i wyjazdów klubów w Rządowym Programie KLUB.",
     "contactTitle": "Kontakt — Rządowy Program KLUB",
     "contactDesc": "Infolinie wojewódzkie, adres KZ LZS oraz e-maile pomocy merytorycznej i technicznej.",
     "notFoundTitle": "Nie znaleziono strony — rzadowyprogramklub.pl",
@@ -212,6 +214,17 @@
         }
       }
     }
+  },
+  "gallery": {
+    "eyebrow": "Galeria",
+    "title": "Galeria",
+    "lead": "Zdjęcia z treningów, zawodów i wyjazdów klubów, które korzystają ze środków Programu KLUB.",
+    "close": "Zamknij",
+    "previous": "Poprzednie zdjęcie",
+    "next": "Następne zdjęcie",
+    "slide": "Zdjęcie",
+    "lightbox": "Galeria zdjęć",
+    "counter": "{index} z {total}"
   },
   "downloads": {
     "eyebrow": "Materiały",

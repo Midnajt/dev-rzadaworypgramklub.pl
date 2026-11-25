@@ -209,3 +209,23 @@ Sprawdzone kliknięciem Regulaminu na `#/regulamin`. Na FTP nic nie poszło. Szc
 „Czytaj regulamin” i „Logotypy do pobrania” w mega-menu prowadzą na `#/regulamin/naglowek` i `#/do-pobrania/naglowek`, a `h1` tych stron ma `id="naglowek"` i `scroll-margin-top: 1.5rem`.
 „Terminy naboru” zostaje przy `#/regulamin/nabor`, ale kotwica siedzi na akapicie z datami 2–30 marca 2026, bo wcześniej `id` było tylko na liście i w tekście go nie było.
 Sprawdzone na localhost:5173 (okno 1191 px): nagłówek regulaminu i „Do pobrania” mają top 76 px przy belce 76 px, akapit naboru top 100 px, `scrollY` 565 i 3453. Na FTP nic nie poszło. Szczegóły: `.cursor/reports/mega_scroll_naglowki_20261125.md`.
+
+Biały łuk pod banerem ze zdjęciem jest o połowę płytszy: `--banner-curve` w `pages.css` to `clamp(1.375rem, 3.5vw, 2.75rem)`, więc przy oknie 1191 px promień ma 41,7 px, a przy 390 px 22 px.
+Na `#/kontakt` sekcja pod nagłówkiem używa tego samego bloku co strona główna (`ContactPanel`: numer 667 099 565, karty adresu i e-maili, zwinięci operatorzy), a `#/kontakt/godziny` zjeżdża do leadu (top 100 px przy belce 76 px).
+Sprawdzone na localhost:5173 (desktop i 390 px, otwarcie 16 numerów, strona główna bez zmian w tym bloku). Na FTP nic nie poszło i nie było commita. Szczegóły: `.cursor/reports/luk_polowa_kontakt_20261125.md`.
+
+Ten sam biały łuk jest na dole filmu na stronie głównej: `.hero + .section` w `pages.css` używa tego samego `--banner-curve` co baner podstrony.
+Przy oknie 1191 px promień ma 41,7 px i nachodzi 48 px na `hero__shade`, a lead zostaje 12 px nad białą krawędzią; przy 390 px promień ma 22 px i odstęp pod tekstem 56 px.
+Na FTP nic nie poszło i nie było commita. Szczegóły: `.cursor/reports/luk_hero_20261125.md`.
+
+W menu Start, pod „Do pobrania”, jest „Galeria” (`#/galeria`), także w szufladzie na telefonie.
+Strona pokazuje 32 zdjęcia z `custom-assets/galeria/` (bez znaku programu) w rzędach `react-photo-album`; klik otwiera `yet-another-react-lightbox` z polskimi przyciskami i granatowym tłem.
+Sprawdzone na localhost:5173 (menu, otwarcie BMX, następne zdjęcie, zamknięcie, 390 px). Na FTP nic nie poszło i nie było commita. Szczegóły: `.cursor/reports/galeria_20261125.md`.
+
+Powiększenie w galerii zamyka się po kliknięciu w granatowe tło: `controller.closeOnBackdropClick` w `GalleryPage.tsx` jest włączone.
+Klik w sam kadr zostawia zdjęcie otwarte; klik w tło obok kadru zdejmuje okno po krótkim zanikaniu. Krzyżyk i Escape zostają.
+Sprawdzone na localhost:5173 (BMX: klik w zdjęcie zostawia podgląd, klik w tło je zamyka). Na FTP nic nie poszło i nie było commita. Szczegóły: `.cursor/reports/galeria_tlo_20261125.md`.
+
+Infolinia w stopce („Infolinia 667 099 565”) ma ten sam krój co numer w sekcji kontaktu: Segoe UI, grubość 700, odstęp 0,04 em i cyfry tabelaryczne (`.site-footer__phone` w `components.css`).
+Rozmiar zostaje stopkowy (`clamp(1.35rem, 2.2vw, 1.85rem)`), więc przy oknie 1191 px link ma 26 px, a nagłówek kontaktu 42 px.
+Sprawdzone na localhost:5173 (desktop: rodzina i grubość jak `#home-contact-title`; 390 px: szerokość 232 px, bez poziomego scrolla). Na FTP nic nie poszło i nie było commita. Szczegóły: `.cursor/reports/stopka_infolinia_kroj_20261125.md`.
