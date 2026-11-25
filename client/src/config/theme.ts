@@ -20,7 +20,7 @@ export const theme = {
     themeColor: "#ffffff",
   },
   fonts: {
-    display: '"Georgia", serif',
+    display: '"Segoe UI", system-ui, sans-serif',
     body: '"Segoe UI", system-ui, sans-serif',
   },
 } as const;

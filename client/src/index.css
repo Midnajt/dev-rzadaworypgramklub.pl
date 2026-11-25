@@ -2,6 +2,7 @@
 @import "./styles/base.css";
 @import "./styles/components.css";
 @import "./styles/pages.css";
+@import "./styles/a11y.css";
 
 /* Mirror of client/src/config/theme.ts. Change both together.
    only light keeps the page light even when the browser prefers a dark scheme. */
@@ -27,8 +28,8 @@
   --color-link: #c8102e;
   --color-link-hover: #a00d24;
 
-  --font-display: "Georgia", serif;
   --font-body: "Segoe UI", system-ui, sans-serif;
+  --font-display: var(--font-body);
 
   --space-xs: 0.5rem;
   --space-sm: 0.75rem;

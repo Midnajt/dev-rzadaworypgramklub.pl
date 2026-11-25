@@ -229,3 +229,19 @@ Sprawdzone na localhost:5173 (BMX: klik w zdjęcie zostawia podgląd, klik w tł
 Infolinia w stopce („Infolinia 667 099 565”) ma ten sam krój co numer w sekcji kontaktu: Segoe UI, grubość 700, odstęp 0,04 em i cyfry tabelaryczne (`.site-footer__phone` w `components.css`).
 Rozmiar zostaje stopkowy (`clamp(1.35rem, 2.2vw, 1.85rem)`), więc przy oknie 1191 px link ma 26 px, a nagłówek kontaktu 42 px.
 Sprawdzone na localhost:5173 (desktop: rodzina i grubość jak `#home-contact-title`; 390 px: szerokość 232 px, bez poziomego scrolla). Na FTP nic nie poszło i nie było commita. Szczegóły: `.cursor/reports/stopka_infolinia_kroj_20261125.md`.
+
+Georgia zeszła z całej strony: `--font-display` w `index.css` wskazuje na `--font-body` (Segoe UI), a lustro w `theme.ts` ma ten sam zapis.
+Nagłówki, tytuły kart w karuzeli środków i napis w `.logo` biorą ten krój; w szufladzie „Start” ma Segoe UI, 23,2 px i grubość 600.
+Sprawdzone na localhost:5173 przy szerokości 513 px (menu, dział Start) oraz na zbiorze `h1`–`h4` strony głównej, gdzie Georgia już nie występuje. Na FTP nic nie poszło i nie było commita. Szczegóły: `.cursor/reports/kroj_bez_georgii_20261125.md`.
+
+Przy prawej krawędzi jest niebieski przycisk dostępności (52 px, góra 200 px), a panel „Narzędzia dostępności” ma te same osiem pozycji co na lzs.pl, z polskimi nazwami.
+Tekst rośnie od 100% do 200% co 10%, szarość, kontrast i jasne tło wykluczają się, a podkreślenie linków i Verdana działają osobno; wybór zostaje w `localStorage`.
+Sprawdzone na localhost:5173 (Escape, klik poza panelem, odświeżenie z kontrastem na `#/regulamin`, 390 px: przycisk nie nachodzi na hamburger). Na FTP nic nie poszło i nie było commita. Szczegóły: `.cursor/reports/panel_dostepnosci_20261125.md`.
+
+Przycisk dostępności jest granatowy (`#0f2341`) z czerwoną kreską, a okienko ma ten sam pas nagłówka: wielkość tekstu to regulator ze skalą, wygląd i czytanie są osobnymi grupami, a włączona pozycja dostaje granatową ikonę i czerwoną kreskę.
+Szarość, kontrast i jasne tło nadal się wykluczają, wybór zostaje w `localStorage`, a sam pasek w wysokim kontraście zostaje granatowy i biały.
+Sprawdzone na localhost:5173 (okno 1191 px: przycisk left 1124, tło `rgb(15, 35, 65)`, Escape wraca fokus, reset schodzi do 100%; 390 px: panel 280 px, etykiety mieszczą się, hamburger bez kolizji). Na FTP nic nie poszło i nie było commita. Szczegóły: `.cursor/reports/panel_dostepnosci_wyglad_20261125.md`.
+
+Przycisk dostępności jest granatowy (`#0f2341`) z czerwoną kreską, a okienko ma ten sam pas nagłówka: wielkość tekstu to regulator ze skalą, wygląd i czytanie są osobnymi grupami, a włączona pozycja dostaje granatową ikonę i czerwoną kreskę.
+Szarość, kontrast i jasne tło nadal się wykluczają, wybór zostaje w `localStorage`, a sam pasek w wysokim kontraście zostaje granatowy i biały.
+Sprawdzone na localhost:5173 (okno 1191 px: przycisk left 1124, tło `rgb(15, 35, 65)`, Escape wraca fokus, reset schodzi do 100%; 390 px: panel 280 px, etykiety mieszczą się, hamburger bez kolizji). Na FTP nic nie poszło i nie było commita. Szczegóły: `.cursor/reports/panel_dostepnosci_wyglad_20261125.md`.

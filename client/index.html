@@ -27,6 +27,25 @@
     <link rel="icon" href="%BASE_URL%assets/images/favicon-32.png" type="image/png" sizes="32x32" />
     <link rel="icon" href="%BASE_URL%assets/images/icon-192.png" type="image/png" sizes="192x192" />
     <link rel="apple-touch-icon" href="%BASE_URL%assets/images/apple-touch-icon.png" />
+    <script>
+      try {
+        var raw = localStorage.getItem("a11y-tools");
+        if (raw) {
+          var state = JSON.parse(raw);
+          var root = document.documentElement;
+          var font = state.font;
+          if (typeof font === "number" && font >= 110 && font <= 200) {
+            root.classList.add("a11y-scaled");
+            root.style.setProperty("--a11y-scale", String(font / 100));
+          }
+          if (state.schema === "grayscale" || state.schema === "contrast" || state.schema === "light") {
+            root.classList.add("a11y-" + state.schema);
+          }
+          if (state.underline === true) root.classList.add("a11y-underline");
+          if (state.readable === true) root.classList.add("a11y-readable");
+        }
+      } catch (e) {}
+    </script>
   </head>
   <body>
     <div id="root"></div>

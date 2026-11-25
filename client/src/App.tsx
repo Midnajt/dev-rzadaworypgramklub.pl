@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { AccessibilityToolbar } from "@/components/layout/AccessibilityToolbar";
 import { DocumentMeta } from "@/components/layout/DocumentMeta";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
@@ -77,6 +78,7 @@ export default function App() {
       >
         {t("skip")}
       </a>
+      <AccessibilityToolbar />
       <DocumentMeta
         view={missingNews ? { name: "notFound" } : view}
         pageTitle={newsPost?.title}

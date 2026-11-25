@@ -248,6 +248,24 @@
     "lead": "Ta strona nie istnieje albo została przeniesiona.",
     "backHome": "Wróć na stronę główną"
   },
+  "a11y": {
+    "toolbar": "Pasek narzędzi dostępności",
+    "title": "Narzędzia dostępności",
+    "textSize": "Wielkość tekstu",
+    "look": "Wygląd strony",
+    "reading": "Czytanie",
+    "scale": "{{value}}%",
+    "open": "Otwórz pasek narzędzi",
+    "close": "Zamknij pasek narzędzi",
+    "increase": "Powiększ tekst",
+    "decrease": "Pomniejsz tekst",
+    "grayscale": "Odcienie szarości",
+    "contrast": "Wysoki kontrast",
+    "light": "Jasne tło",
+    "underline": "Podkreśl linki",
+    "readable": "Czytelna czcionka",
+    "reset": "Resetuj"
+  },
   "footer": {
     "nav": "Nawigacja w stopce",
     "copy": "© {{year}} {{name}}",
