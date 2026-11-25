@@ -670,9 +670,8 @@ h2.mnav__heading {
   border-radius: 0.5rem;
 }
 
-/* Navy wordmark is drawn on a transparent PNG, so dark surfaces need a white plate. */
-html[data-theme="dark"] .site-header .logo__img,
-html[data-theme="dark"] .program-intro__logo {
+/* Navy wordmark is drawn on a transparent PNG, so the header needs a white plate. */
+html[data-theme="dark"] .site-header .logo__img {
   box-sizing: content-box;
   padding: 0.2rem 0.35rem;
   background: var(--color-white);

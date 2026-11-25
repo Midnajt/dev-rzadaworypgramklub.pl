@@ -163,27 +163,8 @@
   max-width: 52rem;
 }
 
-.program-intro {
-  display: grid;
-  grid-template-columns: auto minmax(0, 36rem);
-  justify-content: start;
-  align-items: center;
-  gap: clamp(1.5rem, 4vw, 3rem);
-}
-
-.program-intro__logo {
-  width: clamp(8.5rem, 22vw, 13rem);
-  height: auto;
-}
-
-@media (max-width: 640px) {
-  .program-intro {
-    grid-template-columns: 1fr;
-  }
-
-  .program-intro__logo {
-    width: min(11rem, 70%);
-  }
+.program-intro .prose {
+  max-width: 36rem;
 }
 
 .step-list {
