@@ -40,10 +40,105 @@
   border-color: var(--color-accent);
 }
 
-/* Header: fixed to the top; transparent over the home hero, solid otherwise */
-.site-header {
+/* Theme strip sits above the fixed header. White is the default; black swaps the page tokens. */
+.theme-bar {
   position: fixed;
   top: 0;
+  right: 0;
+  left: 0;
+  z-index: 110;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  min-height: var(--theme-bar-h);
+  background: var(--color-header);
+  border-bottom: 1px solid var(--color-border);
+  color: var(--color-ink);
+}
+
+.theme-bar__group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  min-height: var(--theme-bar-h);
+}
+
+.theme-bar__hint {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: min(42rem, calc(100% - 1.5rem));
+  margin: 0 0 0.65rem;
+  color: var(--color-ink);
+  font-size: 0.8rem;
+  line-height: 1.35;
+  text-align: left;
+}
+
+.theme-bar__hint button {
+  flex-shrink: 0;
+  min-height: 2.25rem;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.theme-bar__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  min-height: 2.25rem;
+  padding: 0.3rem 0.85rem;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--color-ink);
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.theme-bar__swatch {
+  width: 0.85rem;
+  height: 0.85rem;
+  border-radius: 999px;
+  border: 1px solid color-mix(in srgb, var(--color-black) 35%, var(--color-white));
+}
+
+.theme-bar__swatch--white {
+  background: var(--color-white);
+}
+
+.theme-bar__swatch--black {
+  background: var(--color-black);
+}
+
+.theme-bar__btn[aria-pressed="true"] {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-white);
+}
+
+.theme-bar__btn:hover {
+  border-color: var(--color-accent);
+}
+
+/* Header: fixed under the theme bar; transparent over the home hero, solid otherwise */
+.site-header {
+  position: fixed;
+  top: var(--theme-stack, var(--theme-bar-h));
   right: 0;
   left: 0;
   z-index: 100;
@@ -598,6 +693,14 @@ h2.mnav__heading {
   padding: 1rem;
   background: var(--color-white);
   border-radius: 0.5rem;
+}
+
+/* Navy wordmark is drawn on a transparent PNG, so the black header needs a white plate. */
+html[data-theme="black"] .site-header .logo__img {
+  box-sizing: content-box;
+  padding: 0.2rem 0.35rem;
+  background: var(--color-white);
+  border-radius: 0.4rem;
 }
 
 .site-footer__copy {

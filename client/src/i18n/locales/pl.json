@@ -1,5 +1,12 @@
 {
   "skip": "Przejdź do treści",
+  "theme": {
+    "label": "Motyw strony",
+    "white": "Biały",
+    "black": "Czarny",
+    "forced": "Samsung Internet sam przyciemnia stronę i ignoruje ten przełącznik. Wyłącz tryb ciemny stron: menu → Ustawienia → Wygląd → Tryb ciemny.",
+    "forcedDismiss": "Zamknij"
+  },
   "meta": {
     "homeTitle": "Rządowy Program KLUB 2026 — rzadowyprogramklub.pl",
     "homeDesc": "Rządowy Program KLUB 2026: wsparcie finansowe dla małych klubów sportowych. Regulamin, najczęstsze pytania i aktualności w jednym miejscu.",

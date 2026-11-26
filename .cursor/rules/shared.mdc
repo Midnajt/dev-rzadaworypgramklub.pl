@@ -238,10 +238,14 @@ Przy prawej krawędzi jest niebieski przycisk dostępności (52 px, góra 200 px
 Tekst rośnie od 100% do 200% co 10%, szarość, kontrast i jasne tło wykluczają się, a podkreślenie linków i Verdana działają osobno; wybór zostaje w `localStorage`.
 Sprawdzone na localhost:5173 (Escape, klik poza panelem, odświeżenie z kontrastem na `#/regulamin`, 390 px: przycisk nie nachodzi na hamburger). Na FTP nic nie poszło i nie było commita. Szczegóły: `.cursor/reports/panel_dostepnosci_20261125.md`.
 
-Przycisk dostępności jest granatowy (`#0f2341`) z czerwoną kreską, a okienko ma ten sam pas nagłówka: wielkość tekstu to regulator ze skalą, wygląd i czytanie są osobnymi grupami, a włączona pozycja dostaje granatową ikonę i czerwoną kreskę.
+Przycisk dostępności jest granatowy (`#0f2341`) z czerwoną kreską, a okienko ma ten sam pas nagłówka: wielkość tekstu to regulator ze skalą, wygląd i czytanie są osobnymi grupami, a włączona pozycja dostaje granatową ikonę i czerwoną kreską.
 Szarość, kontrast i jasne tło nadal się wykluczają, wybór zostaje w `localStorage`, a sam pasek w wysokim kontraście zostaje granatowy i biały.
 Sprawdzone na localhost:5173 (okno 1191 px: przycisk left 1124, tło `rgb(15, 35, 65)`, Escape wraca fokus, reset schodzi do 100%; 390 px: panel 280 px, etykiety mieszczą się, hamburger bez kolizji). Na FTP nic nie poszło i nie było commita. Szczegóły: `.cursor/reports/panel_dostepnosci_wyglad_20261125.md`.
 
-Przycisk dostępności jest granatowy (`#0f2341`) z czerwoną kreską, a okienko ma ten sam pas nagłówka: wielkość tekstu to regulator ze skalą, wygląd i czytanie są osobnymi grupami, a włączona pozycja dostaje granatową ikonę i czerwoną kreskę.
+Przycisk dostępności jest granatowy (`#0f2341`) z czerwoną kreską, a okienko ma ten sam pas nagłówka: wielkość tekstu to regulator ze skalą, wygląd i czytanie są osobnymi grupami, a włączona pozycja dostaje granatową ikonę i czerwoną kreską.
 Szarość, kontrast i jasne tło nadal się wykluczają, wybór zostaje w `localStorage`, a sam pasek w wysokim kontraście zostaje granatowy i biały.
 Sprawdzone na localhost:5173 (okno 1191 px: przycisk left 1124, tło `rgb(15, 35, 65)`, Escape wraca fokus, reset schodzi do 100%; 390 px: panel 280 px, etykiety mieszczą się, hamburger bez kolizji). Na FTP nic nie poszło i nie było commita. Szczegóły: `.cursor/reports/panel_dostepnosci_wyglad_20261125.md`.
+
+Nad nagłówkiem jest belka Biały / Czarny (`ThemeBar`): start zostaje biały także przy ciemnym schemacie przeglądarki, a wybór siedzi w `localStorage` pod `rpk-theme`.
+Czarny motyw podmienia tokeny na czarne tło i jasny tekst (`html[data-theme="black"]`), nagłówek schodzi pod belkę przez `--chrome-h`, a znak programu w nagłówku dostaje białą płytkę.
+Sprawdzone na localhost:5173 (1191 px i 390 px: strona główna, FAQ, mega-menu, szuflada, przeładowanie i stary klucz `dark`). Na FTP nic nie poszło. Szczegóły: `.cursor/reports/motyw_bialy_czarny_20261126.md`.

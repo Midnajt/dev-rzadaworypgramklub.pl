@@ -29,6 +29,18 @@
     <link rel="apple-touch-icon" href="%BASE_URL%assets/images/apple-touch-icon.png" />
     <script>
       try {
+        var storedTheme = localStorage.getItem("rpk-theme");
+        var blackTheme = storedTheme === "black" || storedTheme === "dark";
+        var root = document.documentElement;
+        root.setAttribute("data-theme", blackTheme ? "black" : "white");
+        var schemeMeta = document.querySelector('meta[name="color-scheme"]');
+        if (schemeMeta) schemeMeta.setAttribute("content", blackTheme ? "dark" : "only light");
+        var themeColor = document.querySelector('meta[name="theme-color"]');
+        if (themeColor) themeColor.setAttribute("content", blackTheme ? "#000000" : "#ffffff");
+      } catch (e) {}
+    </script>
+    <script>
+      try {
         var raw = localStorage.getItem("a11y-tools");
         if (raw) {
           var state = JSON.parse(raw);
