@@ -5,7 +5,7 @@
 @import "./styles/a11y.css";
 
 /* Mirror of client/src/config/theme.ts. Change both together.
-   only light keeps the page light even when the browser prefers a dark scheme. */
+   only light keeps the white theme light even when the browser prefers a dark scheme. */
 :root {
   color-scheme: light;
   color-scheme: only light;
@@ -43,11 +43,28 @@
   --radius-lg: 1.25rem;
 
   --shadow-soft: 0 18px 50px rgba(29, 35, 43, 0.08);
+  --theme-bar-h: 3rem;
   --header-h: 4.75rem;
-  --chrome-h: var(--header-h);
+  --chrome-h: calc(var(--theme-stack, var(--theme-bar-h)) + var(--header-h));
   --container: min(1120px, calc(100% - 2.5rem));
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --duration: 0.45s;
+}
+
+html[data-theme="black"] {
+  color-scheme: dark;
+
+  --color-page: #000000;
+  --color-panel: #141414;
+  --color-surface: #1a1a1a;
+  --color-text: #f3f3f3;
+  --color-text-muted: #c8c8c8;
+  --color-header: #000000;
+  --color-ink: #ffffff;
+  --color-link: #ff5c73;
+  --color-link-hover: #ffd0d8;
+  --color-border: rgba(255, 255, 255, 0.18);
+  --shadow-soft: 0 18px 50px rgba(0, 0, 0, 0.55);
 }
 
 html {

@@ -1,0 +1,9 @@
+# Belka biały / czarny
+
+Nad nagłówkiem jest belka `ThemeBar` (`client/src/components/layout/ThemeBar.tsx`). Dwa przyciski, Biały i Czarny, mają próbkę koloru; aktywny ma czerwone tło i `aria-pressed`. Etykiety są w `pl.json` (`theme.label`, `theme.white`, `theme.black`).
+
+Start jest zawsze biały, także przy `prefers-color-scheme: dark`. Wybór zostaje w `localStorage` pod kluczem `rpk-theme` (stary zapis `dark` jest czytany jako czarny). Skrypt w `client/index.html` ustawia `data-theme` oraz meta `color-scheme` i `theme-color`, zanim doładuje się CSS. Biały dokument ma `color-scheme: only light`, czarny `color-scheme: dark`.
+
+Czarny motyw podmienia tokeny w `html[data-theme="black"]` (`index.css`, lustro `theme.ts`): tło strony i nagłówek są czarne (`#000000`), karty `#141414`, tekst jasny, link `#ff5c73`. `--color-white`, `--color-navy` i stopka zostają kolorami dosłownymi. Znak programu ma przezroczyste tło i granatowy napis, więc w czarnym motywie dostaje białą płytkę w nagłówku. Belka ma około 49 px i jest `fixed`. Nagłówek schodzi pod nią (`top: var(--theme-stack)`), a treść i szuflada używają `--chrome-h` (belka + nagłówek). W Samsung Internet pod przyciskami zostaje krótka podpowiedź, jak wyłączyć filtr stron; po „Zamknij” znika i zostaje w `rpk-browser-hint`.
+
+Sprawdzone na `http://localhost:5173`: przy emulacji ciemnego schematu pierwszy widok jest biały, Czarny przełącza tło na `rgb(0, 0, 0)` i zostaje po przeładowaniu, wyczyszczenie klucza wraca do białego. Kotwica `#/regulamin/naglowek` ląduje 24 px pod belką (nagłówek strony na 149 px, dół belki nagłówka na 125 px). Mega-menu Aktualności ma panel `#141414`. Telefon 390 px: przyciski mieszczą się w belce, hamburger nie nachodzi na przycisk dostępności, szuflada zaczyna się na dole nagłówka i bierze kolor motywu. `tsc -b` i eslint na zmienionych plikach bez błędów. Na FTP nic nie poszło.

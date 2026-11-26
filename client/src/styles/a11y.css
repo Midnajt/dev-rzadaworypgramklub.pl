@@ -15,6 +15,7 @@ html.a11y-underline a:not(.a11y-toolbar a) {
   text-decoration: underline !important;
 }
 
+html.a11y-grayscale .theme-bar,
 html.a11y-grayscale .site-header__inner > :not(#site-nav),
 html.a11y-grayscale .nav-trigger,
 html.a11y-grayscale .mega-panel,
